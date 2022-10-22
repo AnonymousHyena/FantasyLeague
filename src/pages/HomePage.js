@@ -4,6 +4,7 @@ import { Routes } from "../routes";
 
 // pages
 import Overview from "./dashboard/Overview";
+import Teams from "./dashboard/Teams";
 
 import NotFoundPage from "./examples/NotFound";
 import ServerError from "./examples/ServerError";
@@ -110,6 +111,7 @@ export default () => (
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.Overview.path} component={Overview} />
+    <RouteWithSidebar exact path={Routes.Teams.path} component={Teams} />
 
     {/* components */}
     <RouteWithSidebar

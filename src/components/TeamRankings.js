@@ -5,15 +5,7 @@ import { connect } from "react-redux";
 import * as utils from "../utils";
 
 export const TeamRankings = (props) => {
-  function groupBy(objectArray, property) {
-    return objectArray.reduce((acc, obj) => {
-      const key = obj[property];
-      const curGroup = acc[key] ?? [];
-
-      return { ...acc, [key]: [...curGroup, obj] };
-    }, {});
-  }
-  const groupedModels = groupBy(props.data, "team");
+  const groupedModels = utils.groupByProperty(props.data, "team");
 
   function teamPoints(team) {
     if (groupedModels[team]) {
@@ -34,12 +26,7 @@ export const TeamRankings = (props) => {
     );
   };
 
-  const teams = [
-    "Το Κορμί σου το Φρυδίσιο",
-    "Ουμφοσυγκλομανιφίκ",
-    "Φρυδερίκη αγάπη μου",
-    "Ομάδα",
-  ];
+  const teams = [...utils.getTeams()];
 
   teams.sort(function (x, y) {
     if (teamPoints(x) < teamPoints(y)) {
@@ -54,15 +41,15 @@ export const TeamRankings = (props) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Ranking</h5>
+        <h5 className="mb-0">Γενική Κατάταξη</h5>
       </Card.Header>
       <Card.Body className="px-5">
         <table className="mx-auto">
           <thead>
             <tr>
-              <th className="w-25 text-center">Team</th>
-              <th className="w-25 text-center">Points</th>
-              <th className="w-25 text-center">Owner</th>
+              <th className="w-25 text-center">Ομάδα</th>
+              <th className="w-25 text-center">Πόντοι</th>
+              <th className="w-25 text-center">Παίκτης</th>
             </tr>
           </thead>
           <tbody>

@@ -92,3 +92,28 @@ export function teamOwner(team) {
     return owner[3];
   }
 }
+
+export function getTeams() {
+  return teams;
+}
+
+export function groupByProperty(objectArray, property) {
+  if (objectArray) {
+    return objectArray.reduce((acc, obj) => {
+      const key = obj[property];
+      const curGroup = acc[key] ?? [];
+
+      return { ...acc, [key]: [...curGroup, obj] };
+    }, {});
+  }
+  return {};
+}
+
+export function sumPoints(lst, team) {
+  if (lst[team]) {
+    return lst[team].reduce(
+      (previousValue, currentValue) => previousValue + currentValue["points"],
+      0
+    );
+  }
+}

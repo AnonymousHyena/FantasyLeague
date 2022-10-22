@@ -150,16 +150,8 @@ export default (props = {}) => {
                 link={Routes.Overview.path}
                 icon={faChartPie}
               />
-              <NavItem
-                title="Private"
-                link={Routes.Private.path}
-                icon={faUser}
-              />
-              <NavItem
-                title="Compare"
-                link={Routes.Compare.path}
-                icon={faUsers}
-              />
+              <NavItem title="Teams" link={Routes.Teams.path} icon={faUser} />
+              <NavItem title="Models" link={Routes.Model.path} icon={faUsers} />
 
               <CollapsableNavItem
                 eventKey="examples/"

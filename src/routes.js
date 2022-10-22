@@ -1,10 +1,8 @@
 export const Routes = {
   // pages
   Overview: { path: "/" },
-  Private: { path: "/private" },
-  Compare: { path: "/compare" },
-  Billing: { path: "/examples/billing" },
-  Invoice: { path: "/examples/invoice" },
+  Model: { path: "/model" },
+  Teams: { path: "/teams" },
   NotFound: { path: "/examples/404" },
   ServerError: { path: "/examples/500" },
 
