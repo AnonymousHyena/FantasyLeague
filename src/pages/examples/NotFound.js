@@ -1,18 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import {
-  Col,
-  Row,
-  Card,
-  Image,
-  Button,
-  Container,
-} from "@themesberg/react-bootstrap";
+import { Col, Row, Card, Image, Button, Container } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
-import { Routes } from "../../routes";
+import { AppRoutes } from "../../routes";
 import NotFoundImage from "../../assets/img/illustrations/404.svg";
 
 export default () => {
@@ -26,7 +19,7 @@ export default () => {
               className="text-center d-flex align-items-center justify-content-center"
             >
               <div>
-                <Card.Link as={Link} to={Routes.Overview.path}>
+                <Card.Link as={Link} to={AppRoutes.Overview.path}>
                   <Image src={NotFoundImage} className="img-fluid w-75" />
                 </Card.Link>
                 <h1 className="text-primary mt-5">
@@ -40,7 +33,7 @@ export default () => {
                   as={Link}
                   variant="primary"
                   className="animate-hover"
-                  to={Routes.Overview.path}
+                  to={AppRoutes.Overview.path}
                 >
                   <FontAwesomeIcon
                     icon={faChevronLeft}

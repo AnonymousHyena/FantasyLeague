@@ -6,7 +6,7 @@ import TeamRankings from "../../components/TeamRankings";
 
 const Overview = (props) => {
   useEffect(() => {}, [props.data]);
-
+  console.log("test");
   return (
     <>
       <Row className="justify-content-md-center">

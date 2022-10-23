@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { Routes } from "../routes";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { AppRoutes } from "../routes";
 
 // pages
 import Overview from "./dashboard/Overview";
@@ -15,23 +15,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Preloader from "../components/Preloader";
 
-import Accordion from "./components/Accordion";
-import Alerts from "./components/Alerts";
-import Badges from "./components/Badges";
-import Breadcrumbs from "./components/Breadcrumbs";
-import Buttons from "./components/Buttons";
-import Forms from "./components/Forms";
-import Modals from "./components/Modals";
-import Navs from "./components/Navs";
-import Navbars from "./components/Navbars";
-import Pagination from "./components/Pagination";
-import Popovers from "./components/Popovers";
-import Progress from "./components/Progress";
-import Tables from "./components/Tables";
-import Tabs from "./components/Tabs";
-import Tooltips from "./components/Tooltips";
-import Toasts from "./components/Toasts";
-
 const RouteWithLoader = ({ component: Component, ...rest }) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -41,15 +24,9 @@ const RouteWithLoader = ({ component: Component, ...rest }) => {
   }, []);
 
   return (
-    <Route
-      {...rest}
-      render={(props) => (
-        <>
-          {" "}
-          <Preloader show={loaded ? false : true} /> <Component {...props} />{" "}
-        </>
-      )}
-    />
+    <>
+      <Preloader show={loaded ? false : true} /> <Component {...Component} />{" "}
+    </>
   );
 };
 
@@ -75,74 +52,44 @@ const RouteWithSidebar = ({ component: Component, ...rest }) => {
   };
 
   return (
-    <Route
-      {...rest}
-      render={(props) => (
-        <>
-          <Preloader show={loaded ? false : true} />
-          <Sidebar />
+    <>
+      <Preloader show={loaded ? false : true} />
+      <Sidebar />
 
-          <main className="content">
-            <Navbar />
-            <Component {...props} />
-            <Footer
-              toggleSettings={toggleSettings}
-              showSettings={showSettings}
-            />
-          </main>
-        </>
-      )}
-    />
+      <main className="content">
+        <Navbar />
+        <Component {...Component} />
+        <Footer toggleSettings={toggleSettings} showSettings={showSettings} />
+      </main>
+    </>
   );
 };
 
 export default () => (
-  <Switch>
-    <RouteWithLoader
+  <Routes>
+    <Route
       exact
-      path={Routes.NotFound.path}
-      component={NotFoundPage}
+      path={AppRoutes.NotFound.path}
+      element={<RouteWithLoader component={ServerError} />}
     />
-    <RouteWithLoader
+    <Route
       exact
-      path={Routes.ServerError.path}
-      component={ServerError}
+      path={AppRoutes.ServerError.path}
+      element={<RouteWithLoader component={NotFoundPage} />}
     />
-
     {/* pages */}
-    <RouteWithSidebar exact path={Routes.Overview.path} component={Overview} />
-    <RouteWithSidebar exact path={Routes.Teams.path} component={Teams} />
+    <Route
+      exact
+      path={AppRoutes.Overview.path}
+      element={<RouteWithSidebar component={Overview} />}
+    />
 
-    {/* components */}
-    <RouteWithSidebar
+    <Route
       exact
-      path={Routes.Accordions.path}
-      component={Accordion}
+      path={AppRoutes.Teams.path}
+      element={<RouteWithSidebar component={Teams} />}
     />
-    <RouteWithSidebar exact path={Routes.Alerts.path} component={Alerts} />
-    <RouteWithSidebar exact path={Routes.Badges.path} component={Badges} />
-    <RouteWithSidebar
-      exact
-      path={Routes.Breadcrumbs.path}
-      component={Breadcrumbs}
-    />
-    <RouteWithSidebar exact path={Routes.Buttons.path} component={Buttons} />
-    <RouteWithSidebar exact path={Routes.Forms.path} component={Forms} />
-    <RouteWithSidebar exact path={Routes.Modals.path} component={Modals} />
-    <RouteWithSidebar exact path={Routes.Navs.path} component={Navs} />
-    <RouteWithSidebar exact path={Routes.Navbars.path} component={Navbars} />
-    <RouteWithSidebar
-      exact
-      path={Routes.Pagination.path}
-      component={Pagination}
-    />
-    <RouteWithSidebar exact path={Routes.Popovers.path} component={Popovers} />
-    <RouteWithSidebar exact path={Routes.Progress.path} component={Progress} />
-    <RouteWithSidebar exact path={Routes.Tables.path} component={Tables} />
-    <RouteWithSidebar exact path={Routes.Tabs.path} component={Tabs} />
-    <RouteWithSidebar exact path={Routes.Tooltips.path} component={Tooltips} />
-    <RouteWithSidebar exact path={Routes.Toasts.path} component={Toasts} />
 
-    <Redirect to={Routes.NotFound.path} />
-  </Switch>
+    {/* <Navigate to={AppRoutes.NotFound.path} /> */}
+  </Routes>
 );

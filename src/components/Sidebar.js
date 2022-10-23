@@ -19,10 +19,11 @@ import {
   Dropdown,
   Accordion,
   Navbar,
-} from "@themesberg/react-bootstrap";
+} from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 
-import { Routes } from "../routes";
+import { AppRoutes } from "../routes";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
 
 export default (props = {}) => {
@@ -120,7 +121,11 @@ export default (props = {}) => {
         variant="dark"
         className="navbar-theme-primary px-4 d-md-none"
       >
-        <Navbar.Brand className="me-lg-5" as={Link} to={Routes.Overview.path}>
+        <Navbar.Brand
+          className="me-lg-5"
+          as={Link}
+          to={AppRoutes.Overview.path}
+        >
           <Image src={ReactHero} className="navbar-brand-light" />
         </Navbar.Brand>
         <Navbar.Toggle
@@ -147,48 +152,21 @@ export default (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem
                 title="Overview"
-                link={Routes.Overview.path}
+                link={AppRoutes.Overview.path}
                 icon={faChartPie}
               />
-              <NavItem title="Teams" link={Routes.Teams.path} icon={faUser} />
-              <NavItem title="Models" link={Routes.Model.path} icon={faUsers} />
-
-              <CollapsableNavItem
-                eventKey="examples/"
-                title="Page Examples"
-                icon={faFileAlt}
-              >
-                <NavItem title="404 Not Found" link={Routes.NotFound.path} />
-                <NavItem
-                  title="500 Server Error"
-                  link={Routes.ServerError.path}
-                />
-              </CollapsableNavItem>
+              <NavItem
+                title="Teams"
+                link={AppRoutes.Teams.path}
+                icon={faUser}
+              />
+              <NavItem
+                title="Models"
+                link={AppRoutes.Model.path}
+                icon={faUsers}
+              />
 
               <Dropdown.Divider className="my-3 border-indigo" />
-
-              <CollapsableNavItem
-                eventKey="components/"
-                title="Components"
-                icon={faBoxOpen}
-              >
-                <NavItem title="Accordion" link={Routes.Accordions.path} />
-                <NavItem title="Alerts" link={Routes.Alerts.path} />
-                <NavItem title="Badges" link={Routes.Badges.path} />
-                <NavItem title="Breadcrumbs" link={Routes.Breadcrumbs.path} />
-                <NavItem title="Buttons" link={Routes.Buttons.path} />
-                <NavItem title="Forms" link={Routes.Forms.path} />
-                <NavItem title="Modals" link={Routes.Modals.path} />
-                <NavItem title="Navbars" link={Routes.Navbars.path} />
-                <NavItem title="Navs" link={Routes.Navs.path} />
-                <NavItem title="Pagination" link={Routes.Pagination.path} />
-                <NavItem title="Popovers" link={Routes.Popovers.path} />
-                <NavItem title="Progress" link={Routes.Progress.path} />
-                <NavItem title="Tables" link={Routes.Tables.path} />
-                <NavItem title="Tabs" link={Routes.Tabs.path} />
-                <NavItem title="Toasts" link={Routes.Toasts.path} />
-                <NavItem title="Tooltips" link={Routes.Tooltips.path} />
-              </CollapsableNavItem>
             </Nav>
           </div>
         </SimpleBar>
