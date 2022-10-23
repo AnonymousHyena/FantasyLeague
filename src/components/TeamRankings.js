@@ -39,7 +39,7 @@ export const TeamRankings = (props) => {
   });
 
   return (
-    <Card border="light" className="shadow-sm">
+    <Card xs={12} border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">Γενική Κατάταξη</h5>
       </Card.Header>

@@ -14,15 +14,12 @@ export const Teams = (props) => {
   return (
     <>
       <Row className="justify-content-md-center">
-        <Col xs={12} className="mt-2 mb-4 d-none d-sm-block">
+        <Col xs={12} className="mt-2 mb-4 d-block d-sm-block">
           <AllTeamPoints />
         </Col>
       </Row>
 
       <Card>
-        {/* <Card.Header>
-        <h5 className="mb-0">Επιλογή Ομάδας</h5>
-        </Card.Header> */}
         <Card.Body>
           <Row>
             <Col xs={12} className="mb-3 mt-3">
@@ -50,7 +47,7 @@ export const Teams = (props) => {
       {selectedTeam !== "" && (
         <>
           <Row className="justify-content-md-center">
-            <Col xs={12} className="mt-2 mb-4 d-none d-sm-block">
+            <Col xs={12} className="mt-2 mb-4 d-block d-sm-block">
               <TeamBreakdown selectedTeam={selectedTeam} />
             </Col>
           </Row>

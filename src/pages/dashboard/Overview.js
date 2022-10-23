@@ -10,7 +10,7 @@ const Overview = (props) => {
   return (
     <>
       <Row className="justify-content-md-center">
-        <Col xs={12} className="mt-2 mb-4 d-none d-sm-block">
+        <Col xs={12} className="mt-2 mb-4 d-block d-sm-block">
           <TeamRankings />
         </Col>
       </Row>
