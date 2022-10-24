@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Col, Row } from "@themesberg/react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import TeamRankings from "../../components/TeamRankings";

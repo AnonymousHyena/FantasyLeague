@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBoxOpen,
   faChartPie,
-  faFileAlt,
+  faScaleBalanced,
+  faRulerCombined,
   faTimes,
   faUser,
   faUsers,
@@ -167,6 +168,12 @@ export default (props = {}) => {
               />
 
               <Dropdown.Divider className="my-3 border-indigo" />
+
+              <NavItem
+                title="Rules"
+                link={AppRoutes.Rules.path}
+                icon={faScaleBalanced}
+              />
             </Nav>
           </div>
         </SimpleBar>

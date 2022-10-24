@@ -6,6 +6,8 @@ import { AppRoutes } from "../routes";
 import Overview from "./dashboard/Overview";
 import Teams from "./dashboard/Teams";
 
+import Rules from "./Rules";
+
 import NotFoundPage from "./examples/NotFound";
 import ServerError from "./examples/ServerError";
 
@@ -88,6 +90,12 @@ export default () => (
       exact
       path={AppRoutes.Teams.path}
       element={<RouteWithSidebar component={Teams} />}
+    />
+
+    <Route
+      exact
+      path={AppRoutes.Rules.path}
+      element={<RouteWithSidebar component={Rules} />}
     />
 
     {/* <Navigate to={AppRoutes.NotFound.path} /> */}
