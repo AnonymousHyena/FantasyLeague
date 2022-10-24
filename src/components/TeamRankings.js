@@ -7,20 +7,13 @@ import * as utils from "../utils";
 export const TeamRankings = (props) => {
   const groupedModels = utils.groupByProperty(props.data, "team");
 
-  function teamPoints(team) {
-    if (groupedModels[team]) {
-      return groupedModels[team].reduce(
-        (previousValue, currentValue) => previousValue + currentValue["points"],
-        0
-      );
-    }
-  }
-
   const line = (team) => {
     return (
       <tr>
         <td className="w-25 text-center">{team}</td>
-        <td className="w-25 text-center">{teamPoints(team)}</td>
+        <td className="w-25 text-center">
+          {utils.sumPoints(groupedModels, team)}
+        </td>
         <td className="w-25 text-center">{utils.teamOwner(team)}</td>
       </tr>
     );
@@ -29,10 +22,10 @@ export const TeamRankings = (props) => {
   const teams = [...utils.getTeams()];
 
   teams.sort(function (x, y) {
-    if (teamPoints(x) < teamPoints(y)) {
+    if (utils.sumPoints(groupedModels, x) < utils.sumPoints(groupedModels, y)) {
       return 1;
     }
-    if (teamPoints(x) > teamPoints(y)) {
+    if (utils.sumPoints(groupedModels, x) > utils.sumPoints(groupedModels, y)) {
       return -1;
     }
     return 0;
@@ -43,7 +36,7 @@ export const TeamRankings = (props) => {
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">Γενική Κατάταξη</h5>
       </Card.Header>
-      <Card.Body className="px-5">
+      <Card.Body className="px-sm-5">
         <table className="mx-auto">
           <thead>
             <tr>

@@ -5,6 +5,7 @@ import AllTeamPoints from "../../components/AllTeamPoints";
 import * as utils from "../../utils";
 
 import TeamBreakdown from "../../components/TeamBreakdown";
+import TeamBreakdownCompact from "../../components/TeamBreakdownCompact";
 
 export const Teams = (props) => {
   // useEffect(() => {}, [props.data]);
@@ -13,42 +14,51 @@ export const Teams = (props) => {
 
   return (
     <>
-      <Row className="justify-content-md-center">
-        <Col xs={12} className="mt-2 mb-4 d-block d-sm-block">
+      <Row className="justify-content-lg-center d-none d-lg-block">
+        <Col xs={12} className="mt-2 mb-4">
           <AllTeamPoints />
         </Col>
       </Row>
 
-      <Card>
-        <Card.Body>
-          <Row>
-            <Col xs={12} className="mb-3 mt-3">
-              <Form>
-                <Form.Group>
-                  <Form.Select
-                    onChange={(event) => setselectedTeam(event.target.value)}
-                  >
-                    <option defaultValue key="Επιλογή Ομάδας" value="">
-                      Επιλογή Ομάδας
-                    </option>
-                    {teams &&
-                      teams.sort().map((team) => (
-                        <option key={team} value={team}>
-                          {team}
-                        </option>
-                      ))}
-                  </Form.Select>
-                </Form.Group>
-              </Form>
-            </Col>
-          </Row>
-        </Card.Body>
-      </Card>
+      <Row className="justify-content-center d-block">
+        <Card>
+          <Card.Body>
+            <Row>
+              <Col xs={12} className="mb-3 mt-3">
+                <Form>
+                  <Form.Group>
+                    <Form.Select
+                      onChange={(event) => setselectedTeam(event.target.value)}
+                    >
+                      <option defaultValue key="Επιλογή Ομάδας" value="">
+                        Επιλογή Ομάδας
+                      </option>
+                      {teams &&
+                        teams.sort().map((team) => (
+                          <option key={team} value={team}>
+                            {team}
+                          </option>
+                        ))}
+                    </Form.Select>
+                  </Form.Group>
+                </Form>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Row>
+
       {selectedTeam !== "" && (
         <>
-          <Row className="justify-content-md-center">
-            <Col xs={12} className="mt-2 mb-4 d-block d-sm-block">
+          <Row className="justify-content-lg-center d-none d-lg-block">
+            <Col xs={12} className="mt-2 mb-4">
               <TeamBreakdown selectedTeam={selectedTeam} />
+            </Col>
+          </Row>
+
+          <Row className="justify-content-lg-center d-block d-lg-none">
+            <Col xs={12} className="mt-2 mb-4">
+              <TeamBreakdownCompact selectedTeam={selectedTeam} />
             </Col>
           </Row>
         </>

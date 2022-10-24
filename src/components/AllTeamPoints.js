@@ -137,7 +137,7 @@ export const AllTeamPoints = (props) => {
         <h5 className="mb-0">Ομάδες</h5>
       </Card.Header>
       <Card.Body className="px-3">
-        <table className="mx-auto border">
+        <table className="mx-sm-auto border">
           <thead>
             <tr>
               <th colSpan={2} className="w-25 text-center blue-bg">
