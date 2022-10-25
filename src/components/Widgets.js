@@ -20,7 +20,7 @@ export const CounterWidget = (props) => {
             </div>
           </Col>
           <Col xs={12} xl={8} className="px-xl-0">
-            <div className="d-none d-sm-block">
+            <div className="d-block">
               <h4>{category}</h4>
               <span className="mb-1">{title}</span>
             </div>

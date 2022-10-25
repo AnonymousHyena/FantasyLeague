@@ -8,7 +8,6 @@ import TeamBreakdown from "../../components/TeamBreakdown";
 import TeamBreakdownCompact from "../../components/TeamBreakdownCompact";
 
 export const Teams = (props) => {
-  useEffect(() => {}, [props.data]);
   const [selectedTeam, setSelectedTeam] = useState("");
   const teams = [...utils.getTeams()];
 
@@ -68,9 +67,7 @@ export const Teams = (props) => {
 };
 
 const mapStateToProps = function (state) {
-  return {
-    data: state.data,
-  };
+  return {};
 };
 
 export default connect(mapStateToProps)(Teams);

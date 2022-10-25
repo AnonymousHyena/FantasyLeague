@@ -7,10 +7,8 @@ import * as utils from "../../utils";
 import PlateauGeneralInfo from "../../components/PlateauGeneralInfo";
 
 const Plateaus = (props) => {
-  useEffect(() => {}, [props.data]);
-  const plateaus = utils.getPlateaus();
-
   const [selectedPlateau, setSelectedPlateau] = useState("");
+  const plateaus = utils.getPlateaus();
 
   return (
     <>

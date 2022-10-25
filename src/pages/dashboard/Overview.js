@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import TeamRankings from "../../components/TeamRankings";
 
 const Overview = (props) => {
-  useEffect(() => {}, [props.data]);
-
   return (
     <>
       <Row className="justify-content-md-center">
