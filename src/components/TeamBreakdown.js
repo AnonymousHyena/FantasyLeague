@@ -16,29 +16,29 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
   const line = function (t, l1, l2) {
     return (
       <tr>
-        <th className="">{l2}</th>
+        <th className="">{utils.translatePlateaus(l2)}</th>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[0]) | 0}
         </td>
-        <th className="">{l2}</th>
+        <th className="">{utils.translatePlateaus(l2)}</th>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[1]) | 0}
         </td>
-        <th className="">{l2}</th>
+        <th className="">{utils.translatePlateaus(l2)}</th>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[2]) | 0}
         </td>
-        <th className="">{l2}</th>
+        <th className="">{utils.translatePlateaus(l2)}</th>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[3]) | 0}
         </td>
-        <th className="">{l2}</th>
+        <th className="">{utils.translatePlateaus(l2)}</th>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[4]) | 0}
         </td>
         {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
           <>
-            <th className="">{l2}</th>
+            <th className="">{utils.translatePlateaus(l2)}</th>
             <td className="text-right">
               {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[5]) |
                 0}
@@ -117,6 +117,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
             {line(t2, l1, l2[1])}
             {line(t2, l1, l2[2])}
             {line(t2, l1, l2[3])}
+            {line(t2, l1, l2[4])}
           </tbody>
         </table>
       </Card.Body>

@@ -19,6 +19,8 @@ const points = {
   interuption: -1,
   gymnastics: 1,
   food: 1,
+  chores: 1,
+  challenge: 2,
 };
 
 const teams = [
@@ -69,6 +71,7 @@ export function initializeDataAndStore() {
             team: team[model],
             plateau: plateau,
             points: points[rule],
+            source: rule,
           });
         });
       });
@@ -116,4 +119,28 @@ export function sumPoints(lst, team) {
       0
     );
   }
+}
+
+export function getPlateaus() {
+  const activePlateaus = Object.keys(plateaus);
+  activePlateaus.shift();
+  return activePlateaus;
+}
+
+export function translatePlateaus(plateau) {
+  const result = plateau.split("u");
+  return "Πλατό " + result[1];
+}
+
+export function getModels() {
+  return Object.keys(team);
+}
+
+export function isInGame(data, model) {
+  const sources = groupByProperty(data, "source");
+
+  return !(
+    Object.keys(groupByProperty(sources["quit"], "model")).includes(model) ||
+    Object.keys(groupByProperty(sources["lastPlace"], "model")).includes(model)
+  );
 }

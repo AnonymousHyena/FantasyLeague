@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { AppRoutes } from "../routes";
 
 // pages
 import Overview from "./dashboard/Overview";
 import Teams from "./dashboard/Teams";
+import Plateaus from "./dashboard/Plateaus";
 
 import Rules from "./Rules";
 
@@ -96,6 +97,12 @@ export default () => (
       exact
       path={AppRoutes.Rules.path}
       element={<RouteWithSidebar component={Rules} />}
+    />
+
+    <Route
+      exact
+      path={AppRoutes.Plateaus.path}
+      element={<RouteWithSidebar component={Plateaus} />}
     />
 
     {/* <Navigate to={AppRoutes.NotFound.path} /> */}

@@ -4,10 +4,9 @@ import { useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBoxOpen,
   faChartPie,
   faScaleBalanced,
-  faRulerCombined,
+  faRankingStar,
   faTimes,
   faUser,
   faUsers,
@@ -157,14 +156,19 @@ export default (props = {}) => {
                 icon={faChartPie}
               />
               <NavItem
-                title="Teams"
+                title="Ομάδες"
                 link={AppRoutes.Teams.path}
+                icon={faUsers}
+              />
+              <NavItem
+                title="Μοντέλα"
+                link={AppRoutes.Model.path}
                 icon={faUser}
               />
               <NavItem
-                title="Models"
-                link={AppRoutes.Model.path}
-                icon={faUsers}
+                title="Πλατό"
+                link={AppRoutes.Plateaus.path}
+                icon={faRankingStar}
               />
 
               <Dropdown.Divider className="my-3 border-indigo" />

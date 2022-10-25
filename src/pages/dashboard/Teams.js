@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Form, Card } from "@themesberg/react-bootstrap";
 import { connect } from "react-redux";
 import AllTeamPoints from "../../components/AllTeamPoints";
@@ -8,8 +8,8 @@ import TeamBreakdown from "../../components/TeamBreakdown";
 import TeamBreakdownCompact from "../../components/TeamBreakdownCompact";
 
 export const Teams = (props) => {
-  // useEffect(() => {}, [props.data]);
-  const [selectedTeam, setselectedTeam] = useState("");
+  useEffect(() => {}, [props.data]);
+  const [selectedTeam, setSelectedTeam] = useState("");
   const teams = [...utils.getTeams()];
 
   return (
@@ -28,7 +28,7 @@ export const Teams = (props) => {
                 <Form>
                   <Form.Group>
                     <Form.Select
-                      onChange={(event) => setselectedTeam(event.target.value)}
+                      onChange={(event) => setSelectedTeam(event.target.value)}
                     >
                       <option defaultValue key="Επιλογή Ομάδας" value="">
                         Επιλογή Ομάδας

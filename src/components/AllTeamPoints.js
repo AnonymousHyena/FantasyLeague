@@ -17,6 +17,20 @@ export const AllTeamPoints = (props) => {
     }
   }
 
+  const name = (name) => {
+    const isNameIn = utils.isInGame(props.data, name);
+    return (
+      <>
+        {isNameIn && <td>{name}</td>}
+        {!isNameIn && (
+          <td>
+            <s>{name}</s>
+          </td>
+        )}
+      </>
+    );
+  };
+
   const tableLines = () => {
     const team1 = groupedModels[teams[0]];
     const team2 = groupedModels[teams[1]];
@@ -68,63 +82,63 @@ export const AllTeamPoints = (props) => {
           </td>
         </tr>
         <tr>
-          <td>{l1[0]}</td>
+          {name(l1[0])}
           <td className="text-right">{sumPoints(t1, l1[0])}</td>
-          <td>{l2[0]}</td>
+          {name(l2[0])}
           <td className="text-right">{sumPoints(t2, l2[0])}</td>
-          <td>{l3[0]}</td>
+          {name(l3[0])}
           <td className="text-right">{sumPoints(t3, l3[0])}</td>
-          <td>{l4[0]}</td>
+          {name(l4[0])}
           <td className="text-right">{sumPoints(t4, l4[0])}</td>
         </tr>
         <tr>
-          <td>{l1[1]}</td>
+          {name(l1[1])}
           <td className="text-right">{sumPoints(t1, l1[1])}</td>
-          <td>{l2[1]}</td>
+          {name(l2[1])}
           <td className="text-right">{sumPoints(t2, l2[1])}</td>
-          <td>{l3[1]}</td>
+          {name(l3[1])}
           <td className="text-right">{sumPoints(t3, l3[1])}</td>
-          <td>{l4[1]}</td>
+          {name(l4[1])}
           <td className="text-right">{sumPoints(t4, l4[1])}</td>
         </tr>
         <tr>
-          <td>{l1[2]}</td>
+          {name(l1[2])}
           <td className="text-right">{sumPoints(t1, l1[2])}</td>
-          <td>{l2[2]}</td>
+          {name(l2[2])}
           <td className="text-right">{sumPoints(t2, l2[2])}</td>
-          <td>{l3[2]}</td>
+          {name(l3[2])}
           <td className="text-right">{sumPoints(t3, l3[2])}</td>
-          <td>{l4[2]}</td>
+          {name(l4[2])}
           <td className="text-right">{sumPoints(t4, l4[2])}</td>
         </tr>
         <tr>
-          <td>{l1[3]}</td>
+          {name(l1[3])}
           <td className="text-right">{sumPoints(t1, l1[3])}</td>
-          <td>{l2[3]}</td>
+          {name(l2[3])}
           <td className="text-right">{sumPoints(t2, l2[3])}</td>
-          <td>{l3[3]}</td>
+          {name(l3[3])}
           <td className="text-right">{sumPoints(t3, l3[3])}</td>
-          <td>{l4[3]}</td>
+          {name(l4[3])}
           <td className="text-right">{sumPoints(t4, l4[3])}</td>
         </tr>
         <tr>
-          <td>{l1[4]}</td>
+          {name(l1[4])}
           <td className="text-right">{sumPoints(t1, l1[4])}</td>
-          <td>{l2[4]}</td>
+          {name(l2[4])}
           <td className="text-right">{sumPoints(t2, l2[4])}</td>
-          <td>{l3[4]}</td>
+          {name(l3[4])}
           <td className="text-right">{sumPoints(t3, l3[4])}</td>
-          <td>{l4[4]}</td>
+          {name(l4[4])}
           <td className="text-right">{sumPoints(t4, l4[4])}</td>
         </tr>
         <tr>
-          <td>{l1[5]}</td>
+          {name(l1[5])}
           <td className="text-right">{sumPoints(t1, l1[5])}</td>
-          <td>{l2[5]}</td>
+          {name(l2[5])}
           <td className="text-right">{sumPoints(t2, l2[5])}</td>
-          <td>{l3[5]}</td>
+          {name(l3[5])}
           <td className="text-right">{sumPoints(t3, l3[5])}</td>
-          <td>{l4[5]}</td>
+          {name(l4[5])}
           <td className="text-right">{sumPoints(t4, l4[5])}</td>
         </tr>
       </>
