@@ -118,6 +118,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
             {line(t2, l1, l2[2])}
             {line(t2, l1, l2[3])}
             {line(t2, l1, l2[4])}
+            {line(t2, l1, l2[5])}
           </tbody>
         </table>
       </Card.Body>
