@@ -162,7 +162,7 @@ export default (props = {}) => {
               />
               <NavItem
                 title="Μοντέλα"
-                link={AppRoutes.Model.path}
+                link={AppRoutes.Models.path}
                 icon={faUser}
               />
               <NavItem

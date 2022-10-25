@@ -7,6 +7,20 @@ import * as utils from "../utils";
 export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
   const groupedModels = utils.groupByProperty(props.data, "team");
 
+  const name = (name) => {
+    const isNameIn = utils.isInGame(props.data, name);
+    return (
+      <>
+        {isNameIn && <td>{name}</td>}
+        {!isNameIn && (
+          <td>
+            <s>{name}</s>
+          </td>
+        )}
+      </>
+    );
+  };
+
   const tableLines = () => {
     var l1 = [];
     var t1 = [];
@@ -22,29 +36,29 @@ export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
           </td>
         </tr>
         <tr>
-          <td>{l1[0]}</td>
+          {name(l1[0])}
           <td className="text-right">{utils.sumPoints(t1, l1[0])}</td>
         </tr>
         <tr>
-          <td>{l1[1]}</td>
+          {name(l1[1])}
           <td className="text-right">{utils.sumPoints(t1, l1[1])}</td>
         </tr>
         <tr>
-          <td>{l1[2]}</td>
+          {name(l1[2])}
           <td className="text-right">{utils.sumPoints(t1, l1[2])}</td>
         </tr>
         <tr>
-          <td>{l1[3]}</td>
+          {name(l1[3])}
           <td className="text-right">{utils.sumPoints(t1, l1[3])}</td>
         </tr>
         <tr>
-          <td>{l1[4]}</td>
+          {name(l1[4])}
           <td className="text-right">{utils.sumPoints(t1, l1[4])}</td>
         </tr>
         {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
           <>
             <tr>
-              <td>{l1[5]}</td>
+              {name(l1[5])}
               <td className="text-right">{utils.sumPoints(t1, l1[5])}</td>
             </tr>
           </>

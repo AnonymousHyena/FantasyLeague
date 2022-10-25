@@ -16,29 +16,29 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
   const line = function (t, l1, l2) {
     return (
       <tr>
-        <th className="">{utils.translatePlateaus(l2)}</th>
+        <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[0]) | 0}
         </td>
-        <th className="">{utils.translatePlateaus(l2)}</th>
+        <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[1]) | 0}
         </td>
-        <th className="">{utils.translatePlateaus(l2)}</th>
+        <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[2]) | 0}
         </td>
-        <th className="">{utils.translatePlateaus(l2)}</th>
+        <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[3]) | 0}
         </td>
-        <th className="">{utils.translatePlateaus(l2)}</th>
+        <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[4]) | 0}
         </td>
         {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
           <>
-            <th className="">{utils.translatePlateaus(l2)}</th>
+            <td className="">{utils.translatePlateaus(l2)}</td>
             <td className="text-right">
               {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[5]) |
                 0}
@@ -54,8 +54,8 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">Μέλη Ομάδας "{selectedTeam}"</h5>
       </Card.Header>
-      <Card.Body className="px-5">
-        <table className="mx-auto border">
+      <Card.Body>
+        <table className="mx-auto border w-75">
           <thead>
             <tr>
               <th colSpan={2} className="text-center blue-bg">

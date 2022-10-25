@@ -72,6 +72,7 @@ export function initializeDataAndStore() {
             plateau: plateau,
             points: points[rule],
             source: rule,
+            sourceType: category,
           });
         });
       });
@@ -118,7 +119,7 @@ export function sumPoints(lst, team) {
       (previousValue, currentValue) => previousValue + currentValue["points"],
       0
     );
-  }
+  } else return 0;
 }
 
 export function getPlateaus() {

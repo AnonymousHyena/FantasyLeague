@@ -20,31 +20,35 @@ export const Teams = (props) => {
       </Row>
 
       <Row className="justify-content-center d-block">
-        <Card>
-          <Card.Body>
-            <Row>
-              <Col xs={12} className="mb-3 mt-3">
-                <Form>
-                  <Form.Group>
-                    <Form.Select
-                      onChange={(event) => setSelectedTeam(event.target.value)}
-                    >
-                      <option defaultValue key="Επιλογή Ομάδας" value="">
-                        Επιλογή Ομάδας
-                      </option>
-                      {teams &&
-                        teams.sort().map((team) => (
-                          <option key={team} value={team}>
-                            {team}
-                          </option>
-                        ))}
-                    </Form.Select>
-                  </Form.Group>
-                </Form>
-              </Col>
-            </Row>
-          </Card.Body>
-        </Card>
+        <Col xs={12} className="mt-2 mb-4">
+          <Card xs={12}>
+            <Card.Body>
+              <Row>
+                <Col xs={12} className="mb-3 mt-3">
+                  <Form>
+                    <Form.Group>
+                      <Form.Select
+                        onChange={(event) =>
+                          setSelectedTeam(event.target.value)
+                        }
+                      >
+                        <option defaultValue key="Επιλογή Ομάδας" value="">
+                          Επιλογή Ομάδας
+                        </option>
+                        {teams &&
+                          teams.sort().map((team) => (
+                            <option key={team} value={team}>
+                              {team}
+                            </option>
+                          ))}
+                      </Form.Select>
+                    </Form.Group>
+                  </Form>
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
 
       {selectedTeam !== "" && (

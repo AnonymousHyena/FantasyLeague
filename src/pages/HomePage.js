@@ -5,6 +5,7 @@ import { AppRoutes } from "../routes";
 // pages
 import Overview from "./dashboard/Overview";
 import Teams from "./dashboard/Teams";
+import Models from "./dashboard/Models";
 import Plateaus from "./dashboard/Plateaus";
 
 import Rules from "./Rules";
@@ -77,8 +78,8 @@ export default () => (
     />
     <Route
       exact
-      path={AppRoutes.ServerError.path}
-      element={<RouteWithLoader component={NotFoundPage} />}
+      path={AppRoutes.Models.path}
+      element={<RouteWithSidebar component={Models} />}
     />
     {/* pages */}
     <Route
@@ -104,6 +105,8 @@ export default () => (
       path={AppRoutes.Plateaus.path}
       element={<RouteWithSidebar component={Plateaus} />}
     />
+
+    <Route path="*" element={<RouteWithLoader component={NotFoundPage} />} />
 
     {/* <Navigate to={AppRoutes.NotFound.path} /> */}
   </Routes>

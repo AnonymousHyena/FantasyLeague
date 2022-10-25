@@ -1,8 +1,7 @@
 export const AppRoutes = {
   // pages
   Overview: { path: "/" },
-  // Model: { path: "/model" },
-  Model: { path: "/examples/404" },
+  Models: { path: "/models" },
   Teams: { path: "/teams" },
   Rules: { path: "/rules" },
   Plateaus: { path: "/plateaus" },
