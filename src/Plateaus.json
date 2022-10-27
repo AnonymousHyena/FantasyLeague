@@ -154,6 +154,7 @@
   },
   "plateau5": {
     "placement": {
+      "firstPlaceNo25": ["Μικαέλα"],
       "quit": ["Αλεξία Κ.", "Νικόλ"]
     },
     "drama": { "badmouthing": ["Τζούλια"] },

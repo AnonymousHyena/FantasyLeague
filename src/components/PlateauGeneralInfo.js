@@ -3,7 +3,6 @@ import { Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { CounterWidget } from "./Widgets";
 import {
-  faCalendarDay,
   faRankingStar,
   faHeartCrack,
   faPiggyBank,

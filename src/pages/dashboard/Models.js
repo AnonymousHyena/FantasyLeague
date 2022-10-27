@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Col, Row, Form, Card } from "react-bootstrap";
+import React from "react";
+import { Col, Row, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as utils from "../../utils";
 

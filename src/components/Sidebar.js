@@ -24,7 +24,7 @@ import {
 import { Link } from "react-router-dom";
 
 import { AppRoutes } from "../routes";
-import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
+import ReactHero from "../assets/img/brand/logo300.png";
 
 export default (props = {}) => {
   const location = useLocation();

@@ -4,6 +4,7 @@ import store from "./store";
 const points = {
   firstPlaceDis: 9,
   firstPlace: 6,
+  firstPlaceNo25: 4,
   secondPlace: 5,
   thirdPlace: 4,
   thirdPlaceDis: 5,
@@ -21,6 +22,29 @@ const points = {
   food: 1,
   chores: 1,
   challenge: 2,
+};
+
+export const pointsTranslateDict = {
+  firstPlaceDis: "Πρώτη θέση με disadvantage",
+  firstPlace: "Πρώτη θέση",
+  firstPlaceNo25: "Πρώτη θέση χωρίς πλατό",
+  secondPlace: "Δεύτερη θέση",
+  thirdPlace: "Τρίτη θέση",
+  thirdPlaceDis: "Τρίτη θέση με disadvantage",
+  top25: "Top 25%",
+  top25Dis: "Top 25% με disadvantage",
+  top50: "Top 50%",
+  top50Dis: "Top 50% με disadvantage",
+  lastPlace: "Τελευταία θέση",
+  bot50Adv: "Bottom 50% με advatnage",
+  quit: "Οικειοθελής αποχώρηση",
+  injury: "Τραυματισμός",
+  badmouthing: "Κράξιμο",
+  interuption: "Διακοπή ροής της διαδικασίας",
+  gymnastics: "Γυμναστική",
+  food: "Φαγητό",
+  chores: "Δουλιές σπιτιού",
+  challenge: "Δοκιμασία",
 };
 
 const teams = [

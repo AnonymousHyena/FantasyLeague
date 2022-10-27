@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Navbar, Container } from "react-bootstrap";
 import { initializeDataAndStore } from "../utils";
 
 const NavigationBar = (props) => {
-  // const [data, setData] = useState(false);
-
   useEffect(() => {
     initializeDataAndStore();
   }, []);
