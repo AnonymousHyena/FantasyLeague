@@ -77,6 +77,21 @@ table:nth-child(4) {
   margin-bottom: 0rem !important;
 }
 
+.goUp {
+  margin-top: -200px;
+}
+
+.crop {
+  width: auto;
+  height: 500px;
+  overflow: hidden;
+}
+
+.crop img {
+  width: 100%;
+  height: auto;
+}
+
 /* Small devices (landscape phones, 544px and up) */
 @media (max-width: 544px) {
   body {

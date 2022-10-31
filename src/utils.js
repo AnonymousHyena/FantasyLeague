@@ -22,6 +22,7 @@ const points = {
   food: 1,
   chores: 1,
   challenge: 2,
+  makeover: -5,
 };
 
 export const pointsTranslateDict = {
@@ -45,6 +46,7 @@ export const pointsTranslateDict = {
   food: "Φαγητό",
   chores: "Δουλιές σπιτιού",
   challenge: "Δοκιμασία",
+  makeover: "Makeover drama",
 };
 
 const teams = [
@@ -108,6 +110,31 @@ export const modelStarNames = {
   Κάτια: "katia_kizima-1920x1004",
   Κότυ: "koti_gougousi_camacho-1920x1004",
   Γιέβα: "gieva_mpontarenko-1920x1004",
+};
+
+export const modelFullNames = {
+  Άννα: "Άννα",
+  Νάγια: "Νάγια Κοντοστεργίου",
+  Μαρία: "Μαρία Κώστα",
+  Κατερίνα: "Κατερίνα Καρά",
+  Ζωή: "Ζωή Ιωαννίδου",
+  Έλενα: "Έλενα Λισανδρου",
+  Έφη: "Έφη Μπαντή",
+  "Αλεξία Κ.": "Αλεξία Κουβέλα",
+  Μύρια: "Μύρια Κυριακίδου",
+  Μικαέλα: "Μικαέλα Novak Μαρλή",
+  Βικτώρια: "Βικτώρια Μυροφορίδου",
+  Μάρα: "Μάρα Μαρλή",
+  Νικόλ: "Νικόλ Τσούλος",
+  Δέσποινα: "Δέσποινα Σαρρή",
+  Γρηγοριάννα: "Γρηγοριάννα Πλήτα",
+  Μαρίττα: " Μαρίττα Καθιτζιότη",
+  "Αλεξία Τ.": "Αλεξία Τράικο",
+  Εβελίνα: "Εβελίνα Πετρουγάκη",
+  Τζούλια: " Τζούλια Iligenko",
+  Κάτια: "Κάτια Kizima",
+  Κότυ: "Κότυ Γουγούση Camacho",
+  Γιέβα: "Γιέβα Mpontarenko",
 };
 
 export function initializeDataAndStore() {
@@ -194,4 +221,8 @@ export function isInGame(data, model) {
     Object.keys(groupByProperty(sources["quit"], "model")).includes(model) ||
     Object.keys(groupByProperty(sources["lastPlace"], "model")).includes(model)
   );
+}
+
+export function getModelTeam(model) {
+  return team[model];
 }
