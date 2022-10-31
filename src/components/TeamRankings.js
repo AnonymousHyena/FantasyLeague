@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "@themesberg/react-bootstrap";
+import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import * as utils from "../utils";

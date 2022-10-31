@@ -64,6 +64,15 @@ table.border {
   height: 40px;
 }
 
+.plateau-breakdown {
+  height: 300px;
+  overflow: auto;
+}
+
+.widget-text {
+  font-size: 1.15rem;
+}
+
 /* Small devices (landscape phones, 544px and up) */
 @media (max-width: 544px) {
   body {
@@ -74,5 +83,9 @@ table.border {
   } /*1rem = 16px*/
   .card-header {
     padding: 0.8rem 1rem;
+  }
+  .plateau-breakdown {
+    height: 200px;
+    overflow: auto;
   }
 }

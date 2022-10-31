@@ -8,10 +8,11 @@ export const CounterWidget = (props) => {
   return (
     <Card border="light" className="shadow-sm" style={{ marginTop: 10 }}>
       <Card.Body>
-        <Row className="d-block d-xl-flex align-items-center">
+        <Row className="d-block d-flex align-items-center">
           <Col
             xl={4}
-            className="text-xl-center d-flex align-items-center justify-content-xl-center mb-3 mb-xl-0"
+            xs={4}
+            className="text-xl-center d-flex align-items-center justify-content-xl-center mb-xl-0"
           >
             <div
               className={`icon icon-shape icon-md icon-${iconColor} rounded me-4 me-sm-0`}
@@ -19,10 +20,10 @@ export const CounterWidget = (props) => {
               <FontAwesomeIcon icon={icon} />
             </div>
           </Col>
-          <Col xs={12} xl={8} className="px-xl-0">
+          <Col xs={8} xl={8} className="px-xl-0">
             <div className="d-block">
-              <h4>{category}</h4>
-              <span className="mb-1">{title}</span>
+              <h5>{category}</h5>
+              <span className="mb-1 widget-text">{title}</span>
             </div>
           </Col>
         </Row>

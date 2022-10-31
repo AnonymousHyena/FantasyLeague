@@ -80,6 +80,30 @@ const team = {
   Τζούλια: "Φρυδερίκη αγάπη μου",
 };
 
+export const modelStarNames = {
+  Νάγια: "nagia_kontostergiou-1920x1004-b_w",
+  Μαρία: "maria_kosta-1920x1004",
+  Κατερίνα: "katerina_kara-1920x1004-b_w",
+  Ζωή: "zoi_ioannidou-1920x1004",
+  Έλενα: "elena_lisandrou-1920x1004-b_w",
+  Έφη: "efi_mpanti-1920x1004-b_w",
+  "Αλεξία Κ.": "aleksia_kouvela-1920x1004-b_w",
+  Μύρια: "miria_kiriakidou-1920x1004",
+  Μικαέλα: "mixaela_novak_marli-1920x1004",
+  Βικτώρια: "victoria_miroforidou-1920x1004",
+  Μάρα: "mara_marli-1920x1004",
+  Νικόλ: "nikol_tsoulos-1920x1004-b_w",
+  Δέσποινα: "despoina_sarri-1920x1004",
+  Γρηγοριάννα: "grigoriana_plita-1920x1004",
+  Μαρίττα: "marita_kathitzioti-1920x1004",
+  "Αλεξία Τ.": "aleksia_traiko-1920x1004",
+  Εβελίνα: "evelina_petrougaki-1920x1004-b_w",
+  Τζούλια: "tzoulia_iligenko-1920x1004-b_w",
+  Κάτια: "katia_kizima-1920x1004",
+  Κότυ: "koti_gougousi_camacho-1920x1004",
+  Γιέβα: "gieva_mpontarenko-1920x1004",
+};
+
 export function initializeDataAndStore() {
   const activePlateaus = Object.keys(plateaus);
   activePlateaus.shift();
@@ -106,6 +130,14 @@ export function initializeDataAndStore() {
   store.dispatch({
     type: "SET_DATA",
     payload: result,
+  });
+  store.dispatch({
+    type: "SET_MODEL",
+    payload: getModels().sort()[0],
+  });
+  store.dispatch({
+    type: "SET_TEAM",
+    payload: teams.sort()[0],
   });
 }
 
