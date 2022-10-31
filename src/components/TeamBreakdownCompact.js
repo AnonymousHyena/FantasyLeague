@@ -84,7 +84,7 @@ export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
           <tbody>
             <tr>
               <td colSpan={2} className="w-25 text-center blue-bg">
-                {utils.teamOwner(selectedTeam)}
+                {utils.teamOwner[selectedTeam]}
               </td>
             </tr>
             {tableLines()}

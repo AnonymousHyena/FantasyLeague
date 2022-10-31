@@ -14,7 +14,7 @@ export const TeamRankings = (props) => {
         <td className="w-25 text-center">
           {utils.sumPoints(groupedModels, team)}
         </td>
-        <td className="w-25 text-center">{utils.teamOwner(team)}</td>
+        <td className="w-25 text-center">{utils.teamOwner[team]}</td>
       </tr>
     );
   };

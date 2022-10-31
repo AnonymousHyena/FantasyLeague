@@ -171,16 +171,16 @@ export const AllTeamPoints = (props) => {
           <tbody>
             <tr>
               <td colSpan={2} className="w-25 text-center blue-bg">
-                {utils.teamOwner(teams[0])}
+                {utils.teamOwner[teams[0]]}
               </td>
               <td colSpan={2} className="w-25 text-center blue-bg">
-                {utils.teamOwner(teams[1])}
+                {utils.teamOwner[teams[1]]}
               </td>
               <td colSpan={2} className="w-25 text-center blue-bg">
-                {utils.teamOwner(teams[2])}
+                {utils.teamOwner[teams[2]]}
               </td>
               <td colSpan={2} className="w-25 text-center blue-bg">
-                {utils.teamOwner(teams[3])}
+                {utils.teamOwner[teams[3]]}
               </td>
             </tr>
             {tableLines()}

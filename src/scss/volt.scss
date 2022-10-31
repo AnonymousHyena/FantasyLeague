@@ -73,6 +73,10 @@ table.border {
   font-size: 1.15rem;
 }
 
+table:nth-child(4) {
+  margin-bottom: 0rem !important;
+}
+
 /* Small devices (landscape phones, 544px and up) */
 @media (max-width: 544px) {
   body {

@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 
 import TeamRankings from "../../components/TeamRankings";
 import AllTeamPoints from "../../components/AllTeamPoints";
+import AllTeamPointsCompact from "../../components/AllTeamPointsCompact";
 import ModelRankings from "../../components/ModelRankings";
+import ModelRankingsCompact from "../../components/ModelRankingsCompact";
 
 const Overview = (props) => {
   return (
@@ -21,8 +23,18 @@ const Overview = (props) => {
         </Col>
       </Row>
 
-      <Row className="justify-content-md-center d-block">
+      <Row className="justify-content-lg-center d-block d-lg-none">
+        <Col xs={12} className="mt-2 mb-4">
+          <AllTeamPointsCompact />
+        </Col>
+      </Row>
+
+      <Row className="justify-content-md-center d-none d-lg-block">
         <ModelRankings />
+      </Row>
+
+      <Row className="justify-content-md-center d-block d-lg-none">
+        <ModelRankingsCompact />
       </Row>
     </>
   );

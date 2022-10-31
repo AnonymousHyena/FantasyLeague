@@ -53,7 +53,13 @@ const teams = [
   "Φρυδερίκη αγάπη μου",
   "Ομάδα",
 ];
-const owner = ["Statics", "Geo", "Tsamis", "Snouf"];
+
+export const teamOwner = {
+  "Το Κορμί σου το Φρυδίσιο": "Statics",
+  Ουμφοσυγκλομανιφίκ: "Geo",
+  "Φρυδερίκη αγάπη μου": "Tsamis",
+  Ομάδα: "Snouf",
+};
 
 const team = {
   "Αλεξία Κ.": "Το Κορμί σου το Φρυδίσιο",
@@ -139,18 +145,6 @@ export function initializeDataAndStore() {
     type: "SET_TEAM",
     payload: teams.sort()[0],
   });
-}
-
-export function teamOwner(team) {
-  if (team === teams[0]) {
-    return owner[0];
-  } else if (team === teams[1]) {
-    return owner[1];
-  } else if (team === teams[2]) {
-    return owner[2];
-  } else if (team === teams[3]) {
-    return owner[3];
-  }
 }
 
 export function getTeams() {
