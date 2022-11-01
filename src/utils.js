@@ -69,7 +69,7 @@ const team = {
   Άννα: "Ουμφοσυγκλομανιφίκ",
   Βικτώρια: "Φρυδερίκη αγάπη μου",
   Γιέβα: "Ομάδα",
-  Γρηγοριάννα: "Ομάδα",
+  Γρηγοριάνα: "Ομάδα",
   Δέσποινα: "Ομάδα",
   Εβελίνα: "Ομάδα",
   Έλενα: "Φρυδερίκη αγάπη μου",
@@ -80,12 +80,16 @@ const team = {
   Κότυ: "Το Κορμί σου το Φρυδίσιο",
   Μάρα: "Ουμφοσυγκλομανιφίκ",
   Μαρία: "Ουμφοσυγκλομανιφίκ",
-  Μαρίττα: "Ουμφοσυγκλομανιφίκ",
+  Μαρίτα: "Ουμφοσυγκλομανιφίκ",
   Μικαέλα: "Φρυδερίκη αγάπη μου",
   Μύρια: "Ομάδα",
   Νάγια: "",
   Νικόλ: "Το Κορμί σου το Φρυδίσιο",
   Τζούλια: "Φρυδερίκη αγάπη μου",
+  Ντορέλα: "",
+  Ραφαέλα: "Το Κορμί σου το Φρυδίσιο",
+  Ειρήνη: "Ουμφοσυγκλομανιφίκ",
+  Γεωργιάννα: "Φρυδερίκη αγάπη μου",
 };
 
 export const modelStarNames = {
@@ -102,14 +106,22 @@ export const modelStarNames = {
   Μάρα: "mara_marli-1920x1004",
   Νικόλ: "nikol_tsoulos-1920x1004-b_w",
   Δέσποινα: "despoina_sarri-1920x1004",
-  Γρηγοριάννα: "grigoriana_plita-1920x1004",
-  Μαρίττα: "marita_kathitzioti-1920x1004",
+  Γρηγοριάνα: "grigoriana_plita-1920x1004",
+  Μαρίτα: "marita_kathitzioti-1920x1004",
   "Αλεξία Τ.": "aleksia_traiko-1920x1004",
   Εβελίνα: "evelina_petrougaki-1920x1004-b_w",
   Τζούλια: "tzoulia_iligenko-1920x1004-b_w",
   Κάτια: "katia_kizima-1920x1004",
   Κότυ: "koti_gougousi_camacho-1920x1004",
   Γιέβα: "gieva_mpontarenko-1920x1004",
+  Ντορέλα:
+    "%CE%BD%CF%84%CE%BF%CF%81%CE%B5%CE%BB%CE%B1_%CE%B3%CE%BA%CE%B5%CE%BA%CE%B1-1930x1004",
+  Ραφαέλα:
+    "%CF%81%CE%B1%CF%86%CE%B1%CE%B5%CE%BB%CE%B1_%CF%87%CE%B1%CF%81%CE%B1%CE%BB%CE%B1%CE%BC%CF%80%CE%BF%CF%85%CF%82-1920x1004",
+  Ειρήνη:
+    "%CE%B5%CE%B9%CF%81%CE%B7%CE%BD%CE%B7_%CE%B1%CE%BD%CF%84%CF%89%CE%BD%CE%B9%CE%BF%CF%85-1920x1004",
+  Γεωργιάννα:
+    "%CE%B3%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%B1%CE%BD%CE%B1_%CE%B9%CF%89%CE%B1%CE%BA%CE%B5%CE%B9%CE%BC%CE%B9%CE%B4%CE%B7-1920x1004",
 };
 
 export const modelFullNames = {
@@ -118,23 +130,27 @@ export const modelFullNames = {
   Μαρία: "Μαρία Κώστα",
   Κατερίνα: "Κατερίνα Καρά",
   Ζωή: "Ζωή Ιωαννίδου",
-  Έλενα: "Έλενα Λισανδρου",
+  Έλενα: "Έλενα Λυσάνδρου",
   Έφη: "Έφη Μπαντή",
-  "Αλεξία Κ.": "Αλεξία Κουβέλα",
+  "Αλεξία Κ.": "Αλεξία Κουβελά",
   Μύρια: "Μύρια Κυριακίδου",
   Μικαέλα: "Μικαέλα Novak Μαρλή",
   Βικτώρια: "Βικτώρια Μυροφορίδου",
   Μάρα: "Μάρα Μαρλή",
   Νικόλ: "Νικόλ Τσούλος",
   Δέσποινα: "Δέσποινα Σαρρή",
-  Γρηγοριάννα: "Γρηγοριάννα Πλήτα",
-  Μαρίττα: " Μαρίττα Καθιτζιότη",
+  Γρηγοριάνα: "Γρηγοριάνα Πλύτα",
+  Μαρίτα: " Μαρίτα Καθιτζιώτη",
   "Αλεξία Τ.": "Αλεξία Τράικο",
   Εβελίνα: "Εβελίνα Πετρουγάκη",
   Τζούλια: " Τζούλια Iligenko",
   Κάτια: "Κάτια Kizima",
   Κότυ: "Κότυ Γουγούση Camacho",
   Γιέβα: "Γιέβα Mpontarenko",
+  Ντορέλα: "Ντορέλα Γκέκα",
+  Ραφαέλα: "Ραφαέλα Χαραλάμπους",
+  Ειρήνη: "Ειρήνη Αντωνίου",
+  Γεωργιάννα: "Γεωργιάννα Ιωακειμίδη",
 };
 
 export function initializeDataAndStore() {
@@ -142,6 +158,17 @@ export function initializeDataAndStore() {
   activePlateaus.shift();
 
   let result = [];
+
+  getModels().forEach((model) => {
+    result.push({
+      model: model,
+      team: team[model],
+      plateau: "",
+      points: 0,
+      source: "init",
+      sourceType: "init",
+    });
+  });
 
   activePlateaus.forEach((plateau) => {
     Object.keys(plateaus[plateau]).forEach((category) => {
@@ -225,4 +252,21 @@ export function isInGame(data, model) {
 
 export function getModelTeam(model) {
   return team[model];
+}
+
+export function getModelRank(data, model) {
+  const modelsData = groupByProperty(data, "model");
+  const models = getModels();
+
+  models.sort(function (x, y) {
+    if (sumPoints(modelsData, x) < sumPoints(modelsData, y)) {
+      return 1;
+    }
+    if (sumPoints(modelsData, x) > sumPoints(modelsData, y)) {
+      return -1;
+    }
+    return 0;
+  });
+
+  return models.indexOf(model) + 1;
 }

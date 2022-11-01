@@ -9,7 +9,6 @@ import store from "../../store";
 const Models = (props) => {
   const models = [...utils.getModels()];
   const [selectedModel, setSelectedModel] = useState(props.model);
-  const [selectedModelPlateau, setSelectedModelPlateau] = useState("plateau1");
 
   useEffect(() => {
     setSelectedModel(props.model);
@@ -55,20 +54,7 @@ const Models = (props) => {
     return "plateau" + i;
   };
 
-  const makePlateauList = (model) => {
-    const results = [];
-    const plateaus = utils.getPlateaus();
-    const data = utils.groupByProperty(props.data, "plateau");
-    let i = 0;
-    while (i < plateaus.length) {
-      results.push("plateau" + (i + 1));
-      if (!utils.isInGame(data["plateau" + (i + 1)], model)) {
-        break;
-      }
-      i++;
-    }
-    return results;
-  };
+  const dataByType = utils.groupByProperty(props.data, "sourceType");
 
   return (
     <>
@@ -81,8 +67,8 @@ const Models = (props) => {
 
       {selectedModel !== "" && (
         <>
-          <Row className="justify-content-md-left">
-            <Col lg={4} xs={12} className="mt-2 mb-4 d-block">
+          <Row className="justify-content-md-center">
+            <Col lg={3} xs={12} className="mt-2 mb-4 d-block">
               <Card>
                 <div className="crop">
                   <img
@@ -112,15 +98,48 @@ const Models = (props) => {
                     </h5>
                   </Card.Header>
                   <Card.Body>
-                    Ομάδα: "{utils.getModelTeam(selectedModel)}"
-                    <br />
-                    Γενική Κατάταξη: #
+                    <table className="">
+                      <tbody>
+                        <tr className="">
+                          <th className="w-50">Ομάδα</th>
+                          <td className="text-right">
+                            "{utils.getModelTeam(selectedModel)}"
+                          </td>
+                        </tr>
+                        <tr className="">
+                          <th className="w-50">Γενική Κατάταξη</th>
+                          <td className="text-right">
+                            #{utils.getModelRank(props.data, selectedModel)}
+                          </td>
+                        </tr>
+                        <tr className="">
+                          <th className="w-50">(Placement, Drama, Misc)</th>
+                          <td className="text-right">
+                            #
+                            {utils.getModelRank(
+                              dataByType["placement"],
+                              selectedModel
+                            )}{" "}
+                            #
+                            {utils.getModelRank(
+                              dataByType["drama"],
+                              selectedModel
+                            )}{" "}
+                            #
+                            {utils.getModelRank(
+                              dataByType["misc"],
+                              selectedModel
+                            )}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </Card.Body>
                 </Card>
               </Col>
 
-              <Col xs={12} lg={6} className="mt-2 pe-3">
-                <Card className="p-2">
+              <Col xs={12} lg={6} className="mt-2 pe-lg-3">
+                <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">Πόντοι Μοντέλου</h5>
                   </Card.Header>
@@ -157,8 +176,8 @@ const Models = (props) => {
                 </Card>
               </Col>
 
-              <Col xs={12} lg={6} className="mt-2 ps-3">
-                <Card className="p-2">
+              <Col xs={12} lg={6} className="mt-2 ps-lg-3">
+                <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">
                       Τελευταίο Πλατό: "
@@ -212,15 +231,6 @@ const Models = (props) => {
                   </Card.Body>
                 </Card>
               </Col>
-
-              {/* <Col xs={12} className="mb-4" >
-                <SelectForm
-                  options={makePlateauList(selectedModel)}
-                  setter={setSelectedModelPlateau}
-                  def={selectedModelPlateau}
-                  title="Επιλογή Πλατό"
-                />
-              </Col> */}
             </Col>
           </Row>
         </>

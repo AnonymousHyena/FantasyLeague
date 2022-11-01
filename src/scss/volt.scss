@@ -83,7 +83,7 @@ table:nth-child(4) {
 
 .crop {
   width: auto;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
 }
 
@@ -106,5 +106,8 @@ table:nth-child(4) {
   .plateau-breakdown {
     height: 200px;
     overflow: auto;
+  }
+  .crop {
+    height: 300px;
   }
 }

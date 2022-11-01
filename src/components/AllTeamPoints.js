@@ -141,6 +141,16 @@ export const AllTeamPoints = (props) => {
           {name(l4[5])}
           <td className="text-right">{sumPoints(t4, l4[5])}</td>
         </tr>
+        <tr>
+          {name(l1[6])}
+          <td className="text-right">{sumPoints(t1, l1[6])}</td>
+          {name(l2[6])}
+          <td className="text-right">{sumPoints(t2, l2[6])}</td>
+          {name(l3[6])}
+          <td className="text-right">{sumPoints(t3, l3[6])}</td>
+          {name(l4[6])}
+          <td className="text-right">{sumPoints(t4, l4[6])}</td>
+        </tr>
       </>
     );
   };

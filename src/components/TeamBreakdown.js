@@ -13,40 +13,60 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
   const t2 = utils.groupByProperty(team, "plateau");
   const l2 = Object.keys(t2);
 
-  const line = function (t, l1, l2) {
+  const cells = function (t, l2, l1) {
     return (
-      <tr>
+      <>
         <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[0]) | 0}
+          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1) | 0}
         </td>
-        <td className="">{utils.translatePlateaus(l2)}</td>
-        <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[1]) | 0}
-        </td>
-        <td className="">{utils.translatePlateaus(l2)}</td>
-        <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[2]) | 0}
-        </td>
-        <td className="">{utils.translatePlateaus(l2)}</td>
-        <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[3]) | 0}
-        </td>
-        <td className="">{utils.translatePlateaus(l2)}</td>
-        <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[4]) | 0}
-        </td>
-        {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
-          <>
-            <td className="">{utils.translatePlateaus(l2)}</td>
-            <td className="text-right">
-              {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1[5]) |
-                0}
-            </td>
-          </>
-        )}
-      </tr>
+      </>
     );
+  };
+
+  const cellsHeaders = function (l1) {
+    return (
+      <th colSpan={2} className="text-center blue-bg">
+        {l1}
+      </th>
+    );
+  };
+  const resCellsHeaders = [];
+  l1.forEach((element) => resCellsHeaders.push(cellsHeaders(element)));
+
+  const cellsSubHeaders = function (t, l1) {
+    return (
+      <>
+        <th className="blue-bg">Σύνολο</th>
+        <td className="blue-bg text-right">{utils.sumPoints(t, l1)}</td>
+      </>
+    );
+  };
+  const resCellsSubHeaders = [];
+  l1.forEach((element) =>
+    resCellsSubHeaders.push(cellsSubHeaders(t1, element))
+  );
+
+  const line = function (t, l2) {
+    const result = [];
+
+    l1.forEach((element) => {
+      result.push(cells(t, l2, element));
+    });
+
+    return <tr>{result}</tr>;
+  };
+
+  const makeTable = function (t, l2) {
+    const result = [];
+
+    l2.forEach((element, i) => {
+      if (i !== 0) {
+        result.push(line(t2, element));
+      }
+    });
+
+    return result;
   };
 
   return (
@@ -57,69 +77,10 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
       <Card.Body>
         <table className="mx-auto border w-75">
           <thead>
-            <tr>
-              <th colSpan={2} className="text-center blue-bg">
-                {l1[0]}
-              </th>
-              <th colSpan={2} className="text-center blue-bg">
-                {l1[1]}
-              </th>
-              <th colSpan={2} className="text-center blue-bg">
-                {l1[2]}
-              </th>
-              <th colSpan={2} className="text-center blue-bg">
-                {l1[3]}
-              </th>
-              <th colSpan={2} className="text-center blue-bg">
-                {l1[4]}
-              </th>
-              {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
-                <>
-                  <th colSpan={2} className="text-center blue-bg">
-                    {l1[5]}
-                  </th>
-                </>
-              )}
-            </tr>
+            <tr>{resCellsHeaders}</tr>
+            <tr>{resCellsSubHeaders}</tr>
           </thead>
-          <tbody>
-            <tr>
-              <th className="blue-bg">Σύνολο</th>
-              <td className="blue-bg text-right">
-                {utils.sumPoints(t1, l1[0])}
-              </td>
-              <th className="blue-bg">Σύνολο</th>
-              <td className="blue-bg text-right">
-                {utils.sumPoints(t1, l1[1])}
-              </td>
-              <th className="blue-bg">Σύνολο</th>
-              <td className="blue-bg text-right">
-                {utils.sumPoints(t1, l1[2])}
-              </td>
-              <th className="blue-bg">Σύνολο</th>
-              <td className="blue-bg text-right">
-                {utils.sumPoints(t1, l1[3])}
-              </td>
-              <th className="blue-bg">Σύνολο</th>
-              <td className="blue-bg text-right">
-                {utils.sumPoints(t1, l1[4])}
-              </td>
-              {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
-                <>
-                  <th className="blue-bg">Σύνολο</th>
-                  <td className="blue-bg text-right">
-                    {utils.sumPoints(t1, l1[5])}
-                  </td>
-                </>
-              )}
-            </tr>
-            {line(t2, l1, l2[0])}
-            {line(t2, l1, l2[1])}
-            {line(t2, l1, l2[2])}
-            {line(t2, l1, l2[3])}
-            {line(t2, l1, l2[4])}
-            {line(t2, l1, l2[5])}
-          </tbody>
+          <tbody>{makeTable(t2, l2)}</tbody>
         </table>
       </Card.Body>
     </Card>

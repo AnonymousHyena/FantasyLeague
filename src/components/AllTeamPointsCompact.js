@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Carousel } from "react-bootstrap";
 import { connect } from "react-redux";
 
 import * as utils from "../utils";
@@ -80,10 +80,18 @@ export const AllTeamPoints = (props) => {
         <h5 className="mb-0">Ομάδες</h5>
       </Card.Header>
       <Card.Body className="px-3" id="AllTeamPointsCompact">
-        {createTable(teams[0])}
-        {createTable(teams[1])}
-        {createTable(teams[2])}
-        {createTable(teams[3])}
+        <Carousel
+          interval={null}
+          variant="dark"
+          indicators={false}
+          prevIcon={<span />}
+          nextIcon={<span />}
+        >
+          <Carousel.Item>{createTable(teams[0])}</Carousel.Item>
+          <Carousel.Item>{createTable(teams[1])}</Carousel.Item>
+          <Carousel.Item>{createTable(teams[2])}</Carousel.Item>
+          <Carousel.Item>{createTable(teams[3])}</Carousel.Item>
+        </Carousel>
       </Card.Body>
     </Card>
   );
