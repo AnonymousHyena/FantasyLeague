@@ -13,20 +13,31 @@ const ModelRankings = (props) => {
     );
   };
 
-  const constructTableBody = (data) => {
+  const constructTableBody = (data, sourceType) => {
     var columnTotal = [];
     const modelsData = utils.groupByProperty(data, "model");
     const models = utils.getModels();
-
-    models.sort(function (x, y) {
-      if (utils.sumPoints(modelsData, x) < utils.sumPoints(modelsData, y)) {
-        return 1;
-      }
-      if (utils.sumPoints(modelsData, x) > utils.sumPoints(modelsData, y)) {
-        return -1;
-      }
-      return 0;
-    });
+    if (sourceType === "drama") {
+      models.sort(function (x, y) {
+        if (utils.sumPoints(modelsData, x) < utils.sumPoints(modelsData, y)) {
+          return -1;
+        }
+        if (utils.sumPoints(modelsData, x) > utils.sumPoints(modelsData, y)) {
+          return 1;
+        }
+        return 0;
+      });
+    } else {
+      models.sort(function (x, y) {
+        if (utils.sumPoints(modelsData, x) < utils.sumPoints(modelsData, y)) {
+          return 1;
+        }
+        if (utils.sumPoints(modelsData, x) > utils.sumPoints(modelsData, y)) {
+          return -1;
+        }
+        return 0;
+      });
+    }
 
     models.forEach((model) => {
       columnTotal.push(tableLine(model, utils.sumPoints(modelsData, model)));
@@ -39,7 +50,7 @@ const ModelRankings = (props) => {
       sourceType
     ];
 
-    return constructTableBody(modelsData);
+    return constructTableBody(modelsData, sourceType);
   };
 
   return (

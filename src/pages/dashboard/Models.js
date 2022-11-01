@@ -45,12 +45,10 @@ const Models = (props) => {
     let i = 0;
     while (i < plateaus.length) {
       if (!utils.isInGame(data["plateau" + (i + 1)], model)) {
-        // setSelectedModelPlateau("plateau" + (i + 1));
         return "plateau" + (i + 1);
       }
       i++;
     }
-    // setSelectedModelPlateau("plateau" + i);
     return "plateau" + i;
   };
 
@@ -68,7 +66,7 @@ const Models = (props) => {
       {selectedModel !== "" && (
         <>
           <Row className="justify-content-md-center">
-            <Col lg={3} xs={12} className="mt-2 mb-4 d-block">
+            <Col lg={4} xs={12} className="mt-2 mb-4 d-block">
               <Card>
                 <div className="crop">
                   <img
@@ -109,7 +107,12 @@ const Models = (props) => {
                         <tr className="">
                           <th className="w-50">Γενική Κατάταξη</th>
                           <td className="text-right">
-                            #{utils.getModelRank(props.data, selectedModel)}
+                            #
+                            {utils.getModelRank(
+                              props.data,
+                              "total",
+                              selectedModel
+                            )}
                           </td>
                         </tr>
                         <tr className="">
@@ -118,16 +121,19 @@ const Models = (props) => {
                             #
                             {utils.getModelRank(
                               dataByType["placement"],
+                              "placement",
                               selectedModel
                             )}{" "}
                             #
                             {utils.getModelRank(
                               dataByType["drama"],
+                              "drama",
                               selectedModel
                             )}{" "}
                             #
                             {utils.getModelRank(
                               dataByType["misc"],
+                              "misc",
                               selectedModel
                             )}
                           </td>
@@ -180,8 +186,7 @@ const Models = (props) => {
                 <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">
-                      Τελευταίο Πλατό: "
-                      {utils.translatePlateaus(getFinalPlateau(selectedModel))}"
+                      {utils.translatePlateaus(getFinalPlateau(selectedModel))}
                     </h5>
                   </Card.Header>
                   <Card.Body>

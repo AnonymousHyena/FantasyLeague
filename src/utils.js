@@ -7,6 +7,7 @@ const points = {
   firstPlaceNo25: 4,
   secondPlace: 5,
   thirdPlace: 4,
+  thirdPlaceNo25: 3,
   thirdPlaceDis: 5,
   top25: 2,
   top25Dis: 3,
@@ -32,6 +33,7 @@ export const pointsTranslateDict = {
   secondPlace: "Δεύτερη θέση",
   thirdPlace: "Τρίτη θέση",
   thirdPlaceDis: "Τρίτη θέση με disadvantage",
+  thirdPlaceNo25: "Τρίτη θέση",
   top25: "Top 25%",
   top25Dis: "Top 25% με disadvantage",
   top50: "Top 50%",
@@ -86,7 +88,7 @@ const team = {
   Νάγια: "",
   Νικόλ: "Το Κορμί σου το Φρυδίσιο",
   Τζούλια: "Φρυδερίκη αγάπη μου",
-  Ντορέλα: "",
+  Ντορέλα: "Ομάδα",
   Ραφαέλα: "Το Κορμί σου το Φρυδίσιο",
   Ειρήνη: "Ουμφοσυγκλομανιφίκ",
   Γεωργιάννα: "Φρυδερίκη αγάπη μου",
@@ -254,19 +256,30 @@ export function getModelTeam(model) {
   return team[model];
 }
 
-export function getModelRank(data, model) {
+export function getModelRank(data, sourceType, model) {
   const modelsData = groupByProperty(data, "model");
   const models = getModels();
-
-  models.sort(function (x, y) {
-    if (sumPoints(modelsData, x) < sumPoints(modelsData, y)) {
-      return 1;
-    }
-    if (sumPoints(modelsData, x) > sumPoints(modelsData, y)) {
-      return -1;
-    }
-    return 0;
-  });
+  if (sourceType === "drama") {
+    models.sort(function (x, y) {
+      if (sumPoints(modelsData, x) < sumPoints(modelsData, y)) {
+        return -1;
+      }
+      if (sumPoints(modelsData, x) > sumPoints(modelsData, y)) {
+        return 1;
+      }
+      return 0;
+    });
+  } else {
+    models.sort(function (x, y) {
+      if (sumPoints(modelsData, x) < sumPoints(modelsData, y)) {
+        return 1;
+      }
+      if (sumPoints(modelsData, x) > sumPoints(modelsData, y)) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 
   return models.indexOf(model) + 1;
 }

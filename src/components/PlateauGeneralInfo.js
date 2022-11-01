@@ -18,8 +18,13 @@ export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
         element["source"] === "firstPlace" ||
         element["source"] === "firstPlaceDis"
     );
+    const result = [];
     if (modelFirst.length > 0) {
-      modelFirst = modelFirst[0]["model"];
+      // modelFirst = modelFirst[0]["model"];
+      modelFirst.forEach((element) => {
+        result.push(element["model"]);
+      });
+      modelFirst = result.join(" / ");
     } else {
       modelFirst = " - ";
     }

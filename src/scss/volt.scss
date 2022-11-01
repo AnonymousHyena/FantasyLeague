@@ -92,6 +92,27 @@ table:nth-child(4) {
   height: auto;
 }
 
+/********** Large devices only **********/
+@media (min-width: 1750px) {
+  .crop {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1440px) {
+  .crop {
+    height: 400px;
+  }
+  body {
+    font-size: 0.8rem;
+  }
+  h5 {
+    font-size: 1.1rem;
+  }
+}
+
 /* Small devices (landscape phones, 544px and up) */
 @media (max-width: 544px) {
   body {
