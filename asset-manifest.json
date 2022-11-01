@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/FantasyLeague/static/css/main.5638f0f3.css",
-    "main.js": "/FantasyLeague/static/js/main.fc8cc034.js",
+    "main.css": "/FantasyLeague/static/css/main.2b00773c.css",
+    "main.js": "/FantasyLeague/static/js/main.fc6f03fa.js",
     "static/media/logo300.png": "/FantasyLeague/static/media/logo300.519c9e651879b02f1f65.png",
     "static/media/404.svg": "/FantasyLeague/static/media/404.858d58434ee5914db61db528479c340f.svg",
     "static/media/500.svg": "/FantasyLeague/static/media/500.48f01bfddd38c4ea6b621f758eb00cdc.svg",
     "static/media/react-logo-transparent.svg": "/FantasyLeague/static/media/react-logo-transparent.c39e9569d949a0a4ae9790355be6f3f3.svg",
     "index.html": "/FantasyLeague/index.html",
-    "main.5638f0f3.css.map": "/FantasyLeague/static/css/main.5638f0f3.css.map",
-    "main.fc8cc034.js.map": "/FantasyLeague/static/js/main.fc8cc034.js.map"
+    "main.2b00773c.css.map": "/FantasyLeague/static/css/main.2b00773c.css.map",
+    "main.fc6f03fa.js.map": "/FantasyLeague/static/js/main.fc6f03fa.js.map"
   },
   "entrypoints": [
-    "static/css/main.5638f0f3.css",
-    "static/js/main.fc8cc034.js"
+    "static/css/main.2b00773c.css",
+    "static/js/main.fc6f03fa.js"
   ]
 }
