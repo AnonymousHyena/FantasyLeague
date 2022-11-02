@@ -57,7 +57,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
 
     return (
       <>
-        <Col xs={12} lg={4} className="mt-2 mb-4 d-block">
+        <Col lg={4} className="mt-2 mb-4 d-none d-lg-block">
           <Card>
             <Card.Header className="border-bottom border-light">
               <h5 className="mb-0">Placement Points</h5>
@@ -68,7 +68,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
           </Card>
         </Col>
 
-        <Col xs={12} lg={4} className="mt-2 mb-4 d-block">
+        <Col lg={4} className="mt-2 mb-4 d-none d-lg-block">
           <Card>
             <Card.Header className="border-bottom border-light">
               <h5 className="mb-0">Drama Points</h5>
@@ -79,7 +79,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
           </Card>
         </Col>
 
-        <Col xs={12} lg={4} className="mt-2 mb-4 d-block">
+        <Col lg={4} className="mt-2 mb-4 d-none d-lg-block">
           <Card>
             <Card.Header className="border-bottom border-light">
               <h5 className="mb-0">Misc Points</h5>

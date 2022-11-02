@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Form, Card } from "react-bootstrap";
 import { connect } from "react-redux";
-import { CounterWidget } from "../../components/Widgets";
-import { faCalendarDay } from "@fortawesome/free-solid-svg-icons";
 import * as utils from "../../utils";
 import PlateauGeneralInfo from "../../components/PlateauGeneralInfo";
 import PlateauBreakdown from "../../components/PlateauBreakdown";
+import PlateauBreakdownCompact from "../../components/PlateauBreakdownCompact";
 
 const Plateaus = (props) => {
   const plateaus = utils.getPlateaus();
@@ -61,6 +60,10 @@ const Plateaus = (props) => {
 
           <Row>
             <PlateauBreakdown selectedPlateau={selectedPlateau} />
+          </Row>
+
+          <Row>
+            <PlateauBreakdownCompact selectedPlateau={selectedPlateau} />
           </Row>
         </>
       )}

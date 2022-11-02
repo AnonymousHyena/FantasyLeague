@@ -8,6 +8,7 @@ import TeamBreakdownCompact from "../../components/TeamBreakdownCompact";
 import SelectForm from "../../components/SelectForm";
 
 import store from "../../store";
+import TeamPointsBreakdown from "../../components/TeamPointsBreakdown";
 
 export const Teams = (props) => {
   const [selectedTeam, setSelectedTeam] = useState(props.team);
@@ -46,6 +47,10 @@ export const Teams = (props) => {
             <Col xs={12} className="mt-2 mb-4">
               <TeamBreakdownCompact selectedTeam={selectedTeam} />
             </Col>
+          </Row>
+
+          <Row className="justify-content-lg-center">
+            <TeamPointsBreakdown selectedTeam={selectedTeam} />
           </Row>
         </>
       )}
