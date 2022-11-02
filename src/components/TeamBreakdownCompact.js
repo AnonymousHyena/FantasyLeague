@@ -55,7 +55,7 @@ export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
           {name(l1[4])}
           <td className="text-right">{utils.sumPoints(t1, l1[4])}</td>
         </tr>
-        {selectedTeam === "Ουμφοσυγκλομανιφίκ" && (
+        {selectedTeam === "Γεια σου Τάσο" && (
           <>
             <tr>
               {name(l1[5])}
