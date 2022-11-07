@@ -147,16 +147,6 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
           .attr("r", 2)
           .style("fill", color("placement"));
 
-        var line = d3
-          .line()
-          .x(function (d) {
-            return xScale(d[0]);
-          })
-          .y(function (d) {
-            return yScale(d[1]);
-          })
-          .curve(d3.curveMonotoneX);
-
         svg
           .append("path")
           .datum(dataset2)
@@ -181,16 +171,6 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
           })
           .attr("r", 2)
           .style("fill", color("drama"));
-
-        var line = d3
-          .line()
-          .x(function (d) {
-            return xScale(d[0]);
-          })
-          .y(function (d) {
-            return yScale(d[1]);
-          })
-          .curve(d3.curveMonotoneX);
 
         svg
           .append("path")
@@ -217,15 +197,6 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
           .attr("r", 2)
           .style("fill", color("misc"));
 
-        var line = d3
-          .line()
-          .x(function (d) {
-            return xScale(d[0]);
-          })
-          .y(function (d) {
-            return yScale(d[1]);
-          })
-          .curve(d3.curveMonotoneX);
         svg
           .append("path")
           .datum(dataset4)

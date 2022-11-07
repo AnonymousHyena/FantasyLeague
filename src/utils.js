@@ -24,6 +24,7 @@ const points = {
   chores: 1,
   challenge: 2,
   makeover: -5,
+  positiveComment: 1,
 };
 
 export const pointsTranslateDict = {
@@ -49,6 +50,7 @@ export const pointsTranslateDict = {
   chores: "Δουλιές σπιτιού",
   challenge: "Δοκιμασία",
   makeover: "Makeover drama",
+  positiveComment: "Θετικό σχόλιο",
 };
 
 const teams = [

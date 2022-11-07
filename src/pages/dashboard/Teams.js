@@ -9,7 +9,7 @@ import SelectForm from "../../components/SelectForm";
 
 import store from "../../store";
 import TeamPointsBreakdown from "../../components/TeamPointsBreakdown";
-import TeamPointsBreakdownPie from "../../components/TeamPointsBreakdownPie";
+// import TeamPointsBreakdownPie from "../../components/TeamPointsBreakdownPie";
 import TeamPointsHistoryChart from "../../components/TeamPointsHistoryChart";
 
 export const Teams = (props) => {

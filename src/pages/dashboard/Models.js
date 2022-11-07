@@ -5,6 +5,7 @@ import SelectForm from "../../components/SelectForm";
 import * as utils from "../../utils";
 
 import store from "../../store";
+import PointsSources from "../../components/PointsSources";
 
 const Models = (props) => {
   const models = [...utils.getModels()];
@@ -236,6 +237,12 @@ const Models = (props) => {
                   </Card.Body>
                 </Card>
               </Col>
+            </Col>
+          </Row>
+
+          <Row className="justify-content-md-center">
+            <Col lg={12} xs={12} className="mt-2 mb-4 d-block">
+              <PointsSources selectedModel={selectedModel} />
             </Col>
           </Row>
         </>
