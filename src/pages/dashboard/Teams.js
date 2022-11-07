@@ -9,6 +9,8 @@ import SelectForm from "../../components/SelectForm";
 
 import store from "../../store";
 import TeamPointsBreakdown from "../../components/TeamPointsBreakdown";
+import TeamPointsBreakdownPie from "../../components/TeamPointsBreakdownPie";
+import TeamPointsHistoryChart from "../../components/TeamPointsHistoryChart";
 
 export const Teams = (props) => {
   const [selectedTeam, setSelectedTeam] = useState(props.team);
@@ -51,6 +53,16 @@ export const Teams = (props) => {
 
           <Row className="justify-content-lg-center">
             <TeamPointsBreakdown selectedTeam={selectedTeam} />
+          </Row>
+
+          <Row className="justify-content-lg-center">
+            <Col xs={12} lg={12} className="mt-2 mb-4">
+              <TeamPointsHistoryChart selectedTeam={selectedTeam} />
+            </Col>
+
+            {/* <Col xs={12} lg={4} className="mt-2 mb-4">
+              <TeamPointsBreakdownPie selectedTeam={selectedTeam} />
+            </Col> */}
           </Row>
         </>
       )}
