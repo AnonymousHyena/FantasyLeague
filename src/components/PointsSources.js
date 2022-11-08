@@ -8,6 +8,17 @@ import { useD3 } from "./UseD3";
 import * as utils from "../utils";
 
 export const PointsSources = ({ selectedModel, ...props }) => {
+  const negative = [
+    "Αδικήθηκα",
+    "Makeover drama",
+    "Τελευταία θέση",
+    "Bottom 50% με advatnage",
+    "Οικειοθελής αποχώρηση",
+    "Τραυματισμός",
+    "Κράξιμο",
+    "Διακοπή ροής της διαδικασίας",
+    "Bottom 25%",
+  ];
   const ref = useD3(
     (svg) => {
       function makeGraphic(data) {
@@ -72,7 +83,9 @@ export const PointsSources = ({ selectedModel, ...props }) => {
             .style("font-size", function (d) {
               return d.size;
             })
-            .style("fill", "#4e79a7")
+            .style("fill", function (d) {
+              return negative.includes(d.text) ? "#e15759" : "#4e79a7";
+            }) //"#4e79a7")
             .attr("text-anchor", "middle")
             .style("font-family", "Impact")
             .attr("transform", function (d) {

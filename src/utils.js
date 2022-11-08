@@ -26,6 +26,7 @@ const points = {
   challenge: 2,
   makeover: -5,
   positiveComment: 1,
+  unfair: -1,
 };
 
 export const pointsTranslateDict = {
@@ -49,10 +50,11 @@ export const pointsTranslateDict = {
   interuption: "Διακοπή ροής της διαδικασίας",
   gymnastics: "Γυμναστική",
   food: "Φαγητό",
-  chores: "Δουλιές σπιτιού",
+  chores: "Δουλειές σπιτιού",
   challenge: "Δοκιμασία",
   makeover: "Makeover drama",
   positiveComment: "Θετικό σχόλιο",
+  unfair: "Αδικήθηκα",
 };
 
 const teams = [
@@ -121,7 +123,7 @@ export const modelStarNames = {
   Κότυ: "koti_gougousi_camacho-1920x1004",
   Γιέβα: "gieva_mpontarenko-1920x1004",
   Ντορέλα:
-    "%CE%BD%CF%84%CE%BF%CF%81%CE%B5%CE%BB%CE%B1_%CE%B3%CE%BA%CE%B5%CE%BA%CE%B1-1930x1004",
+    "%CE%BD%CF%84%CE%BF%CF%81%CE%B5%CE%BB%CE%B1_%CE%B3%CE%BA%CE%B5%CE%BA%CE%B1-1930x1004-b_w",
   Ραφαέλα:
     "%CF%81%CE%B1%CF%86%CE%B1%CE%B5%CE%BB%CE%B1_%CF%87%CE%B1%CF%81%CE%B1%CE%BB%CE%B1%CE%BC%CF%80%CE%BF%CF%85%CF%82-1920x1004",
   Ειρήνη:

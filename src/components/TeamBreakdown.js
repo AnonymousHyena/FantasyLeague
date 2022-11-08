@@ -11,15 +11,24 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
   const l1 = Object.keys(t1);
 
   const t2 = utils.groupByProperty(team, "plateau");
-  const l2 = Object.keys(t2);
+  const plateauKeys = Object.keys(t2);
 
   const cells = function (t, l2, l1) {
     return (
       <>
         <td className="">{utils.translatePlateaus(l2)}</td>
         <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1) | 0}
+          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1)}
         </td>
+      </>
+    );
+  };
+
+  const emptyCells = function () {
+    return (
+      <>
+        <td className=""></td>
+        <td className="text-right"></td>
       </>
     );
   };
@@ -51,7 +60,20 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
     const result = [];
 
     l1.forEach((element) => {
-      result.push(cells(t, l2, element));
+      let isIn = true;
+      for (let i = 0; i < plateauKeys.length; i++) {
+        if (plateauKeys[i] === l2) {
+          break;
+        }
+        if (!utils.isInGame(t[plateauKeys[i]], element)) {
+          isIn = false;
+        }
+      }
+      if (isIn) {
+        result.push(cells(t, l2, element));
+      } else {
+        result.push(emptyCells());
+      }
     });
 
     return <tr>{result}</tr>;
@@ -62,7 +84,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
 
     l2.forEach((element, i) => {
       if (i !== 0) {
-        result.push(line(t2, element));
+        result.push(line(t, element));
       }
     });
 
@@ -75,12 +97,12 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
         <h5 className="mb-0">Μέλη Ομάδας "{selectedTeam}"</h5>
       </Card.Header>
       <Card.Body>
-        <table className="mx-auto border w-75">
+        <table className="mx-auto border w-100">
           <thead>
             <tr>{resCellsHeaders}</tr>
             <tr>{resCellsSubHeaders}</tr>
           </thead>
-          <tbody>{makeTable(t2, l2)}</tbody>
+          <tbody>{makeTable(t2, plateauKeys)}</tbody>
         </table>
       </Card.Body>
     </Card>

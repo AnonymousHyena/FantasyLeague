@@ -45,8 +45,14 @@ const Models = (props) => {
     const data = utils.groupByProperty(props.data, "plateau");
     let i = 0;
     while (i < plateaus.length) {
-      if (!utils.isInGame(data["plateau" + (i + 1)], model)) {
-        return "plateau" + (i + 1);
+      if (i < 10) {
+        if (!utils.isInGame(data["plateau0" + (i + 1)], model)) {
+          return "plateau0" + (i + 1);
+        }
+      } else {
+        if (!utils.isInGame(data["plateau" + (i + 1)], model)) {
+          return "plateau" + (i + 1);
+        }
       }
       i++;
     }
