@@ -40,13 +40,13 @@ export const Teams = (props) => {
       {selectedTeam !== "" && (
         <>
           <Row className="justify-content-lg-center d-none d-lg-block">
-            <Col xs={12} className="mt-2 mb-4">
+            <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
               <TeamBreakdown selectedTeam={selectedTeam} />
             </Col>
           </Row>
 
           <Row className="justify-content-lg-center d-block d-lg-none">
-            <Col xs={12} className="mt-2 mb-4">
+            <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
               <TeamBreakdownCompact selectedTeam={selectedTeam} />
             </Col>
           </Row>

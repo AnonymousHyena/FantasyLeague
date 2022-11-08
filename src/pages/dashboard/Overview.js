@@ -12,19 +12,19 @@ const Overview = (props) => {
   return (
     <>
       <Row className="justify-content-md-center">
-        <Col xs={12} className="mt-2 mb-4 d-block d-sm-block">
+        <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block d-sm-block">
           <TeamRankings />
         </Col>
       </Row>
 
       <Row className="justify-content-lg-center d-none d-lg-block">
-        <Col xs={12} className="mt-2 mb-4">
+        <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
           <AllTeamPoints />
         </Col>
       </Row>
 
       <Row className="justify-content-lg-center d-block d-lg-none">
-        <Col xs={12} className="mt-2 mb-4">
+        <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
           <AllTeamPointsCompact />
         </Col>
       </Row>

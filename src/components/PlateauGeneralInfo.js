@@ -56,7 +56,7 @@ export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
 
     return (
       <>
-        <Col xs={12} lg={4} className="mt-2 mb-4 d-block">
+        <Col xs={12} lg={4} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
           <CounterWidget
             category="Πρώτη Θέση"
             title={modelFirst}
@@ -64,7 +64,7 @@ export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
             iconColor="shape-secondary"
           />
         </Col>
-        <Col xs={12} lg={4} className="mt-2 mb-4 d-block">
+        <Col xs={12} lg={4} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
           <CounterWidget
             category="Περισσότεροι Πόντοι"
             title={modelMostPoints}
@@ -72,7 +72,7 @@ export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
             iconColor="shape-secondary"
           />
         </Col>
-        <Col xs={12} lg={4} className="mt-2 mb-4 d-block">
+        <Col xs={12} lg={4} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
           <CounterWidget
             category="Αποχώρηση"
             title={modelLeave}

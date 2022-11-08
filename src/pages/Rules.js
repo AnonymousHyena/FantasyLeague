@@ -24,6 +24,10 @@ const Rules = (props) => {
                       <tbody>
                         <tr>
                           <th className="blue-bg">Last Place</th>
+                          <td>-3</td>
+                        </tr>
+                        <tr>
+                          <th className="blue-bg">Bottom 25%</th>
                           <td>-1</td>
                         </tr>
                         <tr>
@@ -56,7 +60,7 @@ const Rules = (props) => {
                         </tr>
                         <tr>
                           <th className="blue-bg">Last place w/ advantage </th>
-                          <td>-3</td>
+                          <td>-5</td>
                         </tr>
                         <tr>
                           <th className="blue-bg">Top 50% w/ disadvantage</th>
@@ -115,7 +119,7 @@ const Rules = (props) => {
                         </tr>
                         <tr>
                           <th className="blue-bg">
-                            Complain about clothes / make-up{" "}
+                            Complain about clothes / make-up
                           </th>
                           <td>-2</td>
                         </tr>

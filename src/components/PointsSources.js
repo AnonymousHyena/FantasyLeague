@@ -23,7 +23,6 @@ export const PointsSources = ({ selectedModel, ...props }) => {
           .append("g")
           .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        let dates = [];
         let counter = {};
 
         data.forEach((line) => {
@@ -77,6 +76,7 @@ export const PointsSources = ({ selectedModel, ...props }) => {
             .attr("text-anchor", "middle")
             .style("font-family", "Impact")
             .attr("transform", function (d) {
+              // return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
             .text(function (d) {

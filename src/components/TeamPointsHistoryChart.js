@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as d3 from "d3";
@@ -7,6 +7,17 @@ import { useD3 } from "./UseD3";
 import * as utils from "../utils";
 
 export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
+  const [isCummulative, setIsCummulative] = useState(false);
+
+  const [activeOptions, setActiveOptions] = useState([true, true, true, true]);
+
+  //
+  var toggleCummulative = (function () {
+    return function () {
+      setIsCummulative(!isCummulative);
+    };
+  })();
+
   const ref = useD3(
     (svg) => {
       function TeamPointsHistory(data) {
@@ -47,11 +58,23 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
           ]);
         });
 
+        if (isCummulative) {
+          Object.keys(groupedData).forEach((plateau, i) => {
+            if (i === 0) {
+            } else {
+              dataset1[i] = [i + 1, dataset1[i - 1][1] + dataset1[i][1]];
+              dataset2[i] = [i + 1, dataset2[i - 1][1] + dataset2[i][1]];
+              dataset3[i] = [i + 1, dataset3[i - 1][1] + dataset3[i][1]];
+              dataset4[i] = [i + 1, dataset4[i - 1][1] + dataset4[i][1]];
+            }
+          });
+        }
+
         svg.selectAll("*").remove();
         // set the dimensions and margins of the graph
         var margin = 60,
           width = 600,
-          height = 200;
+          height = 250;
 
         // append the svg object to the body of the page
         var g = svg
@@ -69,6 +92,10 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
             .domain([1, Object.keys(groupedData).length])
             .range([0, width]),
           yScale = d3.scaleLinear().domain([-10, 25]).range([height, 0]);
+
+        if (isCummulative) {
+          yScale = d3.scaleLinear().domain([-15, 80]).range([height, 0]);
+        }
 
         // X label
         svg
@@ -97,21 +124,6 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
 
         svg.append("g").call(d3.axisLeft(yScale));
 
-        svg
-          .append("g")
-          .selectAll("dot")
-          .data(dataset1)
-          .enter()
-          .append("circle")
-          .attr("cx", function (d) {
-            return xScale(d[0]);
-          })
-          .attr("cy", function (d) {
-            return yScale(d[1]);
-          })
-          .attr("r", 2)
-          .style("fill", "#oo0000");
-
         var line = d3
           .line()
           .x(function (d) {
@@ -121,145 +133,234 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
             return yScale(d[1]);
           })
           .curve(d3.curveMonotoneX);
+        //
+        if (activeOptions[0]) {
+          svg
+            .append("g")
+            .selectAll("dot")
+            .data(dataset1)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+              return xScale(d[0]);
+            })
+            .attr("cy", function (d) {
+              return yScale(d[1]);
+            })
+            .attr("r", 2)
+            .style("fill", "#oo0000");
 
-        svg
-          .append("path")
-          .datum(dataset1)
-          .attr("class", "line")
-          .attr("d", line)
-          .style("fill", "none")
-          .style("stroke", "#000000")
-          .style("stroke-width", "2");
-
+          svg
+            .append("path")
+            .datum(dataset1)
+            .attr("class", "line")
+            .attr("d", line)
+            .style("fill", "none")
+            .style("stroke", "#000000")
+            .style("stroke-width", "2");
+        }
         //dataset2
-        svg
-          .append("g")
-          .selectAll("dot")
-          .data(dataset2)
-          .enter()
-          .append("circle")
-          .attr("cx", function (d) {
-            return xScale(d[0]);
-          })
-          .attr("cy", function (d) {
-            return yScale(d[1]);
-          })
-          .attr("r", 2)
-          .style("fill", color("placement"));
+        if (activeOptions[1]) {
+          svg
+            .append("g")
+            .selectAll("dot")
+            .data(dataset2)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+              return xScale(d[0]);
+            })
+            .attr("cy", function (d) {
+              return yScale(d[1]);
+            })
+            .attr("r", 2)
+            .style("fill", color("placement"));
 
-        svg
-          .append("path")
-          .datum(dataset2)
-          .attr("class", "line")
-          .attr("d", line)
-          .style("fill", "none")
-          .style("stroke", color("placement"))
-          .style("stroke-width", "2");
+          svg
+            .append("path")
+            .datum(dataset2)
+            .attr("class", "line")
+            .attr("d", line)
+            .style("fill", "none")
+            .style("stroke", color("placement"))
+            .style("stroke-width", "2");
+        }
+        if (activeOptions[2]) {
+          //dataset3
+          svg
+            .append("g")
+            .selectAll("dot")
+            .data(dataset3)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+              return xScale(d[0]);
+            })
+            .attr("cy", function (d) {
+              return yScale(d[1]);
+            })
+            .attr("r", 2)
+            .style("fill", color("drama"));
 
-        //dataset3
-        svg
-          .append("g")
-          .selectAll("dot")
-          .data(dataset3)
-          .enter()
-          .append("circle")
-          .attr("cx", function (d) {
-            return xScale(d[0]);
-          })
-          .attr("cy", function (d) {
-            return yScale(d[1]);
-          })
-          .attr("r", 2)
-          .style("fill", color("drama"));
+          svg
+            .append("path")
+            .datum(dataset3)
+            .attr("class", "line")
+            .attr("d", line)
+            .style("fill", "none")
+            .style("stroke", color("drama"))
+            .style("stroke-width", "2");
+        }
+        if (activeOptions[3]) {
+          //dataset4
+          svg
+            .append("g")
+            .selectAll("dot")
+            .data(dataset4)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+              return xScale(d[0]);
+            })
+            .attr("cy", function (d) {
+              return yScale(d[1]);
+            })
+            .attr("r", 2)
+            .style("fill", color("misc"));
 
-        svg
-          .append("path")
-          .datum(dataset3)
-          .attr("class", "line")
-          .attr("d", line)
-          .style("fill", "none")
-          .style("stroke", color("drama"))
-          .style("stroke-width", "2");
-
-        //dataset4
-        svg
-          .append("g")
-          .selectAll("dot")
-          .data(dataset4)
-          .enter()
-          .append("circle")
-          .attr("cx", function (d) {
-            return xScale(d[0]);
-          })
-          .attr("cy", function (d) {
-            return yScale(d[1]);
-          })
-          .attr("r", 2)
-          .style("fill", color("misc"));
-
-        svg
-          .append("path")
-          .datum(dataset4)
-          .attr("class", "line")
-          .attr("d", line)
-          .style("fill", "none")
-          .style("stroke", color("misc"))
-          .style("stroke-width", "2");
-
+          svg
+            .append("path")
+            .datum(dataset4)
+            .attr("class", "line")
+            .attr("d", line)
+            .style("fill", "none")
+            .style("stroke", color("misc"))
+            .style("stroke-width", "2");
+        }
         //legend
         svg
           .append("circle")
-          .attr("cx", 525)
-          .attr("cy", 0)
-          .attr("r", 5)
-          .style("fill", "#000");
+          .attr("cx", 15)
+          .attr("cy", 14)
+          .attr("r", 4)
+          .style("fill", function () {
+            return activeOptions[0] ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
+          });
         svg
           .append("circle")
-          .attr("cx", 525)
-          .attr("cy", 20)
-          .attr("r", 5)
-          .style("fill", color("placement"));
+          .attr("cx", 55)
+          .attr("cy", 14)
+          .attr("r", 4)
+          .style("fill", function () {
+            return activeOptions[1] ? color("placement") : "rgba(4,4,4,.5)";
+          });
         svg
           .append("circle")
-          .attr("cx", 525)
-          .attr("cy", 40)
-          .attr("r", 5)
-          .style("fill", color("drama"));
+          .attr("cx", 120)
+          .attr("cy", 14)
+          .attr("r", 4)
+          .style("fill", function () {
+            return activeOptions[2] ? color("drama") : "rgba(4,4,4,.5)";
+          });
         svg
           .append("circle")
-          .attr("cx", 525)
-          .attr("cy", 60)
-          .attr("r", 5)
-          .style("fill", color("misc"));
+          .attr("cx", 165)
+          .attr("cy", 14)
+          .attr("r", 4)
+          .style("fill", function () {
+            return activeOptions[3] ? color("misc") : "rgba(4,4,4,.5)";
+          });
 
         svg
           .append("text")
-          .attr("x", 540)
-          .attr("y", 0)
+          .attr("x", 20)
+          .attr("y", 15)
           .text("Total")
-          .style("font-size", "12px")
-          .attr("alignment-baseline", "middle");
+          .style("font-size", "10px")
+          .style("cursor", "pointer")
+          .style("fill", function () {
+            return activeOptions[0] ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
+          })
+          .attr("alignment-baseline", "middle")
+          .on("click", function () {
+            setActiveOptions([
+              !activeOptions[0],
+              activeOptions[1],
+              activeOptions[2],
+              activeOptions[3],
+            ]);
+          });
         svg
           .append("text")
-          .attr("x", 540)
-          .attr("y", 20)
+          .attr("x", 60)
+          .attr("y", 15)
           .text("Placement")
-          .style("font-size", "12px")
-          .attr("alignment-baseline", "middle");
+          .style("font-size", "10px")
+          .style("cursor", "pointer")
+          .style("fill", function () {
+            return activeOptions[1] ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
+          })
+          .attr("alignment-baseline", "middle")
+          .on("click", function () {
+            setActiveOptions([
+              activeOptions[0],
+              !activeOptions[1],
+              activeOptions[2],
+              activeOptions[3],
+            ]);
+          });
         svg
           .append("text")
-          .attr("x", 540)
-          .attr("y", 40)
+          .attr("x", 125)
+          .attr("y", 15)
           .text("Drama")
-          .style("font-size", "12px")
-          .attr("alignment-baseline", "middle");
+          .style("font-size", "10px")
+          .style("cursor", "pointer")
+          .style("fill", function () {
+            return activeOptions[2] ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
+          })
+          .attr("alignment-baseline", "middle")
+          .on("click", function () {
+            setActiveOptions([
+              activeOptions[0],
+              activeOptions[1],
+              !activeOptions[2],
+              activeOptions[3],
+            ]);
+          });
         svg
           .append("text")
-          .attr("x", 540)
-          .attr("y", 60)
+          .attr("x", 170)
+          .attr("y", 15)
           .text("Misc")
-          .style("font-size", "12px")
-          .attr("alignment-baseline", "middle");
+          .style("font-size", "10px")
+          .style("cursor", "pointer")
+          .style("fill", function () {
+            return activeOptions[3] ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
+          })
+          .attr("alignment-baseline", "middle")
+          .on("click", function () {
+            setActiveOptions([
+              activeOptions[0],
+              activeOptions[1],
+              activeOptions[2],
+              !activeOptions[3],
+            ]);
+          });
+
+        svg
+          .append("text")
+          .attr("x", 13)
+          .attr("y", 0)
+          .text("Συγκεντρωτικά")
+          .style("font-size", "10px")
+          .style("font-size", "10px")
+          .style("cursor", "pointer")
+          .style("fill", function () {
+            return isCummulative ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
+          })
+          .attr("alignment-baseline", "middle")
+          .on("click", toggleCummulative);
       }
 
       TeamPointsHistory(
@@ -268,7 +369,7 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
         )
       );
     },
-    [props.data.length, selectedTeam]
+    [props.data.length, selectedTeam, isCummulative, activeOptions]
   );
 
   return (

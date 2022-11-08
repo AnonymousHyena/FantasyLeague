@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 export const SelectForm = ({ options, setter, def, title, ...props }) => {
   return (
     <Row className="justify-content-center d-block">
-      <Col xs={12} className="mt-2 mb-4">
+      <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
         <Card xs={12}>
           <Card.Header className="border-bottom border-light">
             <h5 className="mb-0">{title}</h5>
