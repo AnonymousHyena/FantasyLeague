@@ -166,15 +166,15 @@ export default (props = {}) => {
                 icon={faUser}
               />
               <NavItem
-                title="Πλατό"
-                link={AppRoutes.Plateaus.path}
+                title="Επεισόδια"
+                link={AppRoutes.Episodes.path}
                 icon={faRankingStar}
               />
 
               <Dropdown.Divider className="my-3 border-indigo" />
 
               <NavItem
-                title="Rules"
+                title="Κανόνες"
                 link={AppRoutes.Rules.path}
                 icon={faScaleBalanced}
               />

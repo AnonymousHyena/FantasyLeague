@@ -35,28 +35,28 @@ const Models = (props) => {
     return utils.sumPoints(modelsData, model);
   };
 
-  const infoForModelByPlateau = (model, plateau, sourceType = "all") => {
-    const plateauData = utils.groupByProperty(props.data, "plateau")[plateau];
-    return infoForModel(model, sourceType, plateauData);
+  const infoForModelByEpisode = (model, episode, sourceType = "all") => {
+    const episodeData = utils.groupByProperty(props.data, "episode")[episode];
+    return infoForModel(model, sourceType, episodeData);
   };
 
-  const getFinalPlateau = (model) => {
-    const plateaus = utils.getPlateaus();
-    const data = utils.groupByProperty(props.data, "plateau");
+  const getFinalEpisode = (model) => {
+    const episodes = utils.getEpisodes();
+    const data = utils.groupByProperty(props.data, "episode");
     let i = 0;
-    while (i < plateaus.length) {
+    while (i < episodes.length) {
       if (i < 10) {
-        if (!utils.isInGame(data["plateau0" + (i + 1)], model)) {
-          return "plateau0" + (i + 1);
+        if (!utils.isInGame(data["episode0" + (i + 1)], model)) {
+          return "episode0" + (i + 1);
         }
       } else {
-        if (!utils.isInGame(data["plateau" + (i + 1)], model)) {
-          return "plateau" + (i + 1);
+        if (!utils.isInGame(data["episode" + (i + 1)], model)) {
+          return "episode" + (i + 1);
         }
       }
       i++;
     }
-    return "plateau" + i;
+    return "episode" + i;
   };
 
   const dataByType = utils.groupByProperty(props.data, "sourceType");
@@ -193,7 +193,7 @@ const Models = (props) => {
                 <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">
-                      {utils.translatePlateaus(getFinalPlateau(selectedModel))}
+                      {utils.translateEpisodes(getFinalEpisode(selectedModel))}
                     </h5>
                   </Card.Header>
                   <Card.Body>
@@ -202,18 +202,18 @@ const Models = (props) => {
                         <tr>
                           <th className="w-75">Total Points</th>
                           <td className="text-right">
-                            {infoForModelByPlateau(
+                            {infoForModelByEpisode(
                               selectedModel,
-                              getFinalPlateau(selectedModel)
+                              getFinalEpisode(selectedModel)
                             )}
                           </td>
                         </tr>
                         <tr>
                           <th className="w-75">Placement Points</th>
                           <td className="text-right">
-                            {infoForModelByPlateau(
+                            {infoForModelByEpisode(
                               selectedModel,
-                              getFinalPlateau(selectedModel),
+                              getFinalEpisode(selectedModel),
                               "placement"
                             )}
                           </td>
@@ -221,9 +221,9 @@ const Models = (props) => {
                         <tr>
                           <th className="w-75">Drama Points</th>
                           <td className="text-right">
-                            {infoForModelByPlateau(
+                            {infoForModelByEpisode(
                               selectedModel,
-                              getFinalPlateau(selectedModel),
+                              getFinalEpisode(selectedModel),
                               "drama"
                             )}
                           </td>
@@ -231,9 +231,9 @@ const Models = (props) => {
                         <tr>
                           <th className="w-75">Misc Points</th>
                           <td className="text-right">
-                            {infoForModelByPlateau(
+                            {infoForModelByEpisode(
                               selectedModel,
-                              getFinalPlateau(selectedModel),
+                              getFinalEpisode(selectedModel),
                               "misc"
                             )}
                           </td>

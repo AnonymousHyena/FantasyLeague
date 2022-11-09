@@ -4,7 +4,7 @@ export const AppRoutes = {
   Models: { path: "/models" },
   Teams: { path: "/teams" },
   Rules: { path: "/rules" },
-  Plateaus: { path: "/plateaus" },
+  Episodes: { path: "/episodes" },
   NotFound: { path: "/examples/404" },
   ServerError: { path: "/examples/500" },
 };

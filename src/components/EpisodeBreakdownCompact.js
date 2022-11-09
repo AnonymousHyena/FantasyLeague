@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as utils from "../utils";
 
-export const PlateauBreakdownCompact = ({ selectedPlateau, ...props }) => {
+export const EpisodeBreakdownCompact = ({ selectedEpisode, ...props }) => {
   if (props.data[0]) {
     const tableLine = (model, points) => {
       return (
@@ -31,7 +31,7 @@ export const PlateauBreakdownCompact = ({ selectedPlateau, ...props }) => {
     };
 
     const groupedData = utils.groupByProperty(
-      utils.groupByProperty(props.data, "plateau")[selectedPlateau],
+      utils.groupByProperty(props.data, "episode")[selectedEpisode],
       "model"
     );
 
@@ -78,4 +78,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(PlateauBreakdownCompact);
+export default connect(mapStateToProps)(EpisodeBreakdownCompact);

@@ -9,11 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import * as utils from "../utils";
 
-export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
+export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
   if (props.data[0]) {
-    const groupedData = utils.groupByProperty(props.data, "plateau");
+    const groupedData = utils.groupByProperty(props.data, "episode");
 
-    let modelFirst = groupedData[selectedPlateau].filter(
+    let modelFirst = groupedData[selectedEpisode].filter(
       (element) =>
         element["source"] === "firstPlace" ||
         element["source"] === "firstPlaceDis"
@@ -30,7 +30,7 @@ export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
     }
 
     const groupedDataModel = utils.groupByProperty(
-      groupedData[selectedPlateau],
+      groupedData[selectedEpisode],
       "model"
     );
     const models = Object.keys(groupedDataModel);
@@ -46,7 +46,7 @@ export const PlateauGeneralInfo = ({ selectedPlateau, ...props }) => {
 
     let modelLeave = Object.keys(
       utils.groupByProperty(
-        groupedData[selectedPlateau].filter(
+        groupedData[selectedEpisode].filter(
           (element) =>
             element["source"] === "quit" || element["source"] === "lastPlace"
         ),
@@ -91,4 +91,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(PlateauGeneralInfo);
+export default connect(mapStateToProps)(EpisodeGeneralInfo);

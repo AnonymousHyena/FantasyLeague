@@ -31,35 +31,35 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
         var dataset3 = [];
         var dataset4 = [];
 
-        const groupedData = utils.groupByProperty(data, "plateau");
+        const groupedData = utils.groupByProperty(data, "episode");
 
-        Object.keys(groupedData).forEach((plateau, i) => {
-          dataset1.push([i + 1, utils.sumPoints(groupedData, plateau)]);
+        Object.keys(groupedData).forEach((episode, i) => {
+          dataset1.push([i + 1, utils.sumPoints(groupedData, episode)]);
           dataset2.push([
             i + 1,
             utils.sumPoints(
-              utils.groupByProperty(groupedData[plateau], "sourceType"),
+              utils.groupByProperty(groupedData[episode], "sourceType"),
               "placement"
             ),
           ]);
           dataset3.push([
             i + 1,
             utils.sumPoints(
-              utils.groupByProperty(groupedData[plateau], "sourceType"),
+              utils.groupByProperty(groupedData[episode], "sourceType"),
               "drama"
             ),
           ]);
           dataset4.push([
             i + 1,
             utils.sumPoints(
-              utils.groupByProperty(groupedData[plateau], "sourceType"),
+              utils.groupByProperty(groupedData[episode], "sourceType"),
               "misc"
             ),
           ]);
         });
 
         if (isCummulative) {
-          Object.keys(groupedData).forEach((plateau, i) => {
+          Object.keys(groupedData).forEach((episode, i) => {
             if (i === 0) {
             } else {
               dataset1[i] = [i + 1, dataset1[i - 1][1] + dataset1[i][1]];
@@ -105,7 +105,7 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
           .attr("text-anchor", "middle")
           .style("font-family", "Helvetica")
           .style("font-size", 12)
-          .text("Πλατό");
+          .text("Επεισόδιο");
 
         // Y label
         svg
@@ -375,7 +375,7 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πόντοι ανά Πλατό</h5>
+        <h5 className="mb-0">Πόντοι ανά Επεισόδιο</h5>
       </Card.Header>
       <Card.Body>
         <svg ref={ref}></svg>

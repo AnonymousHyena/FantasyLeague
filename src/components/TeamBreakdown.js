@@ -10,13 +10,13 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
   const t1 = utils.groupByProperty(team, "model");
   const l1 = Object.keys(t1);
 
-  const t2 = utils.groupByProperty(team, "plateau");
-  const plateauKeys = Object.keys(t2);
+  const t2 = utils.groupByProperty(team, "episode");
+  const episodeKeys = Object.keys(t2);
 
   const cells = function (t, l2, l1) {
     return (
       <>
-        <td className="">{utils.translatePlateaus(l2)}</td>
+        <td className="">{utils.translateEpisodes(l2)}</td>
         <td className="text-right">
           {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1)}
         </td>
@@ -61,11 +61,11 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
 
     l1.forEach((element) => {
       let isIn = true;
-      for (let i = 0; i < plateauKeys.length; i++) {
-        if (plateauKeys[i] === l2) {
+      for (let i = 0; i < episodeKeys.length; i++) {
+        if (episodeKeys[i] === l2) {
           break;
         }
-        if (!utils.isInGame(t[plateauKeys[i]], element)) {
+        if (!utils.isInGame(t[episodeKeys[i]], element)) {
           isIn = false;
         }
       }
@@ -102,7 +102,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
             <tr>{resCellsHeaders}</tr>
             <tr>{resCellsSubHeaders}</tr>
           </thead>
-          <tbody>{makeTable(t2, plateauKeys)}</tbody>
+          <tbody>{makeTable(t2, episodeKeys)}</tbody>
         </table>
       </Card.Body>
     </Card>

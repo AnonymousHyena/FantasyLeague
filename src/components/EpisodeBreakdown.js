@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as utils from "../utils";
 
-export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
+export const EpisodeBreakdown = ({ selectedEpisode, ...props }) => {
   if (props.data[0]) {
     const tableLine = (model, reason, points) => {
       return (
@@ -40,7 +40,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
     };
 
     const groupedData = utils.groupByProperty(
-      utils.groupByProperty(props.data, "plateau")[selectedPlateau],
+      utils.groupByProperty(props.data, "episode")[selectedEpisode],
       "sourceType"
     );
 
@@ -62,7 +62,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
             <Card.Header className="border-bottom border-light">
               <h5 className="mb-0">Placement Points</h5>
             </Card.Header>
-            <Card.Body className="text-center plateau-breakdown">
+            <Card.Body className="text-center episode-breakdown">
               {makeTable("placement")}
             </Card.Body>
           </Card>
@@ -73,7 +73,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
             <Card.Header className="border-bottom border-light">
               <h5 className="mb-0">Drama Points</h5>
             </Card.Header>
-            <Card.Body className="text-center plateau-breakdown">
+            <Card.Body className="text-center episode-breakdown">
               {makeTable("drama")}
             </Card.Body>
           </Card>
@@ -84,7 +84,7 @@ export const PlateauBreakdown = ({ selectedPlateau, ...props }) => {
             <Card.Header className="border-bottom border-light">
               <h5 className="mb-0">Misc Points</h5>
             </Card.Header>
-            <Card.Body className="text-center plateau-breakdown">
+            <Card.Body className="text-center episode-breakdown">
               {makeTable("misc")}
             </Card.Body>
           </Card>
@@ -100,4 +100,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(PlateauBreakdown);
+export default connect(mapStateToProps)(EpisodeBreakdown);

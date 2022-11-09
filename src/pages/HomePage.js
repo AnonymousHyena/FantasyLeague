@@ -6,7 +6,7 @@ import { AppRoutes } from "../routes";
 import Overview from "./dashboard/Overview";
 import Teams from "./dashboard/Teams";
 import Models from "./dashboard/Models";
-import Plateaus from "./dashboard/Plateaus";
+import Episodes from "./dashboard/Episodes";
 
 import Rules from "./Rules";
 
@@ -102,8 +102,8 @@ export default () => (
 
     <Route
       exact
-      path={AppRoutes.Plateaus.path}
-      element={<RouteWithSidebar component={Plateaus} />}
+      path={AppRoutes.Episodes.path}
+      element={<RouteWithSidebar component={Episodes} />}
     />
 
     <Route path="*" element={<RouteWithLoader component={NotFoundPage} />} />

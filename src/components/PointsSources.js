@@ -55,8 +55,11 @@ export const PointsSources = ({ selectedModel, ...props }) => {
           )
           .padding(5) //space between words
           .rotate(function () {
-            return ~~(Math.random() * 2) * 90;
+            return 0;
           })
+          // .rotate(function () {
+          //   return ~~(Math.random() * 2) * 90;
+          // })
           .fontSize(function (d) {
             return d.size;
           }) // font size of words
@@ -89,7 +92,6 @@ export const PointsSources = ({ selectedModel, ...props }) => {
             .attr("text-anchor", "middle")
             .style("font-family", "Impact")
             .attr("transform", function (d) {
-              // return "translate(" + [d.x, d.y] + ")rotate(" + 0 + ")";
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
             .text(function (d) {

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Col, Row, Form, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as utils from "../../utils";
-import PlateauGeneralInfo from "../../components/PlateauGeneralInfo";
-import PlateauBreakdown from "../../components/PlateauBreakdown";
-import PlateauBreakdownCompact from "../../components/PlateauBreakdownCompact";
+import EpisodeGeneralInfo from "../../components/EpisodeGeneralInfo";
+import EpisodeBreakdown from "../../components/EpisodeBreakdown";
+import EpisodeBreakdownCompact from "../../components/EpisodeBreakdownCompact";
 
-const Plateaus = (props) => {
-  const plateaus = utils.getPlateaus();
-  const [selectedPlateau, setSelectedPlateau] = useState(
-    plateaus[plateaus.length - 1]
+const Episodes = (props) => {
+  const episodes = utils.getEpisodes();
+  const [selectedEpisode, setSelectedEpisode] = useState(
+    episodes[episodes.length - 1]
   );
 
   return (
@@ -18,7 +18,7 @@ const Plateaus = (props) => {
         <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
           <Card>
             <Card.Header className="border-bottom border-light">
-              <h5 className="mb-0">Επιλογή Πλατό</h5>
+              <h5 className="mb-0">Επιλογή Επεισοδίου</h5>
             </Card.Header>
             <Card.Body>
               <Row>
@@ -27,19 +27,19 @@ const Plateaus = (props) => {
                     <Form.Group>
                       <Form.Select
                         onChange={(event) =>
-                          setSelectedPlateau(event.target.value)
+                          setSelectedEpisode(event.target.value)
                         }
                       >
-                        {plateaus &&
-                          plateaus
+                        {episodes &&
+                          episodes
                             .sort()
                             .reverse()
-                            .map((plateau) => (
+                            .map((episode) => (
                               <option
-                                key={utils.translatePlateaus(plateau)}
-                                value={plateau}
+                                key={utils.translateEpisodes(episode)}
+                                value={episode}
                               >
-                                {utils.translatePlateaus(plateau)}
+                                {utils.translateEpisodes(episode)}
                               </option>
                             ))}
                       </Form.Select>
@@ -52,18 +52,18 @@ const Plateaus = (props) => {
         </Col>
       </Row>
 
-      {selectedPlateau !== "" && (
+      {selectedEpisode !== "" && (
         <>
           <Row className="justify-content-md-center">
-            <PlateauGeneralInfo selectedPlateau={selectedPlateau} />
+            <EpisodeGeneralInfo selectedEpisode={selectedEpisode} />
           </Row>
 
           <Row>
-            <PlateauBreakdown selectedPlateau={selectedPlateau} />
+            <EpisodeBreakdown selectedEpisode={selectedEpisode} />
           </Row>
 
           <Row>
-            <PlateauBreakdownCompact selectedPlateau={selectedPlateau} />
+            <EpisodeBreakdownCompact selectedEpisode={selectedEpisode} />
           </Row>
         </>
       )}
@@ -77,4 +77,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(Plateaus);
+export default connect(mapStateToProps)(Episodes);
