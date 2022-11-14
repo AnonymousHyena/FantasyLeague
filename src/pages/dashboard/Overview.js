@@ -7,6 +7,7 @@ import AllTeamPoints from "../../components/AllTeamPoints";
 import AllTeamPointsCompact from "../../components/AllTeamPointsCompact";
 import ModelRankings from "../../components/ModelRankings";
 import ModelRankingsCompact from "../../components/ModelRankingsCompact";
+import TeamsProgress from "../../components/TeamsProgress";
 
 const Overview = (props) => {
   return (
@@ -20,6 +21,12 @@ const Overview = (props) => {
       <Row className="justify-content-lg-center d-none d-lg-block">
         <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
           <AllTeamPoints />
+        </Col>
+      </Row>
+
+      <Row className="justify-content-lg-center d-block">
+        <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
+          <TeamsProgress />
         </Col>
       </Row>
 
