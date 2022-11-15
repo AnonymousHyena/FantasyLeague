@@ -158,7 +158,9 @@
     "challenge": { "points": 2, "fullName": "Δοκιμασία" },
     "makeover": { "points": -5, "fullName": "Makeover drama" },
     "positiveComment": { "points": 1, "fullName": "Θετικό σχόλιο" },
-    "unfair": { "points": -1, "fullName": "'Αδικήθηκα'" }
+    "unfair": { "points": -1, "fullName": "'Αδικήθηκα'" },
+    "startArgument": { "points": -2, "fullName": "Εκκίνηση διαμάχης" },
+    "argument": { "points": -1, "fullName": "Συμμετοχή σε διαμάχη" }
   },
   "episodes": {
     "episode01": {
@@ -480,7 +482,9 @@
       },
       "drama": {
         "badmouthing": ["Ειρήνη", "Βικτώρια"],
-        "interuption": ["Βικτώρια", "Αλεξία Τ."]
+        "interuption": ["Βικτώρια", "Αλεξία Τ."],
+        "startArgument": ["Βικτώρια"],
+        "argument": ["Αλεξία Τ.", "Ειρήνη", "Ραφαέλα"]
       },
       "misc": {
         "food": [
@@ -508,7 +512,8 @@
           "Ειρήνη",
           "Γεωργιάννα",
           "Μαρίτα"
-        ]
+        ],
+        "chores": ["Γρηγοριάνα"]
       }
     }
   }
