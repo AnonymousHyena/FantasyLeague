@@ -38,7 +38,7 @@ export const PointsSources = ({ selectedModel, ...props }) => {
 
         data.forEach((line) => {
           counter[utils.pointsTranslateDict[line.source]] =
-            (counter[utils.pointsTranslateDict[line.source]] + 2) | 10;
+            (counter[utils.pointsTranslateDict[line.source]] + 2) | 8;
         });
 
         const myWords = Object.entries(counter).map((e) => ({

@@ -6,10 +6,15 @@ import { useD3 } from "./UseD3";
 
 import * as utils from "../utils";
 
-export const TeamsProgress = (props) => {
+export const ModelPointsHistoryChart = ({ selectedModel, ...props }) => {
   const [isCummulative, setIsCummulative] = useState(true);
-  const [activeOptions, setActiveOptions] = useState([true, true, true, true]);
-  const teams = utils.getTeams();
+
+  const [activeOptions, setActiveOptions] = useState([
+    true,
+    false,
+    false,
+    false,
+  ]);
 
   //
   var toggleCummulative = (function () {
@@ -20,8 +25,11 @@ export const TeamsProgress = (props) => {
 
   const ref = useD3(
     (svg) => {
-      function TeamPointsHistory(data) {
-        const color = d3.scaleOrdinal(teams, d3.schemeTableau10);
+      function modelPointsHistory(data) {
+        const color = d3.scaleOrdinal(
+          ["placement", ",misc", "drama"],
+          d3.schemeTableau10
+        );
 
         var dataset1 = [];
         var dataset2 = [];
@@ -29,40 +37,35 @@ export const TeamsProgress = (props) => {
         var dataset4 = [];
 
         const groupedData = utils.groupByProperty(data, "episode");
+        const episodes = utils.getEpisodes();
 
-        Object.keys(groupedData).forEach((episode, i) => {
-          dataset1.push([
-            i + 1,
-            utils.sumPoints(
-              utils.groupByProperty(groupedData[episode], "team"),
-              teams[0]
-            ),
-          ]);
+        episodes.forEach((episode, i) => {
+          dataset1.push([i + 1, utils.sumPoints(groupedData, episode)]);
           dataset2.push([
             i + 1,
             utils.sumPoints(
-              utils.groupByProperty(groupedData[episode], "team"),
-              teams[1]
+              utils.groupByProperty(groupedData[episode], "sourceType"),
+              "placement"
             ),
           ]);
           dataset3.push([
             i + 1,
             utils.sumPoints(
-              utils.groupByProperty(groupedData[episode], "team"),
-              teams[2]
+              utils.groupByProperty(groupedData[episode], "sourceType"),
+              "drama"
             ),
           ]);
           dataset4.push([
             i + 1,
             utils.sumPoints(
-              utils.groupByProperty(groupedData[episode], "team"),
-              teams[3]
+              utils.groupByProperty(groupedData[episode], "sourceType"),
+              "misc"
             ),
           ]);
         });
 
         if (isCummulative) {
-          Object.keys(groupedData).forEach((episode, i) => {
+          episodes.forEach((episode, i) => {
             if (i === 0) {
             } else {
               dataset1[i] = [i + 1, dataset1[i - 1][1] + dataset1[i][1]];
@@ -92,12 +95,12 @@ export const TeamsProgress = (props) => {
 
         var xScale = d3
             .scaleLinear()
-            .domain([1, Object.keys(groupedData).length])
+            .domain([1, episodes.length])
             .range([0, width]),
-          yScale = d3.scaleLinear().domain([-10, 25]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-10, 10]).range([height, 0]);
 
         if (isCummulative) {
-          yScale = d3.scaleLinear().domain([0, 120]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-10, 40]).range([height, 0]);
         }
 
         // X label
@@ -151,7 +154,7 @@ export const TeamsProgress = (props) => {
               return yScale(d[1]);
             })
             .attr("r", 2)
-            .style("fill", color(teams[0]));
+            .style("fill", "#oo0000");
 
           svg
             .append("path")
@@ -159,7 +162,7 @@ export const TeamsProgress = (props) => {
             .attr("class", "line")
             .attr("d", line)
             .style("fill", "none")
-            .style("stroke", color(teams[0]))
+            .style("stroke", "#000000")
             .style("stroke-width", "2");
         }
         //dataset2
@@ -177,7 +180,7 @@ export const TeamsProgress = (props) => {
               return yScale(d[1]);
             })
             .attr("r", 2)
-            .style("fill", color(teams[1]));
+            .style("fill", color("placement"));
 
           svg
             .append("path")
@@ -185,7 +188,7 @@ export const TeamsProgress = (props) => {
             .attr("class", "line")
             .attr("d", line)
             .style("fill", "none")
-            .style("stroke", color(teams[1]))
+            .style("stroke", color("placement"))
             .style("stroke-width", "2");
         }
         //dataset3
@@ -203,7 +206,7 @@ export const TeamsProgress = (props) => {
               return yScale(d[1]);
             })
             .attr("r", 2)
-            .style("fill", color(teams[2]));
+            .style("fill", color("drama"));
 
           svg
             .append("path")
@@ -211,7 +214,7 @@ export const TeamsProgress = (props) => {
             .attr("class", "line")
             .attr("d", line)
             .style("fill", "none")
-            .style("stroke", color(teams[2]))
+            .style("stroke", color("drama"))
             .style("stroke-width", "2");
         }
         //dataset4
@@ -229,7 +232,7 @@ export const TeamsProgress = (props) => {
               return yScale(d[1]);
             })
             .attr("r", 2)
-            .style("fill", color(teams[3]));
+            .style("fill", color("misc"));
 
           svg
             .append("path")
@@ -237,7 +240,7 @@ export const TeamsProgress = (props) => {
             .attr("class", "line")
             .attr("d", line)
             .style("fill", "none")
-            .style("stroke", color(teams[3]))
+            .style("stroke", color("misc"))
             .style("stroke-width", "2");
         }
         //legend
@@ -247,39 +250,38 @@ export const TeamsProgress = (props) => {
           .attr("cy", 14)
           .attr("r", 4)
           .style("fill", function () {
-            return activeOptions[0] ? color(teams[0]) : "rgba(4,4,4,.5)";
-          });
-
-        svg
-          .append("circle")
-          .attr("cx", 95)
-          .attr("cy", 14)
-          .attr("r", 4)
-          .style("fill", function () {
-            return activeOptions[1] ? color(teams[1]) : "rgba(4,4,4,.5)";
+            return activeOptions[0] ? "rgba(0,0,0,1)" : "rgba(4,4,4,.5)";
           });
         svg
           .append("circle")
-          .attr("cx", 140)
+          .attr("cx", 55)
           .attr("cy", 14)
           .attr("r", 4)
           .style("fill", function () {
-            return activeOptions[2] ? color(teams[2]) : "rgba(4,4,4,.5)";
+            return activeOptions[1] ? color("placement") : "rgba(4,4,4,.5)";
           });
         svg
           .append("circle")
-          .attr("cx", 270)
+          .attr("cx", 120)
           .attr("cy", 14)
           .attr("r", 4)
           .style("fill", function () {
-            return activeOptions[3] ? color(teams[3]) : "rgba(4,4,4,.5)";
+            return activeOptions[2] ? color("drama") : "rgba(4,4,4,.5)";
+          });
+        svg
+          .append("circle")
+          .attr("cx", 165)
+          .attr("cy", 14)
+          .attr("r", 4)
+          .style("fill", function () {
+            return activeOptions[3] ? color("misc") : "rgba(4,4,4,.5)";
           });
 
         svg
           .append("text")
           .attr("x", 20)
           .attr("y", 15)
-          .text(teams[0])
+          .text("Total")
           .style("font-size", "10px")
           .style("cursor", "pointer")
           .style("fill", function () {
@@ -296,9 +298,9 @@ export const TeamsProgress = (props) => {
           });
         svg
           .append("text")
-          .attr("x", 100)
+          .attr("x", 60)
           .attr("y", 15)
-          .text(teams[1])
+          .text("Placement")
           .style("font-size", "10px")
           .style("cursor", "pointer")
           .style("fill", function () {
@@ -315,9 +317,9 @@ export const TeamsProgress = (props) => {
           });
         svg
           .append("text")
-          .attr("x", 145)
+          .attr("x", 125)
           .attr("y", 15)
-          .text(teams[2])
+          .text("Drama")
           .style("font-size", "10px")
           .style("cursor", "pointer")
           .style("fill", function () {
@@ -334,9 +336,9 @@ export const TeamsProgress = (props) => {
           });
         svg
           .append("text")
-          .attr("x", 275)
+          .attr("x", 170)
           .attr("y", 15)
-          .text(teams[3])
+          .text("Misc")
           .style("font-size", "10px")
           .style("cursor", "pointer")
           .style("fill", function () {
@@ -367,17 +369,19 @@ export const TeamsProgress = (props) => {
           .on("click", toggleCummulative);
       }
 
-      TeamPointsHistory(
-        props.data.filter((line) => line.sourceType !== "init")
+      modelPointsHistory(
+        props.data.filter(
+          (line) => line.model === selectedModel && line.sourceType !== "init"
+        )
       );
     },
-    [props.data.length, isCummulative, activeOptions]
+    [props.data.length, selectedModel, isCummulative, activeOptions]
   );
 
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πόντοι Ομάδων ανά Επεισόδιο</h5>
+        <h5 className="mb-0">Πόντοι ανά Επεισόδιο για την {selectedModel}</h5>
       </Card.Header>
       <Card.Body>
         <svg ref={ref}></svg>
@@ -392,4 +396,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(TeamsProgress);
+export default connect(mapStateToProps)(ModelPointsHistoryChart);

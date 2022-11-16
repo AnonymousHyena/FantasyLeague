@@ -6,6 +6,7 @@ import * as utils from "../../utils";
 
 import store from "../../store";
 import PointsSources from "../../components/PointsSources";
+import ModelPointsHistoryChart from "../../components/ModelPointsHistoryChart";
 
 const Models = (props) => {
   const models = [...utils.getModels()];
@@ -249,6 +250,12 @@ const Models = (props) => {
           <Row className="justify-content-md-center">
             <Col lg={12} xs={12} className="mt-2 mb-4 d-block">
               <PointsSources selectedModel={selectedModel} />
+            </Col>
+          </Row>
+
+          <Row className="justify-content-md-center">
+            <Col lg={12} xs={12} className="mt-2 mb-4 d-block">
+              <ModelPointsHistoryChart selectedModel={selectedModel} />
             </Col>
           </Row>
         </>
