@@ -91,10 +91,10 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
             .scaleLinear()
             .domain([1, Object.keys(groupedData).length])
             .range([0, width]),
-          yScale = d3.scaleLinear().domain([-10, 25]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-10, 40]).range([height, 0]);
 
         if (isCummulative) {
-          yScale = d3.scaleLinear().domain([-15, 80]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-25, 200]).range([height, 0]);
         }
 
         // X label
@@ -375,7 +375,7 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πόντοι ανά Επεισόδιο</h5>
+        <h5 className="mb-0">Συνολικοί Πόντοι Όμάδας ανά Επεισόδιο</h5>
       </Card.Header>
       <Card.Body>
         <svg ref={ref}></svg>

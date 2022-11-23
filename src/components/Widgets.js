@@ -6,7 +6,7 @@ export const CounterWidget = (props) => {
   const { icon, iconColor, category, title } = props;
 
   return (
-    <Card border="light" className="shadow-sm" style={{ marginTop: 10 }}>
+    <Card border="light" className="shadow-sm">
       <Card.Body>
         <Row className="d-block d-flex align-items-center">
           <Col

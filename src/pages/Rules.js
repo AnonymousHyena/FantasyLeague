@@ -4,8 +4,26 @@ import { connect } from "react-redux";
 
 import Accoridon from "../components/Accoridon";
 
+import * as utils from "../utils";
+
 const Rules = (props) => {
-  useEffect(() => {}, [props.data]);
+  const rules = utils.getRules();
+
+  function makeRulesTable(RuleType) {
+    const result = [];
+    Object.keys(rules).forEach((rule) => {
+      console.log(rule);
+      if (rules[rule]["category"] === RuleType) {
+        result.push(
+          <tr>
+            <th className="blue-bg">{rules[rule]["fullName"]}</th>
+            <td>{rules[rule]["points"]}</td>
+          </tr>
+        );
+      }
+    });
+    return result;
+  }
 
   return (
     <>
@@ -21,22 +39,39 @@ const Rules = (props) => {
                 description: (
                   <>
                     <table className="mx-auto border w-100">
-                      <tbody>
+                      <tbody>{makeRulesTable("placement")}</tbody>
+                      {/* <tbody>
                         <tr>
                           <th className="blue-bg">Last Place</th>
                           <td>-3</td>
+                        </tr>
+                        <tr>
+                          <th className="blue-bg">Last place w/ advantage </th>
+                          <td>-5</td>
                         </tr>
                         <tr>
                           <th className="blue-bg">Bottom 25%</th>
                           <td>-1</td>
                         </tr>
                         <tr>
+                          <th className="blue-bg">Bottom 25% w/ advantage</th>
+                          <td>-2</td>
+                        </tr>
+                        <tr>
                           <th className="blue-bg">Bottom 50%</th>
                           <td>0</td>
                         </tr>
                         <tr>
+                          <th className="blue-bg">Bot 50% w/ advantage</th>
+                          <td>-1</td>
+                        </tr>
+                        <tr>
                           <th className="blue-bg">Top 50%</th>
                           <td>1</td>
+                        </tr>
+                        <tr>
+                          <th className="blue-bg">Top 50% w/ disadvantage</th>
+                          <td>2</td>
                         </tr>
                         <tr>
                           <th className="blue-bg">Top 25%</th>
@@ -55,30 +90,14 @@ const Rules = (props) => {
                           <td>6</td>
                         </tr>
                         <tr>
-                          <th className="blue-bg">Bot 50% w/ advantage</th>
-                          <td>-1</td>
-                        </tr>
-                        <tr>
-                          <th className="blue-bg">Last place w/ advantage </th>
-                          <td>-5</td>
-                        </tr>
-                        <tr>
-                          <th className="blue-bg">Top 50% w/ disadvantage</th>
-                          <td>+1</td>
-                        </tr>
-                        <tr>
                           <th className="blue-bg">1st Place w/ disadvantage</th>
-                          <td>+3</td>
-                        </tr>
-                        <tr>
-                          <th className="blue-bg">Comeback</th>
-                          <td>5</td>
+                          <td>9</td>
                         </tr>
                         <tr>
                           <th className="blue-bg">Quit</th>
                           <td>-5</td>
                         </tr>
-                      </tbody>
+                      </tbody> */}
                     </table>
                   </>
                 ),
@@ -90,7 +109,8 @@ const Rules = (props) => {
                 description: (
                   <>
                     <table className="mx-auto border w-100">
-                      <tbody>
+                      <tbody>{makeRulesTable("drama")}</tbody>
+                      {/* <tbody>
                         <tr className="w-lg-50">
                           <th className="blue-bg">Makeover drama</th>
                           <td>-5</td>
@@ -127,7 +147,7 @@ const Rules = (props) => {
                           <th className="blue-bg">Badmouthing</th>
                           <td>-1</td>
                         </tr>
-                      </tbody>
+                      </tbody> */}
                     </table>
                   </>
                 ),
@@ -139,7 +159,8 @@ const Rules = (props) => {
                 description: (
                   <>
                     <table className="mx-auto border w-100">
-                      <tbody>
+                      <tbody>{makeRulesTable("misc")}</tbody>
+                      {/* <tbody>
                         <tr>
                           <th className="blue-bg">Win Challenge</th>
                           <td>2</td>
@@ -162,7 +183,11 @@ const Rules = (props) => {
                           <th className="blue-bg">Athletic activities</th>
                           <td>1</td>
                         </tr>
-                      </tbody>
+                        <tr>
+                          <th className="blue-bg">Comeback</th>
+                          <td>5</td>
+                        </tr>
+                      </tbody> */}
                     </table>
                   </>
                 ),

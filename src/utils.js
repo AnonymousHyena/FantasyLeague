@@ -145,3 +145,7 @@ export function getModelRank(data, sourceType, model) {
 
   return models.indexOf(model) + 1;
 }
+
+export function getRules() {
+  return episodes["points"];
+}

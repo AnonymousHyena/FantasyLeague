@@ -94,10 +94,10 @@ export const TeamsProgress = (props) => {
             .scaleLinear()
             .domain([1, Object.keys(groupedData).length])
             .range([0, width]),
-          yScale = d3.scaleLinear().domain([-10, 25]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-8, 40]).range([height, 0]);
 
         if (isCummulative) {
-          yScale = d3.scaleLinear().domain([0, 120]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([0, 200]).range([height, 0]);
         }
 
         // X label

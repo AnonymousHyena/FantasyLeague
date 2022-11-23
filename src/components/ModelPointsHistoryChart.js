@@ -97,10 +97,10 @@ export const ModelPointsHistoryChart = ({ selectedModel, ...props }) => {
             .scaleLinear()
             .domain([1, episodes.length])
             .range([0, width]),
-          yScale = d3.scaleLinear().domain([-10, 10]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-8, 20]).range([height, 0]);
 
         if (isCummulative) {
-          yScale = d3.scaleLinear().domain([-10, 40]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-10, 80]).range([height, 0]);
         }
 
         // X label

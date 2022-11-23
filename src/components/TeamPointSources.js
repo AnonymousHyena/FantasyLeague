@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "@themesberg/react-bootstrap";
+import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import * as cloud from "d3-cloud";
 
@@ -7,7 +7,7 @@ import { useD3 } from "./UseD3";
 
 import * as utils from "../utils";
 
-export const PointsSources = ({ selectedModel, ...props }) => {
+export const TeamPointSources = ({ selectedTeam, ...props }) => {
   const negative = [
     "Αδικήθηκα",
     "Makeover drama",
@@ -40,8 +40,13 @@ export const PointsSources = ({ selectedModel, ...props }) => {
 
         data.forEach((line) => {
           counter[utils.pointsTranslateDict[line.source]] =
-            (counter[utils.pointsTranslateDict[line.source]] + 2) | 8;
+            (counter[utils.pointsTranslateDict[line.source]] + 1) | 6;
+          if (counter[utils.pointsTranslateDict[line.source]] > 60) {
+            counter[utils.pointsTranslateDict[line.source]] = 60;
+          }
         });
+
+        console.log(counter);
 
         const myWords = Object.entries(counter).map((e) => ({
           word: e[0],
@@ -103,11 +108,11 @@ export const PointsSources = ({ selectedModel, ...props }) => {
       }
       makeGraphic(
         props.data.filter(
-          (line) => line.model === selectedModel && line.sourceType !== "init"
+          (line) => line.team === selectedTeam && line.sourceType !== "init"
         )
       );
     },
-    [selectedModel]
+    [selectedTeam]
   );
 
   return (
@@ -115,7 +120,7 @@ export const PointsSources = ({ selectedModel, ...props }) => {
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">Πηγές Πόντων</h5>
       </Card.Header>
-      <Card.Body className="px-0 px-lg-5">
+      <Card.Body className="p-0 py-lg-2 px-lg-5 ">
         <svg ref={ref}></svg>
       </Card.Body>
     </Card>
@@ -128,4 +133,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(PointsSources);
+export default connect(mapStateToProps)(TeamPointSources);

@@ -10,6 +10,8 @@ import SelectForm from "../../components/SelectForm";
 import store from "../../store";
 import TeamPointsBreakdown from "../../components/TeamPointsBreakdown";
 import TeamPointsHistoryChart from "../../components/TeamPointsHistoryChart";
+import TeamPointSources from "../../components/TeamPointSources";
+import TeamPlayersPointsHistoryChart from "../../components/TeamPlayersPointsHistoryChart";
 
 export const Teams = (props) => {
   const [selectedTeam, setSelectedTeam] = useState(props.team);
@@ -55,14 +57,28 @@ export const Teams = (props) => {
           </Row>
 
           <Row className="justify-content-lg-center">
-            <Col xs={12} lg={12} className="mt-2 mb-4">
+            <Col xs={12} lg={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
+              <TeamPointSources selectedTeam={selectedTeam} />
+            </Col>
+          </Row>
+
+          <Row className="justify-content-lg-center">
+            <Col xs={12} lg={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
               <TeamPointsHistoryChart selectedTeam={selectedTeam} />
             </Col>
-
-            {/* <Col xs={12} lg={4} className="mt-2 mb-4">
-              <TeamPointsBreakdownPie selectedTeam={selectedTeam} />
-            </Col> */}
           </Row>
+
+          <Row className="justify-content-lg-center">
+            <Col xs={12} lg={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
+              <TeamPlayersPointsHistoryChart selectedTeam={selectedTeam} />
+            </Col>
+          </Row>
+
+          {/* <Row className="justify-content-lg-center">
+            <Col xs={12} lg={4} className="mt-2 mb-4">
+              <TeamPointsBreakdownPie selectedTeam={selectedTeam} />
+            </Col>
+          </Row> */}
         </>
       )}
     </>

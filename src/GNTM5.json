@@ -18,7 +18,7 @@
     },
     "Γιέβα": {
       "team": "Ομάδα",
-      "starName": "gieva_mpontarenko-1920x1004",
+      "starName": "gieva_mpontarenko-1920x1004-b_w",
       "fullName": "Γιέβα Μπονταρένκο"
     },
     "Γρηγοριάνα": {
@@ -58,7 +58,7 @@
     },
     "Κάτια": {
       "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "katia_kizima-1920x1004",
+      "starName": "katia_kizima-1920x1004-b_w",
       "fullName": "Κάτια Κιζίμα"
     },
     "Κότυ": {
@@ -134,33 +134,104 @@
     "Ομάδα": "Snouf"
   },
   "points": {
-    "firstPlaceDis": { "points": 9, "fullName": "Πρώτη θέση με disadvantage" },
-    "firstPlace": { "points": 6, "fullName": "Πρώτη θέση" },
-    "firstPlaceNo25": { "points": 4, "fullName": "Πρώτη θέση χωρίς πλατό" },
-    "secondPlace": { "points": 5, "fullName": "Δεύτερη θέση" },
-    "thirdPlace": { "points": 4, "fullName": "Τρίτη θέση" },
-    "thirdPlaceNo25": { "points": 3, "fullName": "Τρίτη θέση" },
-    "thirdPlaceDis": { "points": 5, "fullName": "Τρίτη θέση με disadvantage" },
-    "top25": { "points": 2, "fullName": "Top 25%" },
-    "bot25": { "points": -1, "fullName": "Bottom 25%" },
-    "top25Dis": { "points": 3, "fullName": "Top 25% με disadvantage" },
-    "top50": { "points": 1, "fullName": "Top 50%" },
-    "top50Dis": { "points": 2, "fullName": "Top 50% με disadvantage" },
-    "lastPlace": { "points": -3, "fullName": "Τελευταία θέση" },
-    "bot50Adv": { "points": -1, "fullName": "Bottom 50% με advatnage" },
-    "quit": { "points": -5, "fullName": "Οικειοθελής αποχώρηση" },
-    "injury": { "points": -1, "fullName": "Τραυματισμός" },
-    "badmouthing": { "points": -1, "fullName": "Κράξιμο" },
-    "interuption": { "points": -1, "fullName": "Διακοπή ροής της διαδικασίας" },
-    "gymnastics": { "points": 1, "fullName": "Γυμναστική" },
-    "food": { "points": 1, "fullName": "Φαγητό" },
-    "chores": { "points": 1, "fullName": "Δουλειές σπιτιού" },
-    "challenge": { "points": 2, "fullName": "Δοκιμασία" },
-    "makeover": { "points": -5, "fullName": "Makeover drama" },
+    "firstPlaceDis": {
+      "points": 18,
+      "fullName": "Πρώτη θέση με disadvantage",
+      "category": "placement"
+    },
+    "firstPlace": {
+      "points": 12,
+      "fullName": "Πρώτη θέση",
+      "category": "placement"
+    },
+    "firstPlaceNo25": {
+      "points": 8,
+      "fullName": "Πρώτη θέση χωρίς πλατό",
+      "category": "placement"
+    },
+    "secondPlace": {
+      "points": 10,
+      "fullName": "Δεύτερη θέση",
+      "category": "placement"
+    },
+    "thirdPlace": {
+      "points": 8,
+      "fullName": "Τρίτη θέση",
+      "category": "placement"
+    },
+    "thirdPlaceNo25": {
+      "points": 6,
+      "fullName": "Τρίτη θέση χωρίς top 25%",
+      "category": "placement"
+    },
+    "top25": { "points": 4, "fullName": "Top 25%", "category": "placement" },
+    "top50": { "points": 2, "fullName": "Top 50%", "category": "placement" },
+    "top50Dis": {
+      "points": 2,
+      "fullName": "Top 50% με disadvantage",
+      "category": "placement"
+    },
+    "bot50Adv": {
+      "points": -2,
+      "fullName": "Bottom 50% με advatnage",
+      "category": "placement"
+    },
+    "bot25": {
+      "points": -2,
+      "fullName": "Bottom 25%",
+      "category": "placement"
+    },
+    "lastPlace": {
+      "points": -6,
+      "fullName": "Τελευταία θέση",
+      "category": "placement"
+    },
+    "lastPlaceAdv": {
+      "points": -12,
+      "fullName": "Τελευταία θέση με advantage",
+      "category": "placement"
+    },
+    "injury": { "points": -1, "fullName": "Τραυματισμός", "category": "drama" },
+    "badmouthing": { "points": -1, "fullName": "Κράξιμο", "category": "drama" },
+    "interuption": {
+      "points": -1,
+      "fullName": "Διακοπή ροής της διαδικασίας",
+      "category": "drama"
+    },
+    "quit": {
+      "points": -10,
+      "fullName": "Οικειοθελής αποχώρηση",
+      "category": "misc"
+    },
+    "gymnastics": {
+      "points": 1,
+      "fullName": "Γυμναστική",
+      "category": "misc"
+    },
+    "food": { "points": 1, "fullName": "Φαγητό", "category": "misc" },
+    "chores": {
+      "points": 1,
+      "fullName": "Δουλειές σπιτιού",
+      "category": "misc"
+    },
+    "challenge": { "points": 2, "fullName": "Δοκιμασία", "category": "misc" },
+    "makeover": {
+      "points": -5,
+      "fullName": "Makeover drama",
+      "category": "drama"
+    },
     "positiveComment": { "points": 1, "fullName": "Θετικό σχόλιο" },
-    "unfair": { "points": -1, "fullName": "'Αδικήθηκα'" },
-    "startArgument": { "points": -2, "fullName": "Εκκίνηση διαμάχης" },
-    "argument": { "points": -1, "fullName": "Συμμετοχή σε διαμάχη" }
+    "unfair": { "points": -1, "fullName": "'Αδικήθηκα'", "category": "drama" },
+    "startArgument": {
+      "points": -2,
+      "fullName": "Εκκίνηση διαμάχης",
+      "category": "drama"
+    },
+    "argument": {
+      "points": -1,
+      "fullName": "Συμμετοχή σε διαμάχη",
+      "category": "drama"
+    }
   },
   "episodes": {
     "episode01": {
@@ -171,26 +242,25 @@
         "top25": ["Βικτώρια", "Νικόλ"],
         "top50": ["Γιέβα", "Γρηγοριάνα", "Εβελίνα", "Κότυ", "Μάρα"],
         "bot25": ["Τζούλια", "Νάγια", "Αλεξία Κ.", "Μύρια"],
-        "lastPlace": ["Κατερίνα"],
-        "quit": ["Άννα"]
+        "lastPlace": ["Κατερίνα"]
       },
       "drama": {
         "injury": ["Γρηγοριάνα"]
       },
       "misc": {
         "gymnastics": ["Εβελίνα", "Νικόλ"],
-        "food": ["Μάρα"]
+        "food": ["Μάρα"],
+        "quit": ["Άννα"]
       }
     },
     "episode02": {
       "placement": {
         "firstPlace": ["Γιέβα"],
         "secondPlace": ["Εβελίνα"],
-        "thirdPlaceDis": ["Μάρα"],
-        "top25Dis": ["Μαρίτα"],
-        "top25": ["Νικόλ"],
-        "top50Dis": ["Βικτώρια"],
-        "top50": ["Έφη", "Μαρία", "Κότυ", "Μικαέλα"],
+        "thirdPlace": ["Μάρα"],
+        "top25": ["Νικόλ", "Μαρίτα"],
+        "top50Dis": ["Βικτώρια", "Μαρίτα", "Μάρα"],
+        "top50": ["Έφη", "Μαρία", "Κότυ", "Μικαέλα", "Βικτώρια"],
         "bot25": ["Τζούλια", "Δέσποινα", "Έλενα", "Ζωή"],
         "lastPlace": ["Νάγια"],
         "bot50Adv": ["Αλεξία Τ."]
@@ -260,15 +330,15 @@
         "thirdPlace": ["Αλεξία Τ."],
         "top25": ["Γρηγοριάνα"],
         "top50Dis": ["Έλενα"],
-        "top50": ["Βικτώρια", "Μαρίτα", "Μικαέλα", "Μύρια"],
+        "top50": ["Βικτώρια", "Μαρίτα", "Μικαέλα", "Έλενα", "Μύρια"],
         "bot25": ["Γιέβα", "Κάτια", "Αλεξία Κ.", "Μαρία"],
-        "quit": ["Έφη", "Εβελίνα"],
         "bot50Adv": ["Γιέβα"]
       },
       "drama": {
         "badmouthing": ["Δέσποινα", "Γρηγοριάνα", "Κότυ"]
       },
       "misc": {
+        "quit": ["Έφη", "Εβελίνα"],
         "food": [
           "Έλενα",
           "Γιέβα",
@@ -306,11 +376,11 @@
     },
     "episode05": {
       "placement": {
-        "firstPlaceNo25": ["Μικαέλα"],
-        "quit": ["Αλεξία Κ.", "Νικόλ"]
+        "firstPlaceNo25": ["Μικαέλα"]
       },
       "drama": { "badmouthing": ["Τζούλια"] },
       "misc": {
+        "quit": ["Αλεξία Κ.", "Νικόλ"],
         "food": [
           "Γρηγοριάνα",
           "Δέσποινα",
@@ -343,7 +413,7 @@
         "secondPlace": ["Μικαέλα"],
         "thirdPlace": ["Κότυ"],
         "top50Dis": ["Μαρία"],
-        "top50": ["Ζωή", "Μαρίτα", "Μύρια"],
+        "top50": ["Ζωή", "Μαρίτα", "Μύρια", "Μαρία"],
         "bot25": ["Αλεξία Τ.", "Δέσποινα"],
         "lastPlace": ["Τζούλια"]
       },
@@ -521,14 +591,14 @@
         "firstPlace": ["Κότυ"],
         "secondPlace": ["Μάρα"],
         "thirdPlace": ["Μικαέλα"],
-        "top50": ["Γεωργιάννα", "Μύρια"],
+        "top50": ["Γεωργιάννα", "Μύρια", "Βικτώρια"],
         "top50Dis": ["Βικτώρια"],
         "bot50Adv": ["Ραφαέλα"],
-        "bot25": ["Μαρία", "Αλεξία Τ."],
-        "quit": ["Κάτια"]
+        "bot25": ["Μαρία", "Αλεξία Τ."]
       },
       "drama": {},
       "misc": {
+        "quit": ["Κάτια"],
         "food": ["Ειρήνη", "Γεωργιάννα", "Ραφαέλα"],
         "gymnastics": [
           "Μικαέλα",
@@ -545,9 +615,8 @@
         "secondPlace": ["Αλεξία Τ."],
         "thirdPlace": ["Μαρία"],
         "top50": ["Γρηγοριάνα", "Κότυ", "Μύρια"],
-        "bot50Adv": ["Ραφαέλα"],
         "bot25": ["Μαρίτα", "Ειρήνη"],
-        "quit": ["Ραφαέλα"]
+        "lastPlace": ["Ραφαέλα"]
       },
       "drama": {
         "badmouthing": ["Γρηγοριάνα", "Ειρήνη"]
@@ -561,6 +630,44 @@
           "Μάρα",
           "Μαρία",
           "Μαρίτα",
+          "Μύρια"
+        ]
+      }
+    },
+    "episode14": {
+      "placement": {
+        "firstPlace": ["Μύρια"],
+        "secondPlace": ["Αλεξία Τ."],
+        "thirdPlaceNo25": ["Κότυ"],
+        "top50": ["Γρηγοριάνα", "Γεωργιάννα"],
+        "top50Dis": ["Αλεξία Τ.", "Γεωργιάννα"],
+        "bot50Adv": ["Μάρα"],
+        "bot25": ["Βικτώρια"],
+        "lastPlace": ["Μαρία"]
+      },
+      "drama": {
+        "badmouthing": ["Αλεξία Τ.", "Μαρίτα", "Γρηγοριάνα"],
+        "interuption": ["Μύρια", "Κότυ", "Γρηγοριάνα"]
+      },
+      "misc": {
+        "challenge": ["Γρηγοριάνα"],
+        "gymnastics": ["Μικαέλα"],
+        "food": [
+          "Γρηγοριάνα",
+          "Μαρίτα",
+          "Μάρα",
+          "Γρηγοριάνα",
+          "Μαρίτα",
+          "Βικτώρια",
+          "Μύρια",
+          "Γεωργιάννα",
+          "Αλεξία Τ.",
+          "Μάρα",
+          "Ειρήνη",
+          "Αλεξία Τ.",
+          "Μαρία",
+          "Μύρια",
+          "Βικτώρια",
           "Μύρια"
         ]
       }
