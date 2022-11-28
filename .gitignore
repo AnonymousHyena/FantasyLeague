@@ -2,3 +2,5 @@ node_modules/
 build/
 .DS_Store
 GNTM5old.json
+deployBuild.sh
+yarn-error.log
