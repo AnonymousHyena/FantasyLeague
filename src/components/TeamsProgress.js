@@ -75,9 +75,9 @@ export const TeamsProgress = (props) => {
 
         svg.selectAll("*").remove();
         // set the dimensions and margins of the graph
-        var margin = 60,
+        var margin = 70,
           width = 600,
-          height = 250;
+          height = 280;
 
         // append the svg object to the body of the page
         var g = svg
@@ -97,7 +97,7 @@ export const TeamsProgress = (props) => {
           yScale = d3.scaleLinear().domain([-8, 40]).range([height, 0]);
 
         if (isCummulative) {
-          yScale = d3.scaleLinear().domain([0, 200]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([0, 250]).range([height, 0]);
         }
 
         // X label
@@ -113,7 +113,7 @@ export const TeamsProgress = (props) => {
         // Y label
         svg
           .append("text")
-          .attr("y", -80)
+          .attr("y", -85)
           .attr("text-anchor", "middle")
           .attr("transform", "translate(60," + height / 2 + ")rotate(-90)")
           .style("font-family", "Helvetica")

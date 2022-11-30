@@ -28,7 +28,7 @@ export const TeamPointSources = ({ selectedTeam, ...props }) => {
         // set the dimensions and margins of the graph
 
         var width = 600,
-          height = 200;
+          height = 250;
 
         // append the svg object to the body of the page
         svg
@@ -39,14 +39,12 @@ export const TeamPointSources = ({ selectedTeam, ...props }) => {
         let counter = {};
 
         data.forEach((line) => {
-          counter[utils.pointsTranslateDict[line.source]] =
-            (counter[utils.pointsTranslateDict[line.source]] + 1) | 6;
-          if (counter[utils.pointsTranslateDict[line.source]] > 60) {
-            counter[utils.pointsTranslateDict[line.source]] = 60;
+          if (counter[utils.pointsTranslateDict[line.source]]) {
+            counter[utils.pointsTranslateDict[line.source]] += 1;
+          } else {
+            counter[utils.pointsTranslateDict[line.source]] = 6;
           }
         });
-
-        console.log(counter);
 
         const myWords = Object.entries(counter).map((e) => ({
           word: e[0],

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
@@ -12,7 +12,6 @@ const Rules = (props) => {
   function makeRulesTable(RuleType) {
     const result = [];
     Object.keys(rules).forEach((rule) => {
-      console.log(rule);
       if (rules[rule]["category"] === RuleType) {
         result.push(
           <tr>

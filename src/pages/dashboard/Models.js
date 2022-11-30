@@ -95,7 +95,11 @@ const Models = (props) => {
               </Card>
             </Col>
 
-            <Col xs={12} lg={8} className="d-flex flex-wrap">
+            <Col
+              xs={12}
+              lg={8}
+              className="mt-1 mb-1 mt-lg-0 mb-lg-0 d-flex flex-wrap"
+            >
               <Col xs={12} className="mt-2">
                 <Card className="p-2">
                   <Card.Header>
@@ -248,13 +252,13 @@ const Models = (props) => {
           </Row>
 
           <Row className="justify-content-md-center">
-            <Col lg={12} xs={12} className="mt-2 mb-4 d-block">
+            <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
               <PointsSources selectedModel={selectedModel} />
             </Col>
           </Row>
 
           <Row className="justify-content-md-center">
-            <Col lg={12} xs={12} className="mt-2 mb-4 d-block">
+            <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
               <ModelPointsHistoryChart selectedModel={selectedModel} />
             </Col>
           </Row>

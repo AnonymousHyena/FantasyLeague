@@ -161,7 +161,6 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
           for (var j = 0; j < i; j++) {
             finalLength += length[j];
           }
-          console.log(finalLength);
           svg
             .append("circle")
             .attr("cx", 15 + finalLength)

@@ -214,7 +214,7 @@
       "fullName": "Δουλειές σπιτιού",
       "category": "misc"
     },
-    "challenge": { "points": 2, "fullName": "Δοκιμασία", "category": "misc" },
+    "challenge": { "points": 4, "fullName": "Δοκιμασία", "category": "misc" },
     "makeover": {
       "points": -5,
       "fullName": "Makeover drama",
@@ -683,11 +683,30 @@
         "bot25": ["Βικτώρια"],
         "lastPlace": ["Ειρήνη"]
       },
-      "drama": { "unfair": ["Ειρήνη"] },
+      "drama": { "unfair": ["Ειρήνη"], "badmouthing": ["Κότυ", "Μύρια"] },
       "misc": {
         "gymnastics": ["Αλεξία Τ.", "Ειρήνη"],
         "food": ["Βικτώρια", "Ειρήνη", "Μαρίτα", "Μύρια"],
         "positiveComment": ["Μαρίτα"]
+      }
+    },
+    "episode16": {
+      "placement": {
+        "firstPlace": ["Μύρια"],
+        "secondPlace": ["Κότυ"],
+        "thirdPlaceNo25": ["Βικτώρια"],
+        "top50": ["Αλεξία Τ."],
+        "top50Dis": ["Κότυ", "Αλεξία Τ."],
+        "bot50Adv": ["Μαρίτα"],
+        "bot25": ["Μαρίτα"],
+        "lastPlace": ["Γρηγοριάνα"]
+      },
+      "drama": {
+        "badmouthing": ["Γρηγοριάνα"]
+      },
+      "misc": {
+        "food": ["Βικτώρια", "Μαρίτα", "Αλεξία Τ.", "Γεωργιάννα"],
+        "gymnastics": ["Μικαέλα"]
       }
     }
   }

@@ -51,7 +51,6 @@ export const EpisodeBreakdownCompact = ({ selectedEpisode, ...props }) => {
       });
 
       models.forEach((model) => {
-        console.log(groupedData[model]);
         result.push(tableLine(model, utils.sumPoints(groupedData, model)));
       });
       return result;
