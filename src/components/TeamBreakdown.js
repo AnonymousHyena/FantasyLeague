@@ -11,7 +11,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
   const l1 = Object.keys(t1);
 
   const t2 = utils.groupByProperty(team, "episode");
-  const episodeKeys = Object.keys(t2);
+  const episodeKeys = utils.getEpisodes();
 
   const cells = function (t, l2, l1) {
     return (
@@ -56,26 +56,28 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
     resCellsSubHeaders.push(cellsSubHeaders(t1, element))
   );
 
-  const line = function (t, l2) {
+  const line = function (t, episode) {
     const result = [];
-
     l1.forEach((element) => {
       let isIn = true;
       for (let i = 0; i < episodeKeys.length; i++) {
-        if (episodeKeys[i] === l2) {
+        if (episodeKeys[i] === episode) {
           break;
         }
         if (!utils.isInGame(t[episodeKeys[i]], element)) {
           isIn = false;
         }
+        if (utils.cameBack(t[episodeKeys[i + 1]], element)) {
+          isIn = true;
+        }
       }
-      if (isIn) {
-        result.push(cells(t, l2, element));
+      const episodeNum = parseInt(episode.split("e")[2]);
+      if (isIn && episodeNum >= utils.modelFirstEpisode[element]) {
+        result.push(cells(t, episode, element));
       } else {
         result.push(emptyCells());
       }
     });
-
     return <tr>{result}</tr>;
   };
 
@@ -83,9 +85,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
     const result = [];
 
     l2.forEach((element, i) => {
-      if (i !== 0) {
-        result.push(line(t, element));
-      }
+      result.push(line(t, element));
     });
 
     return result;

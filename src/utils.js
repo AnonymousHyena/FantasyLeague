@@ -8,11 +8,13 @@ const team = {};
 export const modelStarNames = {};
 export const modelFullNames = {};
 export const pointsTranslateDict = {};
+export const modelFirstEpisode = {};
 
 Object.keys(episodes["models"]).forEach((model) => {
   team[model] = episodes["models"][model]["team"];
   modelStarNames[model] = episodes["models"][model]["starName"];
   modelFullNames[model] = episodes["models"][model]["fullName"];
+  modelFirstEpisode[model] = episodes["models"][model]["firstEpisode"];
 });
 
 Object.keys(episodes["points"]).forEach((rule) => {
@@ -28,7 +30,7 @@ export function initializeDataAndStore() {
     result.push({
       model: model,
       team: team[model],
-      episode: "",
+      episode: "episode00",
       points: 0,
       source: "init",
       sourceType: "init",
@@ -106,6 +108,64 @@ export function getModels() {
 }
 
 export function isInGame(data, model) {
+  const episodes = getEpisodes();
+  const episodesData = groupByProperty(data, "episode");
+  let i = 0;
+  var result = true;
+  while (i < episodes.length) {
+    if (i < 9) {
+      if (!inGame(episodesData["episode0" + (i + 1)], model)) {
+        result = false;
+        break;
+      }
+    } else {
+      if (!inGame(episodesData["episode" + (i + 1)], model)) {
+        result = false;
+        break;
+      }
+    }
+    i++;
+  }
+  while (i < episodes.length) {
+    if (i < 9) {
+      if (cameBack(episodesData["episode0" + (i + 1)], model)) {
+        result = true;
+        break;
+      }
+    } else {
+      if (cameBack(episodesData["episode" + (i + 1)], model)) {
+        result = true;
+        break;
+      }
+    }
+    i++;
+  }
+  while (i < episodes.length) {
+    if (i < 9) {
+      if (!inGame(episodesData["episode0" + (i + 1)], model)) {
+        result = false;
+        break;
+      }
+    } else {
+      if (!inGame(episodesData["episode" + (i + 1)], model)) {
+        result = false;
+        break;
+      }
+    }
+    i++;
+  }
+  return result;
+}
+
+export function cameBack(data, model) {
+  const sources = groupByProperty(data, "source");
+
+  return Object.keys(groupByProperty(sources["comeback"], "model")).includes(
+    model
+  );
+}
+
+export function inGame(data, model) {
   const sources = groupByProperty(data, "source");
 
   return !(

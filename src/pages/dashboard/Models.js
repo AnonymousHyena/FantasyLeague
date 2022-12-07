@@ -37,6 +37,9 @@ const Models = (props) => {
   };
 
   const infoForModelByEpisode = (model, episode, sourceType = "all") => {
+    if (parseInt(episode.split("e")[2]) <= 9) {
+      episode = "episode0" + episode.split("e")[2];
+    }
     const episodeData = utils.groupByProperty(props.data, "episode")[episode];
     return infoForModel(model, sourceType, episodeData);
   };
@@ -45,19 +48,52 @@ const Models = (props) => {
     const episodes = utils.getEpisodes();
     const data = utils.groupByProperty(props.data, "episode");
     let i = 0;
+    var result = episodes.length;
     while (i < episodes.length) {
-      if (i < 10) {
+      if (i < 9) {
         if (!utils.isInGame(data["episode0" + (i + 1)], model)) {
-          return "episode0" + (i + 1);
+          result = i + 1;
+          break;
         }
       } else {
         if (!utils.isInGame(data["episode" + (i + 1)], model)) {
-          return "episode" + (i + 1);
+          result = i + 1;
+          break;
         }
       }
       i++;
     }
-    return "episode" + i;
+    i++;
+    while (i < episodes.length) {
+      if (i < 9) {
+        if (utils.cameBack(data["episode0" + (i + 1)], model)) {
+          result = episodes.length;
+          break;
+        }
+      } else {
+        if (utils.cameBack(data["episode" + (i + 1)], model)) {
+          result = episodes.length;
+          break;
+        }
+      }
+      i++;
+    }
+    i++;
+    while (i < episodes.length) {
+      if (i < 9) {
+        if (!utils.isInGame(data["episode0" + (i + 1)], model)) {
+          result = i + 1;
+          break;
+        }
+      } else {
+        if (!utils.isInGame(data["episode" + (i + 1)], model)) {
+          result = i + 1;
+          break;
+        }
+      }
+      i++;
+    }
+    return "episode" + result;
   };
 
   const dataByType = utils.groupByProperty(props.data, "sourceType");

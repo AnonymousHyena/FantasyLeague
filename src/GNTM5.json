@@ -3,128 +3,158 @@
     "Αλεξία Κ.": {
       "team": "Το Κορμί σου το Φρυδίσιο",
       "starName": "aleksia_kouvela-1920x1004-b_w",
-      "fullName": "Αλεξία Κουβελά"
+      "fullName": "Αλεξία Κουβελά",
+      "firstEpisode": 0
     },
     "Αλεξία Τ.": {
       "team": "Φρυδερίκη αγάπη μου",
       "starName": "aleksia_traiko-1920x1004",
-      "fullName": "Αλεξία Τράικο"
+      "fullName": "Αλεξία Τράικο",
+      "firstEpisode": 0
     },
-    "Άννα": { "team": "Γεια σου Τάσο", "starName": "", "fullName": "Άννα" },
+    "Άννα": {
+      "team": "Γεια σου Τάσο",
+      "starName": "",
+      "fullName": "Άννα",
+      "firstEpisode": 0
+    },
     "Βικτώρια": {
       "team": "Φρυδερίκη αγάπη μου",
       "starName": "victoria_miroforidou-1920x1004",
-      "fullName": "Βικτώρια Μυροφορίδου"
+      "fullName": "Βικτώρια Μυροφορίδου",
+      "firstEpisode": 0
     },
     "Γιέβα": {
       "team": "Ομάδα",
       "starName": "gieva_mpontarenko-1920x1004-b_w",
-      "fullName": "Γιέβα Μπονταρένκο"
+      "fullName": "Γιέβα Μπονταρένκο",
+      "firstEpisode": 0
     },
     "Γρηγοριάνα": {
       "team": "Ομάδα",
-      "starName": "grigoriana_plita-1920x1004",
-      "fullName": "Γρηγοριάνα Πλύτα"
+      "starName": "grigoriana_plita-1920x1004-b_w",
+      "fullName": "Γρηγοριάνα Πλύτα",
+      "firstEpisode": 0
     },
     "Δέσποινα": {
       "team": "Ομάδα",
       "starName": "despoina_sarri-1920x1004-b_w",
-      "fullName": "Δέσποινα Σαρρή"
+      "fullName": "Δέσποινα Σαρρή",
+      "firstEpisode": 0
     },
     "Εβελίνα": {
       "team": "Ομάδα",
       "starName": "evelina_petrougaki-1920x1004-b_w",
-      "fullName": "Εβελίνα Πετρουγάκη"
+      "fullName": "Εβελίνα Πετρουγάκη",
+      "firstEpisode": 0
     },
     "Έλενα": {
       "team": "Φρυδερίκη αγάπη μου",
       "starName": "elena_lisandrou-1920x1004-b_w",
-      "fullName": "Έλενα Λυσάνδρου"
+      "fullName": "Έλενα Λυσάνδρου",
+      "firstEpisode": 0
     },
     "Έφη": {
       "team": "Το Κορμί σου το Φρυδίσιο",
       "starName": "efi_mpanti-1920x1004-b_w",
-      "fullName": "Έφη Μπαντή"
+      "fullName": "Έφη Μπαντή",
+      "firstEpisode": 0
     },
     "Ζωή": {
       "team": "Γεια σου Τάσο",
       "starName": "zoi_ioannidou-1920x1004-b_w",
-      "fullName": "Ζωή Ιωαννίδου"
+      "fullName": "Ζωή Ιωαννίδου",
+      "firstEpisode": 0
     },
     "Κατερίνα": {
       "team": "Γεια σου Τάσο",
       "starName": "katerina_kara-1920x1004-b_w",
-      "fullName": "Κατερίνα Καρά"
+      "fullName": "Κατερίνα Καρά",
+      "firstEpisode": 0
     },
     "Κάτια": {
       "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "katia_kizima-1920x1004-b_w",
-      "fullName": "Κάτια Κιζίμα"
+      "starName": "katia_kizima-1920x1004",
+      "fullName": "Κάτια Κιζίμα",
+      "firstEpisode": 0
     },
     "Κότυ": {
       "team": "Το Κορμί σου το Φρυδίσιο",
       "starName": "koti_gougousi_camacho-1920x1004",
-      "fullName": "Κότυ Γουγούση - Camacho"
+      "fullName": "Κότυ Γουγούση - Camacho",
+      "firstEpisode": 0
     },
     "Μάρα": {
       "team": "Γεια σου Τάσο",
       "starName": "mara_marli-1920x1004",
-      "fullName": "Μάρα Μαρλή"
+      "fullName": "Μάρα Μαρλή",
+      "firstEpisode": 0
     },
     "Μαρία": {
       "team": "Γεια σου Τάσο",
       "starName": "maria_kosta-1920x1004-b_w",
-      "fullName": "Μαρία Κώστα"
+      "fullName": "Μαρία Κώστα",
+      "firstEpisode": 0
     },
     "Μαρίτα": {
       "team": "Γεια σου Τάσο",
       "starName": "marita_kathitzioti-1920x1004",
-      "fullName": "Μαρίτα Καθιτζιώτη"
+      "fullName": "Μαρίτα Καθιτζιώτη",
+      "firstEpisode": 0
     },
     "Μικαέλα": {
       "team": "Φρυδερίκη αγάπη μου",
       "starName": "mixaela_novak_marli-1920x1004",
-      "fullName": "Μικαέλα Νόβακ - Μαρλή"
+      "fullName": "Μικαέλα Νόβακ - Μαρλή",
+      "firstEpisode": 0
     },
     "Μύρια": {
       "team": "Ομάδα",
       "starName": "miria_kiriakidou-1920x1004",
-      "fullName": "Μύρια Κυριακίδου"
+      "fullName": "Μύρια Κυριακίδου",
+      "firstEpisode": 0
     },
     "Νάγια": {
       "team": "",
       "starName": "nagia_kontostergiou-1920x1004-b_w",
-      "fullName": "Νάγια Κοντοστεργίου"
+      "fullName": "Νάγια Κοντοστεργίου",
+      "firstEpisode": 0
     },
     "Νικόλ": {
       "team": "Το Κορμί σου το Φρυδίσιο",
       "starName": "nikol_tsoulos-1920x1004-b_w",
-      "fullName": "Νικόλ Τσούλος"
+      "fullName": "Νικόλ Τσούλος",
+      "firstEpisode": 0
     },
     "Τζούλια": {
       "team": "Φρυδερίκη αγάπη μου",
       "starName": "tzoulia_iligenko-1920x1004-b_w",
-      "fullName": "Τζούλια Ιλιγένκο"
+      "fullName": "Τζούλια Ιλιγένκο",
+      "firstEpisode": 0
     },
     "Ντορέλα": {
       "team": "Ομάδα",
       "starName": "%CE%BD%CF%84%CE%BF%CF%81%CE%B5%CE%BB%CE%B1_%CE%B3%CE%BA%CE%B5%CE%BA%CE%B1-1930x1004-b_w",
-      "fullName": "Ντορέλα Γκέκα"
+      "fullName": "Ντορέλα Γκέκα",
+      "firstEpisode": 8
     },
     "Ραφαέλα": {
       "team": "Το Κορμί σου το Φρυδίσιο",
       "starName": "%CF%81%CE%B1%CF%86%CE%B1%CE%B5%CE%BB%CE%B1_%CF%87%CE%B1%CF%81%CE%B1%CE%BB%CE%B1%CE%BC%CF%80%CE%BF%CF%85%CF%82-1920x1004-b_w",
-      "fullName": "Ραφαέλα Χαραλάμπους"
+      "fullName": "Ραφαέλα Χαραλάμπους",
+      "firstEpisode": 8
     },
     "Ειρήνη": {
       "team": "Γεια σου Τάσο",
       "starName": "%CE%B5%CE%B9%CF%81%CE%B7%CE%BD%CE%B7_%CE%B1%CE%BD%CF%84%CF%89%CE%BD%CE%B9%CE%BF%CF%85-1920x1004-b_w",
-      "fullName": "Ειρήνη Αντωνίου"
+      "fullName": "Ειρήνη Αντωνίου",
+      "firstEpisode": 8
     },
     "Γεωργιάννα": {
       "team": "Φρυδερίκη αγάπη μου",
-      "starName": "%CE%B3%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%B1%CE%BD%CE%B1_%CE%B9%CF%89%CE%B1%CE%BA%CE%B5%CE%B9%CE%BC%CE%B9%CE%B4%CE%B7-1920x1004",
-      "fullName": "Γεωργιάννα Ιωακειμίδη"
+      "starName": "%CE%B3%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%B1%CE%BD%CE%B1_%CE%B9%CF%89%CE%B1%CE%BA%CE%B5%CE%B9%CE%BC%CE%B9%CE%B4%CE%B7-1920x1004-b_w",
+      "fullName": "Γεωργιάννα Ιωακειμίδη",
+      "firstEpisode": 8
     }
   },
   "teams": {
@@ -231,6 +261,11 @@
       "points": -1,
       "fullName": "Συμμετοχή σε διαμάχη",
       "category": "drama"
+    },
+    "comeback": {
+      "points": 10,
+      "fullName": "Επιστροφή",
+      "category": "misc"
     }
   },
   "episodes": {
@@ -724,6 +759,25 @@
       "misc": {
         "food": ["Μύρια", "Αλεξία Τ.", "Μάρα", "Μαρίτα"],
         "challenge": ["Μικαέλα"]
+      }
+    },
+    "episode18": {
+      "placement": {
+        "firstPlace": ["Βικτώρια"],
+        "secondPlace": ["Μύρια"],
+        "thirdPlaceNo25": ["Κότυ"],
+        "top50": ["Μικαέλα"],
+        "top50Dis": ["Μύρια"],
+        "bot25": ["Αλεξία Τ."],
+        "lastPlace": ["Ραφαέλα"]
+      },
+      "drama": {
+        "badmouthing": ["Μύρια"]
+      },
+      "misc": {
+        "food": ["Μύρια"],
+        "comeback": ["Κάτια", "Ραφαέλα"],
+        "positiveComment": ["Βικτώρια"]
       }
     }
   }
