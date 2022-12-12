@@ -116,7 +116,7 @@ export const TeamPointSources = ({ selectedTeam, ...props }) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πηγές Πόντων</h5>
+        <h5 className="mb-0">Πηγές Πόντων Όμάδας "{selectedTeam}"</h5>
       </Card.Header>
       <Card.Body className="p-0 py-lg-2 px-lg-5 ">
         <svg ref={ref}></svg>

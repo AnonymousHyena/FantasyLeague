@@ -219,7 +219,7 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">
-          Συνολικοί Πόντοι Μοντέλων Όμάδας "{selectedTeam}" ανά Επεισόδιο
+          Πόντοι Μοντέλων Όμάδας "{selectedTeam}" ανά Επεισόδιο
         </h5>
       </Card.Header>
       <Card.Body>

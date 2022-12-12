@@ -116,7 +116,7 @@ export const PointsSources = ({ selectedModel, ...props }) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πηγές Πόντων</h5>
+        <h5 className="mb-0">Πηγές Πόντων Μοντέλου "{selectedModel}"</h5>
       </Card.Header>
       <Card.Body className="px-0 px-lg-5">
         <svg ref={ref}></svg>

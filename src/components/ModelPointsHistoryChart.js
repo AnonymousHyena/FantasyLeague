@@ -381,7 +381,9 @@ export const ModelPointsHistoryChart = ({ selectedModel, ...props }) => {
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πόντοι ανά Επεισόδιο για την {selectedModel}</h5>
+        <h5 className="mb-0">
+          Πόντοι ανά Επεισόδιο Μοντέλου "{selectedModel}"
+        </h5>
       </Card.Header>
       <Card.Body>
         <svg ref={ref}></svg>
