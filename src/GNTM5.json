@@ -184,6 +184,11 @@
       "fullName": "Δεύτερη θέση",
       "category": "placement"
     },
+    "secondPlaceNo25": {
+      "points": 8,
+      "fullName": "Δεύτερη θέση χωρίς top 25%",
+      "category": "placement"
+    },
     "thirdPlace": {
       "points": 8,
       "fullName": "Τρίτη θέση",
@@ -794,6 +799,22 @@
       },
       "misc": {
         "food": ["Βικτώρια", "Μύρια", "Αλεξία Τ.", "Μύρια", "Κάτια", "Μικαέλα"]
+      }
+    },
+    "episode20": {
+      "placement": {
+        "firstPlace": ["Μαρίτα"],
+        "secondPlaceNo25": ["Κότυ"],
+        "thirdPlaceNo25": ["Αλεξία Τ."],
+        "lastPlace": ["Μικαέλα"]
+      },
+      "drama": {
+        "badmouthing": ["Βικτώρια", "Μαρίτα", "Βικτώρια", "Μύρια", "Βικτώρια"]
+      },
+      "misc": {
+        "food": ["Αλεξία Τ.", "Μάρα", "Μικαέλα"],
+        "challenge": ["Βικτώρια"],
+        "chores": ["Μικαέλα"]
       }
     }
   }
