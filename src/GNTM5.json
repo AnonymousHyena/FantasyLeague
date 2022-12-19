@@ -74,7 +74,7 @@
     },
     "Κάτια": {
       "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "katia_kizima-1920x1004",
+      "starName": "katia_kizima-1920x1004-b_w",
       "fullName": "Κάτια Κιζίμα",
       "firstEpisode": 0
     },
@@ -104,7 +104,7 @@
     },
     "Μικαέλα": {
       "team": "Φρυδερίκη αγάπη μου",
-      "starName": "mixaela_novak_marli-1920x1004",
+      "starName": "mixaela_novak_marli-1920x1004-b_w",
       "fullName": "Μικαέλα Νόβακ - Μαρλή",
       "firstEpisode": 0
     },
@@ -815,6 +815,20 @@
         "food": ["Αλεξία Τ.", "Μάρα", "Μικαέλα"],
         "challenge": ["Βικτώρια"],
         "chores": ["Μικαέλα"]
+      }
+    },
+    "episode21": {
+      "placement": {
+        "firstPlace": ["Βικτώρια"],
+        "secondPlaceNo25": ["Μάρα"],
+        "thirdPlaceNo25": ["Μαρίτα"],
+        "lastPlace": ["Μύρια"]
+      },
+      "drama": {
+        "badmouthing": ["Βικτώρια", "Μαρίτα", "Μαρίτα", "Βικτώρια"]
+      },
+      "misc": {
+        "food": ["Αλεξία Τ.", "Μάρα", "Κότυ"]
       }
     }
   }
