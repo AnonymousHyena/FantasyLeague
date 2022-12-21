@@ -94,7 +94,7 @@ export const TeamPointsHistoryChart = ({ selectedTeam, ...props }) => {
           yScale = d3.scaleLinear().domain([-10, 40]).range([height, 0]);
 
         if (isCummulative) {
-          yScale = d3.scaleLinear().domain([-25, 300]).range([height, 0]);
+          yScale = d3.scaleLinear().domain([-25, 280]).range([height, 0]);
         }
 
         // X label

@@ -14,13 +14,10 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
     const groupedData = utils.groupByProperty(props.data, "episode");
 
     let modelFirst = groupedData[selectedEpisode].filter(
-      (element) =>
-        element["source"] === "firstPlace" ||
-        element["source"] === "firstPlaceDis"
+      (element) => element["source"] === "firstPlace"
     );
     const result = [];
     if (modelFirst.length > 0) {
-      // modelFirst = modelFirst[0]["model"];
       modelFirst.forEach((element) => {
         result.push(element["model"]);
       });

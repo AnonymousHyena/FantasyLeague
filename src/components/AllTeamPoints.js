@@ -61,6 +61,20 @@ export const AllTeamPoints = (props) => {
       l4 = Object.keys(t4);
     }
 
+    const tableSort = (a, b, t) => {
+      if (sumPoints(t, a) < sumPoints(t, b)) {
+        return 1;
+      } else if (sumPoints(t, a) > sumPoints(t, b)) {
+        return -1;
+      }
+      return 0;
+    };
+
+    l1.sort((a, b) => tableSort(a, b, t1));
+    l2.sort((a, b) => tableSort(a, b, t2));
+    l3.sort((a, b) => tableSort(a, b, t3));
+    l4.sort((a, b) => tableSort(a, b, t4));
+
     return (
       <>
         <tr>

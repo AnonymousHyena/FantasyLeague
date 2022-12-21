@@ -27,6 +27,17 @@ export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
     t1 = utils.groupByProperty(groupedModels[selectedTeam], "model");
     l1 = Object.keys(t1);
 
+    const tableSort = (a, b, t) => {
+      if (utils.sumPoints(t, a) < utils.sumPoints(t, b)) {
+        return 1;
+      } else if (utils.sumPoints(t, a) > utils.sumPoints(t, b)) {
+        return -1;
+      }
+      return 0;
+    };
+
+    l1.sort((a, b) => tableSort(a, b, t1));
+
     return (
       <>
         <tr>

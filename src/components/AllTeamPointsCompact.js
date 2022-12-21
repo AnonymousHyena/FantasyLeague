@@ -41,6 +41,17 @@ export const AllTeamPoints = (props) => {
       l1 = Object.keys(t1);
     }
 
+    const tableSort = (a, b, t) => {
+      if (utils.sumPoints(t, a) < utils.sumPoints(t, b)) {
+        return 1;
+      } else if (utils.sumPoints(t, a) > utils.sumPoints(t, b)) {
+        return -1;
+      }
+      return 0;
+    };
+
+    l1.sort((a, b) => tableSort(a, b, t1));
+
     l1.forEach((element) => {
       result.push(tableLine(element, t1));
     });
