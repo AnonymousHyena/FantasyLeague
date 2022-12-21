@@ -938,6 +938,16 @@
         "challenge": ["Μαρίτα"],
         "positiveComment": ["Μαρίτα", "Αλεξία Τ."]
       }
+    },
+    "episode23": {
+      "placement": {
+        "lastPlace": ["Κότυ"]
+      },
+      "drama": {
+        "injury": ["Κότυ"],
+        "interuption": ["Κότυ"]
+      },
+      "misc": {}
     }
   }
 }
