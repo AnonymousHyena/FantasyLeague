@@ -164,6 +164,11 @@
     "Ομάδα": "Snouf"
   },
   "points": {
+    "GNTM": {
+      "points": 50,
+      "fullName": "Νικίτρια του GNTM5",
+      "category": "placement"
+    },
     "firstPlace": {
       "points": 8,
       "fullName": "Πρώτη θέση",
@@ -206,9 +211,19 @@
       "fullName": "Τελευταία θέση",
       "category": "placement"
     },
+    "lastPlaceTop5": {
+      "points": 0,
+      "fullName": "Τελευταία θέση στο top 5",
+      "category": "placement"
+    },
     "lastPlaceAdv": {
       "points": -12,
       "fullName": "Τελευταία θέση με advantage",
+      "category": "placement"
+    },
+    "finalistBonus": {
+      "points": 10,
+      "fullName": "Bonus τριάδας τελικού",
       "category": "placement"
     },
     "injury": { "points": -1, "fullName": "Τραυματισμός", "category": "drama" },
@@ -260,6 +275,73 @@
       "points": 10,
       "fullName": "Επιστροφή",
       "category": "misc"
+    }
+  },
+  "achievements": {
+    "negativeScore": {
+      "name": "Better off without you",
+      "description": "Leave the game with a negative points total",
+      "order": 1,
+      "holders": [
+        "Τζούλια",
+        "Άννα",
+        "Αλεξία Κ.",
+        "Ντορέλα",
+        "Κατερίνα",
+        "Έφη",
+        "Νάγια",
+        "Ειρήνη",
+        "Ζωή",
+        "Έλενα"
+      ]
+    },
+    "top5": {
+      "name": "Top 5",
+      "description": "Be among the 5 final contestants",
+      "order": 3,
+      "holders": ["Κότυ", "Μάρα"]
+    },
+    "top3": {
+      "name": "Top 3",
+      "description": "Be among the 3 final contestants",
+      "order": 3,
+      "holders": ["Αλεξία Τ.", "Βικτώρια", "Μαρίτα"]
+    },
+    "hundo": {
+      "name": "Over 9000",
+      "description": "Have more than 100 points",
+      "order": 2,
+      "holders": ["Κότυ", "Μαρίτα"]
+    },
+    "teamStar": {
+      "name": "Team Star",
+      "description": "Have the most points in their team",
+      "order": 0,
+      "holders": ["Κότυ", "Μαρίτα", "Μύρια", "Βικτώρια"]
+    },
+    "dramaQueen": {
+      "name": "Drama Queen",
+      "description": "Have the most points in the Drama category",
+      "order": 2,
+      "holders": ["Βικτώρια"]
+    },
+    "andStayDead": {
+      "name": "... And Stay Dead",
+      "description": "Leave the same episode you comeback",
+      "order": 2,
+      "holders": ["Ραφαέλα"]
+    },
+    "goneFast": {
+      "name": "Καλά εσύ έφυγες νωρίς",
+      "description": "Finish in the placement ranking higher than your final position tier",
+      "order": 2,
+      "holders": ["Νικόλ", "Κότυ", "Μικαέλα"]
+    },
+    "lucky": {
+      "name": "Μήπως ήταν τύχη τελικα;",
+      "description": "Finish in the placement ranking lower than your final position tier",
+      "order": 2,
+      "holders": ["Μάρα", "Αλεξία Τ.", "Κάτια"]
     }
   },
   "episodes": {
@@ -930,7 +1012,7 @@
         "top25": ["Μαρίτα"],
         "top50": ["Κότυ", "Μαρίτα"],
         "bot50Adv": ["Βικτώρια"],
-        "lastPlace": ["Μάρα"]
+        "lastPlaceTop5": ["Μάρα"]
       },
       "drama": {},
       "misc": {
@@ -941,13 +1023,16 @@
     },
     "episode23": {
       "placement": {
-        "lastPlace": ["Κότυ"]
+        "finalistBonus": ["Μαρίτα", "Αλεξία Τ.", "Βικτώρια"],
+        "lastPlaceTop5": ["Κότυ"]
       },
       "drama": {
         "injury": ["Κότυ"],
         "interuption": ["Κότυ"]
       },
-      "misc": {}
+      "misc": {
+        "food": ["Αλεξία Τ."]
+      }
     }
   }
 }

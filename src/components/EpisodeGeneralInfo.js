@@ -45,7 +45,9 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
       utils.groupByProperty(
         groupedData[selectedEpisode].filter(
           (element) =>
-            element["source"] === "quit" || element["source"] === "lastPlace"
+            element["source"] === "quit" ||
+            element["source"] === "lastPlace" ||
+            element["source"] === "lastPlaceTop5"
         ),
         "model"
       )

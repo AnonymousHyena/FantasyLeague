@@ -9,16 +9,24 @@ export const modelStarNames = {};
 export const modelFullNames = {};
 export const pointsTranslateDict = {};
 export const modelFirstEpisode = {};
+export const achievements = {};
 
 Object.keys(episodes["models"]).forEach((model) => {
   team[model] = episodes["models"][model]["team"];
   modelStarNames[model] = episodes["models"][model]["starName"];
   modelFullNames[model] = episodes["models"][model]["fullName"];
   modelFirstEpisode[model] = episodes["models"][model]["firstEpisode"];
+  achievements[model] = [];
 });
 
 Object.keys(episodes["points"]).forEach((rule) => {
   pointsTranslateDict[rule] = episodes["points"][rule]["fullName"];
+});
+
+Object.keys(episodes["achievements"]).forEach((achievement) => {
+  episodes["achievements"][achievement]["holders"].forEach((model) => {
+    achievements[model].push(episodes["achievements"][achievement]);
+  });
 });
 
 export function initializeDataAndStore() {
@@ -170,6 +178,9 @@ export function inGame(data, model) {
 
   return !(
     Object.keys(groupByProperty(sources["quit"], "model")).includes(model) ||
+    Object.keys(groupByProperty(sources["lastPlaceTop5"], "model")).includes(
+      model
+    ) ||
     Object.keys(groupByProperty(sources["lastPlace"], "model")).includes(model)
   );
 }

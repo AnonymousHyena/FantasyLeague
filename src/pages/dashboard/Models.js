@@ -36,14 +36,6 @@ const Models = (props) => {
     return utils.sumPoints(modelsData, model);
   };
 
-  const infoForModelByEpisode = (model, episode, sourceType = "all") => {
-    if (parseInt(episode.split("e")[2]) <= 9) {
-      episode = "episode0" + episode.split("e")[2];
-    }
-    const episodeData = utils.groupByProperty(props.data, "episode")[episode];
-    return infoForModel(model, sourceType, episodeData);
-  };
-
   const getFinalEpisode = (model) => {
     const episodes = utils.getEpisodes();
     const data = utils.groupByProperty(props.data, "episode");
@@ -98,6 +90,36 @@ const Models = (props) => {
 
   const dataByType = utils.groupByProperty(props.data, "sourceType");
 
+  const makeAchievementsTable = (selectedModel) => {
+    const result = [];
+    if (utils.achievements[selectedModel]) {
+      if (utils.achievements[selectedModel].length === 0)
+        return (
+          <tr>
+            <td>-</td>
+          </tr>
+        );
+      utils.achievements[selectedModel].sort((a, b) => {
+        if (a.order > b.order) {
+          return -1;
+        } else if (a.order < b.order) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      utils.achievements[selectedModel].forEach((achievement) => {
+        result.push(
+          <tr>
+            <th className="w-25">{achievement.name}</th>
+            <td className="w-75">{achievement.description}</td>
+          </tr>
+        );
+      });
+      return result;
+    }
+  };
+
   return (
     <>
       <SelectForm
@@ -135,9 +157,84 @@ const Models = (props) => {
               xs={12}
               lg={8}
               className="mt-1 mb-1 mt-lg-0 mb-lg-0 d-flex flex-wrap"
+              style={{ height: "fit-content" }}
             >
-              <Col xs={12} className="mt-2">
-                <Card className="p-2">
+              <Col xs={12} className="mt-2 d-lg-block d-none">
+                <Card className="p-1">
+                  <Card.Header>
+                    <h5 className="mb-0">
+                      {utils.modelFullNames[selectedModel]}
+                    </h5>
+                  </Card.Header>
+                  <Card.Body>
+                    <table className="">
+                      <tbody>
+                        <tr className="">
+                          <th className="">Ομάδα</th>
+                          <td className="text-right">
+                            "{utils.getModelTeam(selectedModel)}"
+                          </td>
+                          <th className="ps-5">Τελευταίο Επεισόδιο</th>
+                          <td className="text-right">
+                            {utils.translateEpisodes(
+                              getFinalEpisode(selectedModel)
+                            )}
+                          </td>
+                        </tr>
+                        <tr className="">
+                          <th className="">Γενική Κατάταξη</th>
+                          <td className="text-right">
+                            #
+                            {utils.getModelRank(
+                              props.data,
+                              "total",
+                              selectedModel
+                            )}
+                          </td>
+                          <th className="ps-5">Συνολικοί Πόντοι</th>
+                          <td className="text-right">
+                            {infoForModel(selectedModel)}
+                          </td>
+                        </tr>
+                        <tr className="">
+                          <th className="">(Placement, Drama, Misc)</th>
+                          <td className="text-right">
+                            #
+                            {utils.getModelRank(
+                              dataByType["placement"],
+                              "placement",
+                              selectedModel
+                            )}{" "}
+                            #
+                            {utils.getModelRank(
+                              dataByType["drama"],
+                              "drama",
+                              selectedModel
+                            )}{" "}
+                            #
+                            {utils.getModelRank(
+                              dataByType["misc"],
+                              "misc",
+                              selectedModel
+                            )}
+                          </td>
+                          <th className="ps-5">(Placement, Drama, Misc)</th>
+                          <td className="text-right">
+                            {infoForModel(selectedModel, "placement")}
+                            {", "}
+                            {infoForModel(selectedModel, "drama")}
+                            {", "}
+                            {infoForModel(selectedModel, "misc")}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              <Col xs={12} className="mt-2 d-block d-lg-none">
+                <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">
                       {utils.modelFullNames[selectedModel]}
@@ -186,42 +283,26 @@ const Models = (props) => {
                             )}
                           </td>
                         </tr>
-                      </tbody>
-                    </table>
-                  </Card.Body>
-                </Card>
-              </Col>
-
-              <Col xs={12} lg={6} className="mt-2 pe-lg-3">
-                <Card className="p-1">
-                  <Card.Header>
-                    <h5 className="mb-0">Πόντοι Μοντέλου</h5>
-                  </Card.Header>
-                  <Card.Body>
-                    <table className="">
-                      <tbody>
                         <tr className="">
-                          <th className="w-75">Total Points</th>
+                          <th className="w-50">Συνολικοί Πόντοι</th>
                           <td className="text-right">
                             {infoForModel(selectedModel)}
                           </td>
                         </tr>
-                        <tr>
-                          <th className="w-75">Placement Points</th>
+                        <tr className="">
+                          <th className="w-50">(Placement, Drama, Misc)</th>
                           <td className="text-right">
-                            {infoForModel(selectedModel, "placement")}
-                          </td>
-                        </tr>
-                        <tr>
-                          <th className="w-75">Drama Points</th>
-                          <td className="text-right">
-                            {infoForModel(selectedModel, "drama")}
-                          </td>
-                        </tr>
-                        <tr>
-                          <th className="w-75">Misc Points</th>
-                          <td className="text-right">
+                            {infoForModel(selectedModel, "placement")}{" "}
+                            {infoForModel(selectedModel, "drama")}{" "}
                             {infoForModel(selectedModel, "misc")}
+                          </td>
+                        </tr>
+                        <tr className="">
+                          <th className="w-50">Τελευταίο Επεισόδιο</th>
+                          <td className="text-right">
+                            {utils.translateEpisodes(
+                              getFinalEpisode(selectedModel)
+                            )}
                           </td>
                         </tr>
                       </tbody>
@@ -230,56 +311,14 @@ const Models = (props) => {
                 </Card>
               </Col>
 
-              <Col xs={12} lg={6} className="mt-2 ps-lg-3">
-                <Card className="p-1">
+              <Col xs={12} className="mt-2">
+                <Card className="p-1 achievement-card">
                   <Card.Header>
-                    <h5 className="mb-0">
-                      {utils.translateEpisodes(getFinalEpisode(selectedModel))}
-                    </h5>
+                    <h5 className="mb-0">Achievements Μοντέλου</h5>
                   </Card.Header>
                   <Card.Body>
-                    <table className="">
-                      <tbody>
-                        <tr>
-                          <th className="w-75">Total Points</th>
-                          <td className="text-right">
-                            {infoForModelByEpisode(
-                              selectedModel,
-                              getFinalEpisode(selectedModel)
-                            )}
-                          </td>
-                        </tr>
-                        <tr>
-                          <th className="w-75">Placement Points</th>
-                          <td className="text-right">
-                            {infoForModelByEpisode(
-                              selectedModel,
-                              getFinalEpisode(selectedModel),
-                              "placement"
-                            )}
-                          </td>
-                        </tr>
-                        <tr>
-                          <th className="w-75">Drama Points</th>
-                          <td className="text-right">
-                            {infoForModelByEpisode(
-                              selectedModel,
-                              getFinalEpisode(selectedModel),
-                              "drama"
-                            )}
-                          </td>
-                        </tr>
-                        <tr>
-                          <th className="w-75">Misc Points</th>
-                          <td className="text-right">
-                            {infoForModelByEpisode(
-                              selectedModel,
-                              getFinalEpisode(selectedModel),
-                              "misc"
-                            )}
-                          </td>
-                        </tr>
-                      </tbody>
+                    <table className="w-100">
+                      <tbody>{makeAchievementsTable(selectedModel)}</tbody>
                     </table>
                   </Card.Body>
                 </Card>
