@@ -23,7 +23,7 @@ const NavigationBar = (props) => {
           as={Link}
           variant="primary"
           className="animate-hover d-none d-lg-block"
-          to={"/"}
+          to={"/FantasyLeague"}
         >
           <FontAwesomeIcon
             icon={faChevronLeft}

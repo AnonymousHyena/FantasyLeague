@@ -1,6 +1,6 @@
 export const AppRoutes = {
   // pages
-  Games: { path: "/" },
+  Games: { path: "/FantasyLeague" },
   Overview: { path: "/overview" },
   Contestants: { path: "/contestants" },
   Teams: { path: "/teams" },
