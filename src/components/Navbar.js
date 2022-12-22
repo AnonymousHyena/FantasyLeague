@@ -11,7 +11,7 @@ const NavigationBar = (props) => {
   const { pathname } = location;
 
   useEffect(() => {
-    const prefix = pathname.split("/")[1];
+    const prefix = pathname.split("/")[2];
 
     initializeDataAndStore(prefix);
   }, []);

@@ -112,7 +112,7 @@ export default (props = {}) => {
       </Nav.Item>
     );
   };
-  const prefix = "/" + pathname.split("/")[1];
+  const prefix = "/FantasyLeague/" + pathname.split("/")[2];
 
   return (
     <>

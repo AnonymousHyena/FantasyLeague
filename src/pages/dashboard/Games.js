@@ -41,7 +41,7 @@ const Games = (props) => {
         <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
           <Card
             onClick={() => {
-              navigate("overview");
+              navigate("masterChef/overview");
             }}
           >
             <Card.Body>Master Chef</Card.Body>
