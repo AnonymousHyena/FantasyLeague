@@ -11,7 +11,7 @@ const NavigationBar = (props) => {
   const { pathname } = location;
 
   useEffect(() => {
-    const prefix = pathname.split("/")[2];
+    const prefix = pathname.split("/")[1];
 
     initializeDataAndStore(prefix);
   }, []);
@@ -23,7 +23,7 @@ const NavigationBar = (props) => {
           as={Link}
           variant="primary"
           className="animate-hover d-none d-lg-block"
-          to={"/FantasyLeague"}
+          to={"/"}
         >
           <FontAwesomeIcon
             icon={faChevronLeft}

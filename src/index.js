@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./scss/volt.scss";
 
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -15,10 +15,10 @@ import store from "./store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <ScrollToTop />
     <Provider store={store}>
       <HomePage />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 );

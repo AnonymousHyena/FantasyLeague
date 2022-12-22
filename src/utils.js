@@ -15,9 +15,8 @@ export const contestantFirstEpisode = {};
 export const achievements = {};
 
 export function initializeDataAndStore(prefix) {
-  console.log(prefix);
   if (prefix === "GNTM5") episodes = GNTM5;
-  if (prefix === "survivor") episodes = Survivor;
+  if (prefix === "Survivor") episodes = Survivor;
 
   teams = Object.keys(episodes["teams"]);
   teamOwner = episodes["teams"];

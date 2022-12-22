@@ -112,7 +112,7 @@ export default (props = {}) => {
       </Nav.Item>
     );
   };
-  const prefix = "/FantasyLeague/" + pathname.split("/")[2];
+  const prefix = pathname.split("/")[1];
 
   return (
     <>
@@ -149,22 +149,22 @@ export default (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem
                 title="Overview"
-                link={prefix + AppRoutes.Overview.path}
+                link={AppRoutes["Overview" + prefix].path}
                 icon={faChartPie}
               />
               <NavItem
                 title="Ομάδες"
-                link={prefix + AppRoutes.Teams.path}
+                link={AppRoutes["Teams" + prefix].path}
                 icon={faUsers}
               />
               <NavItem
                 title="Διαγωνιζόμενοι"
-                link={prefix + AppRoutes.Contestants.path}
+                link={AppRoutes["Contestants" + prefix].path}
                 icon={faUser}
               />
               <NavItem
                 title="Επεισόδια"
-                link={prefix + AppRoutes.Episodes.path}
+                link={AppRoutes["Episodes" + prefix].path}
                 icon={faRankingStar}
               />
 
@@ -172,7 +172,7 @@ export default (props = {}) => {
 
               <NavItem
                 title="Κανόνες"
-                link={prefix + AppRoutes.Rules.path}
+                link={AppRoutes["Rules" + prefix].path}
                 icon={faScaleBalanced}
               />
             </Nav>

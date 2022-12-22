@@ -83,61 +83,61 @@ export default () => (
       element={<RouteWithLoader component={Games} />}
     />
 
-    {/* GNTM pages */}
+    {/* GNTM5 pages */}
     <Route
       exact
-      path={"FantasyLeague/GNTM5" + AppRoutes.Overview.path}
+      path={AppRoutes.OverviewGNTM5.path}
       element={<RouteWithSidebar component={Overview} />}
     />
 
     <Route
       exact
-      path={"FantasyLeague/GNTM5" + AppRoutes.Teams.path}
+      path={AppRoutes.TeamsGNTM5.path}
       element={<RouteWithSidebar component={Teams} />}
     />
     <Route
       exact
-      path={"FantasyLeague/GNTM5" + AppRoutes.Contestants.path}
+      path={AppRoutes.ContestantsGNTM5.path}
       element={<RouteWithSidebar component={Contestants} />}
     />
 
     <Route
       exact
-      path={"FantasyLeague/GNTM5" + AppRoutes.Episodes.path}
+      path={AppRoutes.EpisodesGNTM5.path}
       element={<RouteWithSidebar component={Episodes} />}
     />
     <Route
       exact
-      path={"FantasyLeague/GNTM5" + AppRoutes.Rules.path}
+      path={AppRoutes.RulesGNTM5.path}
       element={<RouteWithSidebar component={Rules} />}
     />
 
-    {/* FantasyLeague/survivor pages */}
+    {/* Survivor pages */}
     <Route
       exact
-      path={"FantasyLeague/survivor" + AppRoutes.Overview.path}
+      path={AppRoutes.OverviewSurvivor.path}
       element={<RouteWithSidebar component={Overview} />}
     />
 
     <Route
       exact
-      path={"FantasyLeague/survivor" + AppRoutes.Teams.path}
+      path={AppRoutes.TeamsSurvivor.path}
       element={<RouteWithSidebar component={Teams} />}
     />
     <Route
       exact
-      path={"FantasyLeague/survivor" + AppRoutes.Contestants.path}
+      path={AppRoutes.ContestantsSurvivor.path}
       element={<RouteWithSidebar component={Contestants} />}
     />
 
     <Route
       exact
-      path={"FantasyLeague/survivor" + AppRoutes.Episodes.path}
+      path={AppRoutes.EpisodesSurvivor.path}
       element={<RouteWithSidebar component={Episodes} />}
     />
     <Route
       exact
-      path={"FantasyLeague/survivor" + AppRoutes.Rules.path}
+      path={AppRoutes.RulesSurvivor.path}
       element={<RouteWithSidebar component={Rules} />}
     />
     {/* pages */}

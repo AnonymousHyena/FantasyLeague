@@ -29,7 +29,7 @@ const Games = (props) => {
         <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4">
           <Card
             onClick={() => {
-              navigate("survivor/overview");
+              navigate("Survivor/overview");
             }}
           >
             <Card.Body>Survivor</Card.Body>
