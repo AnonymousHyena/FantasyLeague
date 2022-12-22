@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Col, Row, Card } from "react-bootstrap";
 import { connect } from "react-redux";
-import SelectForm from "../../components/SelectForm";
-import * as utils from "../../utils";
-import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
-
-import store from "../../store";
-import PointsSources from "../../components/PointsSources";
-import ContestantPointsHistoryChart from "../../components/ContestantPointsHistoryChart";
+import { useNavigate } from "react-router-dom";
 
 const Games = (props) => {
   const navigate = useNavigate();

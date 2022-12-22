@@ -11,6 +11,4 @@ export const AppRoutes = {
   TeamsSurvivor: { path: "/Survivor/teams" },
   RulesSurvivor: { path: "/Survivor/rules" },
   EpisodesSurvivor: { path: "/Survivor/episodes" },
-  NotFound: { path: "/examples/404" },
-  ServerError: { path: "/examples/500" },
 };

@@ -19,7 +19,7 @@ export default () => {
               className="text-center d-flex align-items-center justify-content-center"
             >
               <div>
-                <Card.Link as={Link} to={AppRoutes.Overview.path}>
+                <Card.Link as={Link} to={AppRoutes.Games.path}>
                   <Image src={NotFoundImage} className="img-fluid w-75" />
                 </Card.Link>
                 <h1 className="text-primary mt-5">

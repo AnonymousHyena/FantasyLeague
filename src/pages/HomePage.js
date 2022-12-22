@@ -74,11 +74,6 @@ export default () => (
   <Routes>
     <Route
       exact
-      path={AppRoutes.NotFound.path}
-      element={<RouteWithLoader component={ServerError} />}
-    />
-    <Route
-      exact
       path={AppRoutes.Games.path}
       element={<RouteWithLoader component={Games} />}
     />
@@ -140,7 +135,6 @@ export default () => (
       path={AppRoutes.RulesSurvivor.path}
       element={<RouteWithSidebar component={Rules} />}
     />
-    {/* pages */}
 
     <Route path="*" element={<RouteWithLoader component={NotFoundPage} />} />
 
