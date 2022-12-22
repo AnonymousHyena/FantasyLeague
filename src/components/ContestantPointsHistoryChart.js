@@ -6,7 +6,10 @@ import { useD3 } from "./UseD3";
 
 import * as utils from "../utils";
 
-export const ModelPointsHistoryChart = ({ selectedModel, ...props }) => {
+export const ContestantPointsHistoryChart = ({
+  selectedContestant,
+  ...props
+}) => {
   const [isCummulative, setIsCummulative] = useState(true);
 
   const [activeOptions, setActiveOptions] = useState([
@@ -25,7 +28,7 @@ export const ModelPointsHistoryChart = ({ selectedModel, ...props }) => {
 
   const ref = useD3(
     (svg) => {
-      function modelPointsHistory(data) {
+      function contestantPointsHistory(data) {
         const color = d3.scaleOrdinal(
           ["placement", ",misc", "drama"],
           d3.schemeTableau10
@@ -369,20 +372,21 @@ export const ModelPointsHistoryChart = ({ selectedModel, ...props }) => {
           .on("click", toggleCummulative);
       }
 
-      modelPointsHistory(
+      contestantPointsHistory(
         props.data.filter(
-          (line) => line.model === selectedModel && line.sourceType !== "init"
+          (line) =>
+            line.contestant === selectedContestant && line.sourceType !== "init"
         )
       );
     },
-    [props.data.length, selectedModel, isCummulative, activeOptions]
+    [props.data.length, selectedContestant, isCummulative, activeOptions]
   );
 
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">
-          Πόντοι ανά Επεισόδιο Μοντέλου "{selectedModel}"
+          Πόντοι ανά Επεισόδιο Διαγωνιζόμενου "{selectedContestant}"
         </h5>
       </Card.Header>
       <Card.Body>
@@ -398,4 +402,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(ModelPointsHistoryChart);
+export default connect(mapStateToProps)(ContestantPointsHistoryChart);

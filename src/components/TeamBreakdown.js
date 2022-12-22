@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import * as utils from "../utils";
 
 export const TeamBreakdown = ({ selectedTeam, ...props }) => {
-  const groupedModels = utils.groupByProperty(props.data, "team");
-  const team = groupedModels[selectedTeam];
-  const t1 = utils.groupByProperty(team, "model");
+  const groupedContestants = utils.groupByProperty(props.data, "team");
+  const team = groupedContestants[selectedTeam];
+  const t1 = utils.groupByProperty(team, "contestant");
   const l1 = Object.keys(t1);
 
   const t2 = utils.groupByProperty(team, "episode");
@@ -18,7 +18,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
       <>
         <td className="">{utils.translateEpisodes(l2)}</td>
         <td className="text-right">
-          {utils.sumPoints(utils.groupByProperty(t[l2], "model"), l1)}
+          {utils.sumPoints(utils.groupByProperty(t[l2], "contestant"), l1)}
         </td>
       </>
     );
@@ -72,7 +72,7 @@ export const TeamBreakdown = ({ selectedTeam, ...props }) => {
         }
       }
       const episodeNum = parseInt(episode.split("e")[2]);
-      if (isIn && episodeNum >= utils.modelFirstEpisode[element]) {
+      if (isIn && episodeNum >= utils.contestantFirstEpisode[element]) {
         result.push(cells(t, episode, element));
       } else {
         result.push(emptyCells());

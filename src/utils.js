@@ -1,43 +1,55 @@
-import episodes from "./GNTM5.json";
+import GNTM5 from "./GNTM5.json";
+import Survivor from "./Survivor.json";
 import store from "./store";
 
-const teams = Object.keys(episodes["teams"]);
-export const teamOwner = episodes["teams"];
+var episodes = GNTM5;
+
+var teams = [];
+export var teamOwner = {};
 
 const team = {};
-export const modelStarNames = {};
-export const modelFullNames = {};
+export const contestantStarNames = {};
+export const contestantFullNames = {};
 export const pointsTranslateDict = {};
-export const modelFirstEpisode = {};
+export const contestantFirstEpisode = {};
 export const achievements = {};
 
-Object.keys(episodes["models"]).forEach((model) => {
-  team[model] = episodes["models"][model]["team"];
-  modelStarNames[model] = episodes["models"][model]["starName"];
-  modelFullNames[model] = episodes["models"][model]["fullName"];
-  modelFirstEpisode[model] = episodes["models"][model]["firstEpisode"];
-  achievements[model] = [];
-});
+export function initializeDataAndStore(prefix) {
+  console.log(prefix);
+  if (prefix === "GNTM5") episodes = GNTM5;
+  if (prefix === "survivor") episodes = Survivor;
 
-Object.keys(episodes["points"]).forEach((rule) => {
-  pointsTranslateDict[rule] = episodes["points"][rule]["fullName"];
-});
+  teams = Object.keys(episodes["teams"]);
+  teamOwner = episodes["teams"];
 
-Object.keys(episodes["achievements"]).forEach((achievement) => {
-  episodes["achievements"][achievement]["holders"].forEach((model) => {
-    achievements[model].push(episodes["achievements"][achievement]);
+  Object.keys(episodes["contestants"]).forEach((contestant) => {
+    team[contestant] = episodes["contestants"][contestant]["team"];
+    contestantStarNames[contestant] =
+      episodes["contestants"][contestant]["starName"];
+    contestantFullNames[contestant] =
+      episodes["contestants"][contestant]["fullName"];
+    contestantFirstEpisode[contestant] =
+      episodes["contestants"][contestant]["firstEpisode"];
+    achievements[contestant] = [];
   });
-});
 
-export function initializeDataAndStore() {
+  Object.keys(episodes["points"]).forEach((rule) => {
+    pointsTranslateDict[rule] = episodes["points"][rule]["fullName"];
+  });
+
+  Object.keys(episodes["achievements"]).forEach((achievement) => {
+    episodes["achievements"][achievement]["holders"].forEach((contestant) => {
+      achievements[contestant].push(episodes["achievements"][achievement]);
+    });
+  });
   const activeEpisodes = getEpisodes();
 
   let result = [];
 
-  getModels().forEach((model) => {
+  getContestants().forEach((contestant) => {
     result.push({
-      model: model,
-      team: team[model],
+      contestant: contestant,
+      team: team[contestant],
       episode: "episode00",
       points: 0,
       source: "init",
@@ -48,10 +60,10 @@ export function initializeDataAndStore() {
   activeEpisodes.forEach((episode) => {
     Object.keys(episodes["episodes"][episode]).forEach((category) => {
       Object.keys(episodes["episodes"][episode][category]).forEach((rule) => {
-        episodes["episodes"][episode][category][rule].forEach((model) => {
+        episodes["episodes"][episode][category][rule].forEach((contestant) => {
           result.push({
-            model: model,
-            team: team[model],
+            contestant: contestant,
+            team: team[contestant],
             episode: episode,
             points: episodes["points"][rule]["points"],
             source: rule,
@@ -67,8 +79,8 @@ export function initializeDataAndStore() {
     payload: result,
   });
   store.dispatch({
-    type: "SET_MODEL",
-    payload: getModels().sort()[0],
+    type: "SET_CONTESTANT",
+    payload: getContestants().sort()[0],
   });
   store.dispatch({
     type: "SET_TEAM",
@@ -111,23 +123,23 @@ export function translateEpisodes(episode) {
   return "Επεισόδιο " + result[2];
 }
 
-export function getModels() {
+export function getContestants() {
   return Object.keys(team);
 }
 
-export function isInGame(data, model) {
+export function isInGame(data, contestant) {
   const episodes = getEpisodes();
   const episodesData = groupByProperty(data, "episode");
   let i = 0;
   var result = true;
   while (i < episodes.length) {
     if (i < 9) {
-      if (!inGame(episodesData["episode0" + (i + 1)], model)) {
+      if (!inGame(episodesData["episode0" + (i + 1)], contestant)) {
         result = false;
         break;
       }
     } else {
-      if (!inGame(episodesData["episode" + (i + 1)], model)) {
+      if (!inGame(episodesData["episode" + (i + 1)], contestant)) {
         result = false;
         break;
       }
@@ -136,12 +148,12 @@ export function isInGame(data, model) {
   }
   while (i < episodes.length) {
     if (i < 9) {
-      if (cameBack(episodesData["episode0" + (i + 1)], model)) {
+      if (cameBack(episodesData["episode0" + (i + 1)], contestant)) {
         result = true;
         break;
       }
     } else {
-      if (cameBack(episodesData["episode" + (i + 1)], model)) {
+      if (cameBack(episodesData["episode" + (i + 1)], contestant)) {
         result = true;
         break;
       }
@@ -150,12 +162,12 @@ export function isInGame(data, model) {
   }
   while (i < episodes.length) {
     if (i < 9) {
-      if (!inGame(episodesData["episode0" + (i + 1)], model)) {
+      if (!inGame(episodesData["episode0" + (i + 1)], contestant)) {
         result = false;
         break;
       }
     } else {
-      if (!inGame(episodesData["episode" + (i + 1)], model)) {
+      if (!inGame(episodesData["episode" + (i + 1)], contestant)) {
         result = false;
         break;
       }
@@ -165,56 +177,60 @@ export function isInGame(data, model) {
   return result;
 }
 
-export function cameBack(data, model) {
+export function cameBack(data, contestant) {
   const sources = groupByProperty(data, "source");
 
-  return Object.keys(groupByProperty(sources["comeback"], "model")).includes(
-    model
-  );
+  return Object.keys(
+    groupByProperty(sources["comeback"], "contestant")
+  ).includes(contestant);
 }
 
-export function inGame(data, model) {
+export function inGame(data, contestant) {
   const sources = groupByProperty(data, "source");
 
   return !(
-    Object.keys(groupByProperty(sources["quit"], "model")).includes(model) ||
-    Object.keys(groupByProperty(sources["lastPlaceTop5"], "model")).includes(
-      model
+    Object.keys(groupByProperty(sources["quit"], "contestant")).includes(
+      contestant
     ) ||
-    Object.keys(groupByProperty(sources["lastPlace"], "model")).includes(model)
+    Object.keys(
+      groupByProperty(sources["lastPlaceTop5"], "contestant")
+    ).includes(contestant) ||
+    Object.keys(groupByProperty(sources["lastPlace"], "contestant")).includes(
+      contestant
+    )
   );
 }
 
-export function getModelTeam(model) {
-  return team[model];
+export function getContestantTeam(contestant) {
+  return team[contestant];
 }
 
-export function getModelRank(data, sourceType, model) {
-  const modelsData = groupByProperty(data, "model");
-  const models = getModels();
+export function getContestantRank(data, sourceType, contestant) {
+  const contestantsData = groupByProperty(data, "contestant");
+  const contestants = getContestants();
   if (sourceType === "drama") {
-    models.sort(function (x, y) {
-      if (sumPoints(modelsData, x) < sumPoints(modelsData, y)) {
+    contestants.sort(function (x, y) {
+      if (sumPoints(contestantsData, x) < sumPoints(contestantsData, y)) {
         return -1;
       }
-      if (sumPoints(modelsData, x) > sumPoints(modelsData, y)) {
+      if (sumPoints(contestantsData, x) > sumPoints(contestantsData, y)) {
         return 1;
       }
       return 0;
     });
   } else {
-    models.sort(function (x, y) {
-      if (sumPoints(modelsData, x) < sumPoints(modelsData, y)) {
+    contestants.sort(function (x, y) {
+      if (sumPoints(contestantsData, x) < sumPoints(contestantsData, y)) {
         return 1;
       }
-      if (sumPoints(modelsData, x) > sumPoints(modelsData, y)) {
+      if (sumPoints(contestantsData, x) > sumPoints(contestantsData, y)) {
         return -1;
       }
       return 0;
     });
   }
 
-  return models.indexOf(model) + 1;
+  return contestants.indexOf(contestant) + 1;
 }
 
 export function getRules() {

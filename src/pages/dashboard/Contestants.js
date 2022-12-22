@@ -6,49 +6,55 @@ import * as utils from "../../utils";
 
 import store from "../../store";
 import PointsSources from "../../components/PointsSources";
-import ModelPointsHistoryChart from "../../components/ModelPointsHistoryChart";
+import ContestantPointsHistoryChart from "../../components/ContestantPointsHistoryChart";
 
-const Models = (props) => {
-  const models = [...utils.getModels()];
-  const [selectedModel, setSelectedModel] = useState(props.model);
+const Contestants = (props) => {
+  const contestants = [...utils.getContestants()];
+  const [selectedContestant, setSelectedContestant] = useState(
+    props.contestant
+  );
 
   useEffect(() => {
-    setSelectedModel(props.model);
-  }, [props.model]);
+    setSelectedContestant(props.contestant);
+  }, [props.contestant]);
 
-  const setModel = (value) => {
-    setSelectedModel(value);
+  const setContestant = (value) => {
+    setSelectedContestant(value);
     store.dispatch({
-      type: "SET_MODEL",
+      type: "SET_CONTESTANT",
       payload: value,
     });
   };
 
-  const infoForModel = (model, sourceType = "all", data = props.data) => {
-    var modelsData;
+  const infoForContestant = (
+    contestant,
+    sourceType = "all",
+    data = props.data
+  ) => {
+    var contestantsData;
     if (sourceType === "all") {
-      modelsData = utils.groupByProperty(data, "model");
+      contestantsData = utils.groupByProperty(data, "contestant");
     } else {
-      modelsData = utils.groupByProperty(data, "sourceType")[sourceType];
-      modelsData = utils.groupByProperty(modelsData, "model");
+      contestantsData = utils.groupByProperty(data, "sourceType")[sourceType];
+      contestantsData = utils.groupByProperty(contestantsData, "contestant");
     }
 
-    return utils.sumPoints(modelsData, model);
+    return utils.sumPoints(contestantsData, contestant);
   };
 
-  const getFinalEpisode = (model) => {
+  const getFinalEpisode = (contestant) => {
     const episodes = utils.getEpisodes();
     const data = utils.groupByProperty(props.data, "episode");
     let i = 0;
     var result = episodes.length;
     while (i < episodes.length) {
       if (i < 9) {
-        if (!utils.isInGame(data["episode0" + (i + 1)], model)) {
+        if (!utils.isInGame(data["episode0" + (i + 1)], contestant)) {
           result = i + 1;
           break;
         }
       } else {
-        if (!utils.isInGame(data["episode" + (i + 1)], model)) {
+        if (!utils.isInGame(data["episode" + (i + 1)], contestant)) {
           result = i + 1;
           break;
         }
@@ -58,12 +64,12 @@ const Models = (props) => {
     i++;
     while (i < episodes.length) {
       if (i < 9) {
-        if (utils.cameBack(data["episode0" + (i + 1)], model)) {
+        if (utils.cameBack(data["episode0" + (i + 1)], contestant)) {
           result = episodes.length;
           break;
         }
       } else {
-        if (utils.cameBack(data["episode" + (i + 1)], model)) {
+        if (utils.cameBack(data["episode" + (i + 1)], contestant)) {
           result = episodes.length;
           break;
         }
@@ -73,12 +79,12 @@ const Models = (props) => {
     i++;
     while (i < episodes.length) {
       if (i < 9) {
-        if (!utils.isInGame(data["episode0" + (i + 1)], model)) {
+        if (!utils.isInGame(data["episode0" + (i + 1)], contestant)) {
           result = i + 1;
           break;
         }
       } else {
-        if (!utils.isInGame(data["episode" + (i + 1)], model)) {
+        if (!utils.isInGame(data["episode" + (i + 1)], contestant)) {
           result = i + 1;
           break;
         }
@@ -90,16 +96,16 @@ const Models = (props) => {
 
   const dataByType = utils.groupByProperty(props.data, "sourceType");
 
-  const makeAchievementsTable = (selectedModel) => {
+  const makeAchievementsTable = (selectedContestant) => {
     const result = [];
-    if (utils.achievements[selectedModel]) {
-      if (utils.achievements[selectedModel].length === 0)
+    if (utils.achievements[selectedContestant]) {
+      if (utils.achievements[selectedContestant].length === 0)
         return (
           <tr>
             <td>-</td>
           </tr>
         );
-      utils.achievements[selectedModel].sort((a, b) => {
+      utils.achievements[selectedContestant].sort((a, b) => {
         if (a.order > b.order) {
           return -1;
         } else if (a.order < b.order) {
@@ -108,7 +114,7 @@ const Models = (props) => {
           return 0;
         }
       });
-      utils.achievements[selectedModel].forEach((achievement) => {
+      utils.achievements[selectedContestant].forEach((achievement) => {
         result.push(
           <tr>
             <th className="w-25">{achievement.name}</th>
@@ -123,13 +129,13 @@ const Models = (props) => {
   return (
     <>
       <SelectForm
-        options={models}
-        setter={setModel}
-        def={selectedModel}
-        title="Επιλογή Μοντέλου"
+        options={contestants}
+        setter={setContestant}
+        def={selectedContestant}
+        title="Επιλογή Διαγωνιζόμενου"
       />
 
-      {selectedModel !== "" && (
+      {selectedContestant !== "" && (
         <>
           <Row className="justify-content-md-center">
             <Col lg={4} xs={12} className="mt-2 mb-4 d-block">
@@ -138,14 +144,14 @@ const Models = (props) => {
                   <img
                     data-src={
                       "https://www.star.gr/tv/images/287x382/jpg/files/gntm5/diagonizomenes/" +
-                      utils.modelStarNames[selectedModel] +
+                      utils.contestantStarNames[selectedContestant] +
                       ".webp"
                     }
-                    alt={utils.modelStarNames[selectedModel]}
+                    alt={utils.contestantStarNames[selectedContestant]}
                     className="lazy"
                     src={
                       "https://www.star.gr/tv/images/287x382/jpg/files/gntm5/diagonizomenes/" +
-                      utils.modelStarNames[selectedModel] +
+                      utils.contestantStarNames[selectedContestant] +
                       ".webp"
                     }
                   />
@@ -163,7 +169,7 @@ const Models = (props) => {
                 <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">
-                      {utils.modelFullNames[selectedModel]}
+                      {utils.contestantFullNames[selectedContestant]}
                     </h5>
                   </Card.Header>
                   <Card.Body>
@@ -172,12 +178,12 @@ const Models = (props) => {
                         <tr className="">
                           <th className="">Ομάδα</th>
                           <td className="text-right">
-                            "{utils.getModelTeam(selectedModel)}"
+                            "{utils.getContestantTeam(selectedContestant)}"
                           </td>
                           <th className="ps-5">Τελευταίο Επεισόδιο</th>
                           <td className="text-right">
                             {utils.translateEpisodes(
-                              getFinalEpisode(selectedModel)
+                              getFinalEpisode(selectedContestant)
                             )}
                           </td>
                         </tr>
@@ -185,46 +191,46 @@ const Models = (props) => {
                           <th className="">Γενική Κατάταξη</th>
                           <td className="text-right">
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               props.data,
                               "total",
-                              selectedModel
+                              selectedContestant
                             )}
                           </td>
                           <th className="ps-5">Συνολικοί Πόντοι</th>
                           <td className="text-right">
-                            {infoForModel(selectedModel)}
+                            {infoForContestant(selectedContestant)}
                           </td>
                         </tr>
                         <tr className="">
                           <th className="">(Placement, Drama, Misc)</th>
                           <td className="text-right">
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               dataByType["placement"],
                               "placement",
-                              selectedModel
+                              selectedContestant
                             )}{" "}
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               dataByType["drama"],
                               "drama",
-                              selectedModel
+                              selectedContestant
                             )}{" "}
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               dataByType["misc"],
                               "misc",
-                              selectedModel
+                              selectedContestant
                             )}
                           </td>
                           <th className="ps-5">(Placement, Drama, Misc)</th>
                           <td className="text-right">
-                            {infoForModel(selectedModel, "placement")}
+                            {infoForContestant(selectedContestant, "placement")}
                             {", "}
-                            {infoForModel(selectedModel, "drama")}
+                            {infoForContestant(selectedContestant, "drama")}
                             {", "}
-                            {infoForModel(selectedModel, "misc")}
+                            {infoForContestant(selectedContestant, "misc")}
                           </td>
                         </tr>
                       </tbody>
@@ -237,7 +243,7 @@ const Models = (props) => {
                 <Card className="p-1">
                   <Card.Header>
                     <h5 className="mb-0">
-                      {utils.modelFullNames[selectedModel]}
+                      {utils.contestantFullNames[selectedContestant]}
                     </h5>
                   </Card.Header>
                   <Card.Body>
@@ -246,17 +252,17 @@ const Models = (props) => {
                         <tr className="">
                           <th className="w-50">Ομάδα</th>
                           <td className="text-right">
-                            "{utils.getModelTeam(selectedModel)}"
+                            "{utils.getContestantTeam(selectedContestant)}"
                           </td>
                         </tr>
                         <tr className="">
                           <th className="w-50">Γενική Κατάταξη</th>
                           <td className="text-right">
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               props.data,
                               "total",
-                              selectedModel
+                              selectedContestant
                             )}
                           </td>
                         </tr>
@@ -264,44 +270,44 @@ const Models = (props) => {
                           <th className="w-50">(Placement, Drama, Misc)</th>
                           <td className="text-right">
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               dataByType["placement"],
                               "placement",
-                              selectedModel
+                              selectedContestant
                             )}{" "}
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               dataByType["drama"],
                               "drama",
-                              selectedModel
+                              selectedContestant
                             )}{" "}
                             #
-                            {utils.getModelRank(
+                            {utils.getContestantRank(
                               dataByType["misc"],
                               "misc",
-                              selectedModel
+                              selectedContestant
                             )}
                           </td>
                         </tr>
                         <tr className="">
                           <th className="w-50">Συνολικοί Πόντοι</th>
                           <td className="text-right">
-                            {infoForModel(selectedModel)}
+                            {infoForContestant(selectedContestant)}
                           </td>
                         </tr>
                         <tr className="">
                           <th className="w-50">(Placement, Drama, Misc)</th>
                           <td className="text-right">
-                            {infoForModel(selectedModel, "placement")}{" "}
-                            {infoForModel(selectedModel, "drama")}{" "}
-                            {infoForModel(selectedModel, "misc")}
+                            {infoForContestant(selectedContestant, "placement")}{" "}
+                            {infoForContestant(selectedContestant, "drama")}{" "}
+                            {infoForContestant(selectedContestant, "misc")}
                           </td>
                         </tr>
                         <tr className="">
                           <th className="w-50">Τελευταίο Επεισόδιο</th>
                           <td className="text-right">
                             {utils.translateEpisodes(
-                              getFinalEpisode(selectedModel)
+                              getFinalEpisode(selectedContestant)
                             )}
                           </td>
                         </tr>
@@ -314,11 +320,11 @@ const Models = (props) => {
               <Col xs={12} className="mt-2">
                 <Card className="p-1 achievement-card">
                   <Card.Header>
-                    <h5 className="mb-0">Achievements Μοντέλου</h5>
+                    <h5 className="mb-0">Achievements Διαγωνιζόμενου</h5>
                   </Card.Header>
                   <Card.Body>
                     <table className="w-100">
-                      <tbody>{makeAchievementsTable(selectedModel)}</tbody>
+                      <tbody>{makeAchievementsTable(selectedContestant)}</tbody>
                     </table>
                   </Card.Body>
                 </Card>
@@ -328,13 +334,15 @@ const Models = (props) => {
 
           <Row className="justify-content-md-center">
             <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
-              <PointsSources selectedModel={selectedModel} />
+              <PointsSources selectedContestant={selectedContestant} />
             </Col>
           </Row>
 
           <Row className="justify-content-md-center">
             <Col xs={12} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
-              <ModelPointsHistoryChart selectedModel={selectedModel} />
+              <ContestantPointsHistoryChart
+                selectedContestant={selectedContestant}
+              />
             </Col>
           </Row>
         </>
@@ -346,8 +354,8 @@ const Models = (props) => {
 const mapStateToProps = function (state) {
   return {
     data: state.data,
-    model: state.model,
+    contestant: state.contestant,
   };
 };
 
-export default connect(mapStateToProps)(Models);
+export default connect(mapStateToProps)(Contestants);

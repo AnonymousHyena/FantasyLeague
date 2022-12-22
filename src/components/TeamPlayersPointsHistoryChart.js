@@ -32,19 +32,21 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
         const datasets = [];
 
         const groupedData = utils.groupByProperty(data, "episode");
-        const models = Object.keys(utils.groupByProperty(data, "model"));
-        const color = d3.scaleOrdinal(models, d3.schemeTableau10);
-        models.forEach((model) => {
+        const contestants = Object.keys(
+          utils.groupByProperty(data, "contestant")
+        );
+        const color = d3.scaleOrdinal(contestants, d3.schemeTableau10);
+        contestants.forEach((contestant) => {
           datasets.push([]);
         });
 
         Object.keys(groupedData).forEach((episode, i) => {
-          models.forEach((model, j) => {
+          contestants.forEach((contestant, j) => {
             datasets[j].push([
               i + 1,
               utils.sumPoints(
-                utils.groupByProperty(groupedData[episode], "model"),
-                model
+                utils.groupByProperty(groupedData[episode], "contestant"),
+                contestant
               ),
             ]);
           });
@@ -126,10 +128,10 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
           .curve(d3.curveMonotoneX);
         //
         var length = [];
-        for (var j = 0; j < models.length; j++) {
-          length.push(models[j].length * 4 + 25);
+        for (var j = 0; j < contestants.length; j++) {
+          length.push(contestants[j].length * 4 + 25);
         }
-        models.forEach((model, i) => {
+        contestants.forEach((contestant, i) => {
           if (activeOptions[i]) {
             svg
               .append("g")
@@ -144,7 +146,7 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
                 return yScale(d[1]);
               })
               .attr("r", 2)
-              .style("fill", color(model));
+              .style("fill", color(contestant));
 
             svg
               .append("path")
@@ -152,7 +154,7 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
               .attr("class", "line")
               .attr("d", line)
               .style("fill", "none")
-              .style("stroke", color(model))
+              .style("stroke", color(contestant))
               .style("stroke-width", "2");
           }
 
@@ -167,13 +169,13 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
             .attr("cy", 14)
             .attr("r", 4)
             .style("fill", function () {
-              return activeOptions[0] ? color(model) : "rgba(4,4,4,.5)";
+              return activeOptions[0] ? color(contestant) : "rgba(4,4,4,.5)";
             });
           svg
             .append("text")
             .attr("x", 20 + finalLength)
             .attr("y", 15)
-            .text(model)
+            .text(contestant)
             .style("font-size", "10px")
             .style("cursor", "pointer")
             .style("fill", function () {
@@ -219,7 +221,7 @@ export const TeamPlayersPointsHistoryChart = ({ selectedTeam, ...props }) => {
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
         <h5 className="mb-0">
-          Πόντοι Μοντέλων Όμάδας "{selectedTeam}" ανά Επεισόδιο
+          Πόντοι Διαγωνιζόμενων Όμάδας "{selectedTeam}" ανά Επεισόδιο
         </h5>
       </Card.Header>
       <Card.Body>

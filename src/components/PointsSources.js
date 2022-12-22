@@ -7,7 +7,7 @@ import { useD3 } from "./UseD3";
 
 import * as utils from "../utils";
 
-export const PointsSources = ({ selectedModel, ...props }) => {
+export const PointsSources = ({ selectedContestant, ...props }) => {
   const negative = [
     "Αδικήθηκα",
     "Makeover drama",
@@ -106,17 +106,20 @@ export const PointsSources = ({ selectedModel, ...props }) => {
       }
       makeGraphic(
         props.data.filter(
-          (line) => line.model === selectedModel && line.sourceType !== "init"
+          (line) =>
+            line.contestant === selectedContestant && line.sourceType !== "init"
         )
       );
     },
-    [selectedModel]
+    [selectedContestant]
   );
 
   return (
     <Card border="light" className="shadow-sm">
       <Card.Header className="border-bottom border-light">
-        <h5 className="mb-0">Πηγές Πόντων Μοντέλου "{selectedModel}"</h5>
+        <h5 className="mb-0">
+          Πηγές Πόντων Διαγωνιζόμενου "{selectedContestant}"
+        </h5>
       </Card.Header>
       <Card.Body className="px-0 px-lg-5">
         <svg ref={ref}></svg>

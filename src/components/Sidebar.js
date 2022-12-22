@@ -112,6 +112,7 @@ export default (props = {}) => {
       </Nav.Item>
     );
   };
+  const prefix = "/" + pathname.split("/")[1];
 
   return (
     <>
@@ -121,11 +122,7 @@ export default (props = {}) => {
         variant="dark"
         className="navbar-theme-primary px-4 d-md-none"
       >
-        <Navbar.Brand
-          className="me-lg-5"
-          as={Link}
-          to={AppRoutes.Overview.path}
-        >
+        <Navbar.Brand className="me-lg-5" as={Link} to={AppRoutes.Games.path}>
           <Image src={ReactHero} className="navbar-brand-light" />
         </Navbar.Brand>
         <Navbar.Toggle
@@ -152,22 +149,22 @@ export default (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem
                 title="Overview"
-                link={AppRoutes.Overview.path}
+                link={prefix + AppRoutes.Overview.path}
                 icon={faChartPie}
               />
               <NavItem
                 title="Ομάδες"
-                link={AppRoutes.Teams.path}
+                link={prefix + AppRoutes.Teams.path}
                 icon={faUsers}
               />
               <NavItem
-                title="Μοντέλα"
-                link={AppRoutes.Models.path}
+                title="Διαγωνιζόμενοι"
+                link={prefix + AppRoutes.Contestants.path}
                 icon={faUser}
               />
               <NavItem
                 title="Επεισόδια"
-                link={AppRoutes.Episodes.path}
+                link={prefix + AppRoutes.Episodes.path}
                 icon={faRankingStar}
               />
 
@@ -175,7 +172,7 @@ export default (props = {}) => {
 
               <NavItem
                 title="Κανόνες"
-                link={AppRoutes.Rules.path}
+                link={prefix + AppRoutes.Rules.path}
                 icon={faScaleBalanced}
               />
             </Nav>

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as utils from "../utils";
 
 export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
-  const groupedModels = utils.groupByProperty(props.data, "team");
+  const groupedContestants = utils.groupByProperty(props.data, "team");
 
   const name = (name) => {
     const isNameIn = utils.isInGame(props.data, name);
@@ -24,7 +24,7 @@ export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
   const tableLines = () => {
     var l1 = [];
     var t1 = [];
-    t1 = utils.groupByProperty(groupedModels[selectedTeam], "model");
+    t1 = utils.groupByProperty(groupedContestants[selectedTeam], "contestant");
     l1 = Object.keys(t1);
 
     const tableSort = (a, b, t) => {
@@ -43,7 +43,7 @@ export const TeamBreakdownCompact = ({ selectedTeam, ...props }) => {
         <tr>
           <th className="blue-bg">Σύνολο</th>
           <td className="blue-bg text-right">
-            {utils.sumPoints(groupedModels, selectedTeam)}
+            {utils.sumPoints(groupedContestants, selectedTeam)}
           </td>
         </tr>
         <tr>

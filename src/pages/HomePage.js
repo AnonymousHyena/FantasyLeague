@@ -3,9 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import { AppRoutes } from "../routes";
 
 // pages
+import Games from "./dashboard/Games";
 import Overview from "./dashboard/Overview";
 import Teams from "./dashboard/Teams";
-import Models from "./dashboard/Models";
+import Contestants from "./dashboard/Contestants";
 import Episodes from "./dashboard/Episodes";
 
 import Rules from "./Rules";
@@ -78,33 +79,68 @@ export default () => (
     />
     <Route
       exact
-      path={AppRoutes.Models.path}
-      element={<RouteWithSidebar component={Models} />}
+      path={AppRoutes.Games.path}
+      element={<RouteWithLoader component={Games} />}
     />
-    {/* pages */}
+
+    {/* GNTM pages */}
     <Route
       exact
-      path={AppRoutes.Overview.path}
+      path={"GNTM5" + AppRoutes.Overview.path}
       element={<RouteWithSidebar component={Overview} />}
     />
 
     <Route
       exact
-      path={AppRoutes.Teams.path}
+      path={"GNTM5" + AppRoutes.Teams.path}
       element={<RouteWithSidebar component={Teams} />}
+    />
+    <Route
+      exact
+      path={"GNTM5" + AppRoutes.Contestants.path}
+      element={<RouteWithSidebar component={Contestants} />}
     />
 
     <Route
       exact
-      path={AppRoutes.Rules.path}
+      path={"GNTM5" + AppRoutes.Episodes.path}
+      element={<RouteWithSidebar component={Episodes} />}
+    />
+    <Route
+      exact
+      path={"GNTM5" + AppRoutes.Rules.path}
       element={<RouteWithSidebar component={Rules} />}
     />
 
+    {/* Survivor pages */}
     <Route
       exact
-      path={AppRoutes.Episodes.path}
+      path={"survivor" + AppRoutes.Overview.path}
+      element={<RouteWithSidebar component={Overview} />}
+    />
+
+    <Route
+      exact
+      path={"survivor" + AppRoutes.Teams.path}
+      element={<RouteWithSidebar component={Teams} />}
+    />
+    <Route
+      exact
+      path={"survivor" + AppRoutes.Contestants.path}
+      element={<RouteWithSidebar component={Contestants} />}
+    />
+
+    <Route
+      exact
+      path={"survivor" + AppRoutes.Episodes.path}
       element={<RouteWithSidebar component={Episodes} />}
     />
+    <Route
+      exact
+      path={"survivor" + AppRoutes.Rules.path}
+      element={<RouteWithSidebar component={Rules} />}
+    />
+    {/* pages */}
 
     <Route path="*" element={<RouteWithLoader component={NotFoundPage} />} />
 

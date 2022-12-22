@@ -5,17 +5,17 @@ import * as utils from "../utils";
 
 export const EpisodeBreakdown = ({ selectedEpisode, ...props }) => {
   if (props.data[0]) {
-    const tableLine = (modelData) => {
+    const tableLine = (contestantData) => {
       var sources = [];
       var points = 0;
-      modelData.forEach((element) => {
+      contestantData.forEach((element) => {
         sources.push(utils.pointsTranslateDict[element.source]);
         sources.push(<br />);
         points += element.points;
       });
       return (
         <tr>
-          <td className="border-bottom">{modelData[0].model}</td>
+          <td className="border-bottom">{contestantData[0].contestant}</td>
           <td className="border-bottom">{sources}</td>
           <td className="border-bottom">{points}</td>
         </tr>
@@ -35,7 +35,7 @@ export const EpisodeBreakdown = ({ selectedEpisode, ...props }) => {
           <table className="w-100">
             <thead>
               <tr>
-                <th className="border-bottom">Μοντέλο</th>
+                <th className="border-bottom">Διαγωνιζόμενος/η</th>
                 <th className="border-bottom">Αιτία</th>
                 <th className="border-bottom">Πόντοι</th>
               </tr>
@@ -53,9 +53,9 @@ export const EpisodeBreakdown = ({ selectedEpisode, ...props }) => {
 
     const makeTableContents = function (key) {
       const result = [];
-      const newData = utils.groupByProperty(groupedData[key], "model");
-      Object.keys(newData).forEach((model) => {
-        result.push(tableLine(newData[model]));
+      const newData = utils.groupByProperty(groupedData[key], "contestant");
+      Object.keys(newData).forEach((contestant) => {
+        result.push(tableLine(newData[contestant]));
       });
       return result;
     };

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as utils from "../utils";
 
 export const AllTeamPoints = (props) => {
-  const groupedModels = utils.groupByProperty(props.data, "team");
+  const groupedContestants = utils.groupByProperty(props.data, "team");
   const teams = [...utils.getTeams()];
 
   const name = (name) => {
@@ -22,22 +22,22 @@ export const AllTeamPoints = (props) => {
     );
   };
 
-  const tableLine = (model, data) => {
+  const tableLine = (contestant, data) => {
     return (
       <tr>
-        {name(model)}
-        <td className="text-right">{utils.sumPoints(data, model)}</td>
+        {name(contestant)}
+        <td className="text-right">{utils.sumPoints(data, contestant)}</td>
       </tr>
     );
   };
 
   const createTable = (team) => {
     const result = [];
-    const team1 = groupedModels[team];
+    const team1 = groupedContestants[team];
     var l1 = [];
     var t1 = [];
     if (team1) {
-      t1 = utils.groupByProperty(team1, "model");
+      t1 = utils.groupByProperty(team1, "contestant");
       l1 = Object.keys(t1);
     }
 
@@ -75,7 +75,7 @@ export const AllTeamPoints = (props) => {
             <tr>
               <th className="blue-bg">Σύνολο</th>
               <td className="blue-bg text-right">
-                {utils.sumPoints(groupedModels, team)}
+                {utils.sumPoints(groupedContestants, team)}
               </td>
             </tr>
             {result}

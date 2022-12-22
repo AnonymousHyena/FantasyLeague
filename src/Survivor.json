@@ -1,0 +1,379 @@
+{
+  "contestants": {
+    "Αλεξία Κ.": {
+      "team": "Το Κορμί σου το Φρυδίσιο",
+      "starName": "aleksia_kouvela-1920x1004-b_w",
+      "fullName": "Αλεξία Κουβελά",
+      "firstEpisode": 0
+    },
+    "Αλεξία Τ.": {
+      "team": "Φρυδερίκη αγάπη μου",
+      "starName": "aleksia_traiko-1920x1004",
+      "fullName": "Αλεξία Τράικο",
+      "firstEpisode": 0
+    },
+    "Άννα": {
+      "team": "Γεια σου Τάσο",
+      "starName": "",
+      "fullName": "Άννα",
+      "firstEpisode": 0
+    },
+    "Βικτώρια": {
+      "team": "Φρυδερίκη αγάπη μου",
+      "starName": "victoria_miroforidou-1920x1004",
+      "fullName": "Βικτώρια Μυροφορίδου",
+      "firstEpisode": 0
+    },
+    "Γιέβα": {
+      "team": "Ομάδα",
+      "starName": "gieva_mpontarenko-1920x1004-b_w",
+      "fullName": "Γιέβα Μπονταρένκο",
+      "firstEpisode": 0
+    },
+    "Γρηγοριάνα": {
+      "team": "Ομάδα",
+      "starName": "grigoriana_plita-1920x1004-b_w",
+      "fullName": "Γρηγοριάνα Πλύτα",
+      "firstEpisode": 0
+    },
+    "Δέσποινα": {
+      "team": "Ομάδα",
+      "starName": "despoina_sarri-1920x1004-b_w",
+      "fullName": "Δέσποινα Σαρρή",
+      "firstEpisode": 0
+    },
+    "Εβελίνα": {
+      "team": "Ομάδα",
+      "starName": "evelina_petrougaki-1920x1004-b_w",
+      "fullName": "Εβελίνα Πετρουγάκη",
+      "firstEpisode": 0
+    },
+    "Έλενα": {
+      "team": "Φρυδερίκη αγάπη μου",
+      "starName": "elena_lisandrou-1920x1004-b_w",
+      "fullName": "Έλενα Λυσάνδρου",
+      "firstEpisode": 0
+    },
+    "Έφη": {
+      "team": "Το Κορμί σου το Φρυδίσιο",
+      "starName": "efi_mpanti-1920x1004-b_w",
+      "fullName": "Έφη Μπαντή",
+      "firstEpisode": 0
+    },
+    "Ζωή": {
+      "team": "Γεια σου Τάσο",
+      "starName": "zoi_ioannidou-1920x1004-b_w",
+      "fullName": "Ζωή Ιωαννίδου",
+      "firstEpisode": 0
+    },
+    "Κατερίνα": {
+      "team": "Γεια σου Τάσο",
+      "starName": "katerina_kara-1920x1004-b_w",
+      "fullName": "Κατερίνα Καρά",
+      "firstEpisode": 0
+    },
+    "Κάτια": {
+      "team": "Το Κορμί σου το Φρυδίσιο",
+      "starName": "katia_kizima-1920x1004-b_w",
+      "fullName": "Κάτια Κιζίμα",
+      "firstEpisode": 0
+    },
+    "Κότυ": {
+      "team": "Το Κορμί σου το Φρυδίσιο",
+      "starName": "koti_gougousi_camacho-1920x1004",
+      "fullName": "Κότυ Γουγούση - Camacho",
+      "firstEpisode": 0
+    },
+    "Μάρα": {
+      "team": "Γεια σου Τάσο",
+      "starName": "mara_marli-1920x1004-b_w",
+      "fullName": "Μάρα Μαρλή",
+      "firstEpisode": 0
+    },
+    "Μαρία": {
+      "team": "Γεια σου Τάσο",
+      "starName": "maria_kosta-1920x1004-b_w",
+      "fullName": "Μαρία Κώστα",
+      "firstEpisode": 0
+    },
+    "Μαρίτα": {
+      "team": "Γεια σου Τάσο",
+      "starName": "marita_kathitzioti-1920x1004",
+      "fullName": "Μαρίτα Καθιτζιώτη",
+      "firstEpisode": 0
+    },
+    "Μικαέλα": {
+      "team": "Φρυδερίκη αγάπη μου",
+      "starName": "mixaela_novak_marli-1920x1004-b_w",
+      "fullName": "Μικαέλα Νόβακ - Μαρλή",
+      "firstEpisode": 0
+    },
+    "Μύρια": {
+      "team": "Ομάδα",
+      "starName": "miria_kiriakidou-1920x1004-b_w",
+      "fullName": "Μύρια Κυριακίδου",
+      "firstEpisode": 0
+    },
+    "Νάγια": {
+      "team": "",
+      "starName": "nagia_kontostergiou-1920x1004-b_w",
+      "fullName": "Νάγια Κοντοστεργίου",
+      "firstEpisode": 0
+    },
+    "Νικόλ": {
+      "team": "Το Κορμί σου το Φρυδίσιο",
+      "starName": "nikol_tsoulos-1920x1004-b_w",
+      "fullName": "Νικόλ Τσούλος",
+      "firstEpisode": 0
+    },
+    "Τζούλια": {
+      "team": "Φρυδερίκη αγάπη μου",
+      "starName": "tzoulia_iligenko-1920x1004-b_w",
+      "fullName": "Τζούλια Ιλιγένκο",
+      "firstEpisode": 0
+    },
+    "Ντορέλα": {
+      "team": "Ομάδα",
+      "starName": "%CE%BD%CF%84%CE%BF%CF%81%CE%B5%CE%BB%CE%B1_%CE%B3%CE%BA%CE%B5%CE%BA%CE%B1-1930x1004-b_w",
+      "fullName": "Ντορέλα Γκέκα",
+      "firstEpisode": 8
+    },
+    "Ραφαέλα": {
+      "team": "Το Κορμί σου το Φρυδίσιο",
+      "starName": "%CF%81%CE%B1%CF%86%CE%B1%CE%B5%CE%BB%CE%B1_%CF%87%CE%B1%CF%81%CE%B1%CE%BB%CE%B1%CE%BC%CF%80%CE%BF%CF%85%CF%82-1920x1004-b_w",
+      "fullName": "Ραφαέλα Χαραλάμπους",
+      "firstEpisode": 8
+    },
+    "Ειρήνη": {
+      "team": "Γεια σου Τάσο",
+      "starName": "%CE%B5%CE%B9%CF%81%CE%B7%CE%BD%CE%B7_%CE%B1%CE%BD%CF%84%CF%89%CE%BD%CE%B9%CE%BF%CF%85-1920x1004-b_w",
+      "fullName": "Ειρήνη Αντωνίου",
+      "firstEpisode": 8
+    },
+    "Γεωργιάννα": {
+      "team": "Φρυδερίκη αγάπη μου",
+      "starName": "%CE%B3%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%B1%CE%BD%CE%B1_%CE%B9%CF%89%CE%B1%CE%BA%CE%B5%CE%B9%CE%BC%CE%B9%CE%B4%CE%B7-1920x1004-b_w",
+      "fullName": "Γεωργιάννα Ιωακειμίδη",
+      "firstEpisode": 8
+    }
+  },
+  "teams": {
+    "Το Κορμί σου το Φρυδίσιο": "Statics",
+    "Γεια σου Τάσο": "Geo",
+    "Φρυδερίκη αγάπη μου": "Tsamis",
+    "Ομάδα": "Snouf"
+  },
+  "points": {
+    "GNTM": {
+      "points": 50,
+      "fullName": "Νικίτρια του GNTM5",
+      "category": "placement"
+    },
+    "firstPlace": {
+      "points": 8,
+      "fullName": "Πρώτη θέση",
+      "category": "placement"
+    },
+    "secondPlace": {
+      "points": 6,
+      "fullName": "Δεύτερη θέση",
+      "category": "placement"
+    },
+    "thirdPlace": {
+      "points": 4,
+      "fullName": "Τρίτη θέση",
+      "category": "placement"
+    },
+    "top25": { "points": 2, "fullName": "Top 25%", "category": "placement" },
+    "top50": { "points": 2, "fullName": "Top 50%", "category": "placement" },
+    "top50Dis": {
+      "points": 2,
+      "fullName": "Top 50% με disadvantage",
+      "category": "placement"
+    },
+    "firstPlaceDis": {
+      "points": 4,
+      "fullName": "Πρώτη θέση με disadvantage",
+      "category": "placement"
+    },
+    "bot50Adv": {
+      "points": -2,
+      "fullName": "Bottom 50% με advatnage",
+      "category": "placement"
+    },
+    "bot25": {
+      "points": -2,
+      "fullName": "Bottom 25%",
+      "category": "placement"
+    },
+    "lastPlace": {
+      "points": -6,
+      "fullName": "Τελευταία θέση",
+      "category": "placement"
+    },
+    "lastPlaceTop5": {
+      "points": 0,
+      "fullName": "Τελευταία θέση στο top 5",
+      "category": "placement"
+    },
+    "lastPlaceAdv": {
+      "points": -12,
+      "fullName": "Τελευταία θέση με advantage",
+      "category": "placement"
+    },
+    "finalistBonus": {
+      "points": 10,
+      "fullName": "Bonus τριάδας τελικού",
+      "category": "placement"
+    },
+    "injury": { "points": -1, "fullName": "Τραυματισμός", "category": "drama" },
+    "badmouthing": { "points": -1, "fullName": "Κράξιμο", "category": "drama" },
+    "interuption": {
+      "points": -1,
+      "fullName": "Διακοπή ροής της διαδικασίας",
+      "category": "drama"
+    },
+    "quit": {
+      "points": -10,
+      "fullName": "Οικειοθελής αποχώρηση",
+      "category": "misc"
+    },
+    "gymnastics": {
+      "points": 1,
+      "fullName": "Γυμναστική",
+      "category": "misc"
+    },
+    "food": { "points": 1, "fullName": "Φαγητό", "category": "misc" },
+    "chores": {
+      "points": 1,
+      "fullName": "Δουλειές σπιτιού",
+      "category": "misc"
+    },
+    "challenge": { "points": 4, "fullName": "Δοκιμασία", "category": "misc" },
+    "makeover": {
+      "points": -8,
+      "fullName": "Makeover drama",
+      "category": "drama"
+    },
+    "positiveComment": {
+      "points": 1,
+      "fullName": "Θετικό σχόλιο",
+      "category": "misc"
+    },
+    "unfair": { "points": -1, "fullName": "'Αδικήθηκα'", "category": "drama" },
+    "startArgument": {
+      "points": -2,
+      "fullName": "Εκκίνηση διαμάχης",
+      "category": "drama"
+    },
+    "argument": {
+      "points": -1,
+      "fullName": "Συμμετοχή σε διαμάχη",
+      "category": "drama"
+    },
+    "comeback": {
+      "points": 10,
+      "fullName": "Επιστροφή",
+      "category": "misc"
+    }
+  },
+  "achievements": {
+    "negativeScore": {
+      "name": "Better off without you",
+      "description": "Leave the game with a negative points total",
+      "order": 1,
+      "holders": [
+        "Τζούλια",
+        "Άννα",
+        "Αλεξία Κ.",
+        "Ντορέλα",
+        "Κατερίνα",
+        "Έφη",
+        "Νάγια",
+        "Ειρήνη",
+        "Ζωή",
+        "Έλενα"
+      ]
+    },
+    "top5": {
+      "name": "Top 5",
+      "description": "Be among the 5 final contestants",
+      "order": 3,
+      "holders": ["Κότυ", "Μάρα"]
+    },
+    "top3": {
+      "name": "Top 3",
+      "description": "Be among the 3 final contestants",
+      "order": 3,
+      "holders": ["Αλεξία Τ.", "Βικτώρια", "Μαρίτα"]
+    },
+    "hundo": {
+      "name": "Over 9000",
+      "description": "Have more than 100 points",
+      "order": 2,
+      "holders": ["Κότυ", "Μαρίτα"]
+    },
+    "teamStar": {
+      "name": "Team Star",
+      "description": "Have the most points in their team",
+      "order": 0,
+      "holders": ["Κότυ", "Μαρίτα", "Μύρια", "Βικτώρια"]
+    },
+    "dramaQueen": {
+      "name": "Drama Queen",
+      "description": "Have the most points in the Drama category",
+      "order": 2,
+      "holders": ["Βικτώρια"]
+    },
+    "andStayDead": {
+      "name": "... And Stay Dead",
+      "description": "Leave the same episode you comeback",
+      "order": 2,
+      "holders": ["Ραφαέλα"]
+    },
+    "goneFast": {
+      "name": "Καλά εσύ έφυγες νωρίς",
+      "description": "Finish in the placement ranking higher than your final position tier",
+      "order": 2,
+      "holders": ["Νικόλ", "Κότυ", "Μικαέλα"]
+    },
+    "lucky": {
+      "name": "Μήπως ήταν τύχη τελικα;",
+      "description": "Finish in the placement ranking lower than your final position tier",
+      "order": 2,
+      "holders": ["Μάρα", "Αλεξία Τ.", "Κάτια"]
+    }
+  },
+  "episodes": {
+    "episode01": {
+      "placement": {
+        "firstPlace": ["Αλεξία Τ."],
+        "secondPlace": ["Μαρίτα"],
+        "thirdPlace": ["Μικαέλα"],
+        "top25": ["Βικτώρια", "Νικόλ", "Μικαέλα", "Μαρίτα", "Αλεξία Τ."],
+        "top50": [
+          "Γιέβα",
+          "Γρηγοριάνα",
+          "Εβελίνα",
+          "Κότυ",
+          "Μάρα",
+          "Βικτώρια",
+          "Νικόλ",
+          "Μικαέλα",
+          "Μαρίτα",
+          "Αλεξία Τ."
+        ],
+        "bot25": ["Τζούλια", "Νάγια", "Αλεξία Κ.", "Μύρια"],
+        "lastPlace": ["Κατερίνα"]
+      },
+      "drama": {
+        "injury": ["Γρηγοριάνα"]
+      },
+      "misc": {
+        "gymnastics": ["Εβελίνα", "Νικόλ"],
+        "food": ["Μάρα"],
+        "quit": ["Άννα"]
+      }
+    }
+  }
+}

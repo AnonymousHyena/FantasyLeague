@@ -30,7 +30,7 @@ export default () => {
                 as={Link}
                 variant="primary"
                 className="animate-hover"
-                to={AppRoutes.Overview.path}
+                to={AppRoutes.Games.path}
               >
                 <FontAwesomeIcon
                   icon={faChevronLeft}

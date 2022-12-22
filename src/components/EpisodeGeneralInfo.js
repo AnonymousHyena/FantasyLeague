@@ -13,35 +13,39 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
   if (props.data[0]) {
     const groupedData = utils.groupByProperty(props.data, "episode");
 
-    let modelFirst = groupedData[selectedEpisode].filter(
+    let contestantFirst = groupedData[selectedEpisode].filter(
       (element) => element["source"] === "firstPlace"
     );
     const result = [];
-    if (modelFirst.length > 0) {
-      modelFirst.forEach((element) => {
-        result.push(element["model"]);
+    if (contestantFirst.length > 0) {
+      contestantFirst.forEach((element) => {
+        result.push(element["contestant"]);
       });
-      modelFirst = result.join(" / ");
+      contestantFirst = result.join(" / ");
     } else {
-      modelFirst = " - ";
+      contestantFirst = " - ";
     }
 
-    const groupedDataModel = utils.groupByProperty(
+    const groupedDataContestant = utils.groupByProperty(
       groupedData[selectedEpisode],
-      "model"
+      "contestant"
     );
-    const models = Object.keys(groupedDataModel);
-    const modelPoints = {};
-    models.map(
-      (model) => (modelPoints[model] = utils.sumPoints(groupedDataModel, model))
+    const contestants = Object.keys(groupedDataContestant);
+    const contestantPoints = {};
+    contestants.map(
+      (contestant) =>
+        (contestantPoints[contestant] = utils.sumPoints(
+          groupedDataContestant,
+          contestant
+        ))
     );
-    let arr = Object.values(modelPoints);
+    let arr = Object.values(contestantPoints);
     let max = Math.max(...arr);
-    const modelMostPoints = models
-      .filter((model) => modelPoints[model] === max)
+    const contestantMostPoints = contestants
+      .filter((contestant) => contestantPoints[contestant] === max)
       .join(" / ");
 
-    let modelLeave = Object.keys(
+    let contestantLeave = Object.keys(
       utils.groupByProperty(
         groupedData[selectedEpisode].filter(
           (element) =>
@@ -49,7 +53,7 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
             element["source"] === "lastPlace" ||
             element["source"] === "lastPlaceTop5"
         ),
-        "model"
+        "contestant"
       )
     ).join(" / ");
 
@@ -58,7 +62,7 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
         <Col xs={12} lg={4} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
           <CounterWidget
             category="Πρώτη Θέση"
-            title={modelFirst}
+            title={contestantFirst}
             icon={faRankingStar}
             iconColor="shape-secondary"
           />
@@ -66,7 +70,7 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
         <Col xs={12} lg={4} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
           <CounterWidget
             category="Περισσότεροι Πόντοι"
-            title={modelMostPoints}
+            title={contestantMostPoints}
             icon={faPiggyBank}
             iconColor="shape-secondary"
           />
@@ -74,7 +78,7 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
         <Col xs={12} lg={4} className="mt-1 mb-1 mt-lg-2 mb-lg-4 d-block">
           <CounterWidget
             category="Αποχώρηση"
-            title={modelLeave}
+            title={contestantLeave}
             icon={faHeartCrack}
             iconColor="shape-secondary"
           />

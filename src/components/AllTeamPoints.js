@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as utils from "../utils";
 
 export const AllTeamPoints = (props) => {
-  const groupedModels = utils.groupByProperty(props.data, "team");
+  const groupedContestants = utils.groupByProperty(props.data, "team");
   const teams = [...utils.getTeams()];
 
   function sumPoints(lst, team) {
@@ -32,10 +32,10 @@ export const AllTeamPoints = (props) => {
   };
 
   const tableLines = () => {
-    const team1 = groupedModels[teams[0]];
-    const team2 = groupedModels[teams[1]];
-    const team3 = groupedModels[teams[2]];
-    const team4 = groupedModels[teams[3]];
+    const team1 = groupedContestants[teams[0]];
+    const team2 = groupedContestants[teams[1]];
+    const team3 = groupedContestants[teams[2]];
+    const team4 = groupedContestants[teams[3]];
     var l1 = [];
     var l2 = [];
     var l3 = [];
@@ -45,19 +45,19 @@ export const AllTeamPoints = (props) => {
     var t3 = [];
     var t4 = [];
     if (team1) {
-      t1 = utils.groupByProperty(team1, "model");
+      t1 = utils.groupByProperty(team1, "contestant");
       l1 = Object.keys(t1);
     }
     if (team2) {
-      t2 = utils.groupByProperty(team2, "model");
+      t2 = utils.groupByProperty(team2, "contestant");
       l2 = Object.keys(t2);
     }
     if (team3) {
-      t3 = utils.groupByProperty(team3, "model");
+      t3 = utils.groupByProperty(team3, "contestant");
       l3 = Object.keys(t3);
     }
     if (team4) {
-      t4 = utils.groupByProperty(team4, "model");
+      t4 = utils.groupByProperty(team4, "contestant");
       l4 = Object.keys(t4);
     }
 
@@ -77,25 +77,25 @@ export const AllTeamPoints = (props) => {
 
     return (
       <>
-        <tr>
+        <tr key={"AllTeamPointsRow1"}>
           <th className="blue-bg">Σύνολο</th>
           <td className="blue-bg text-right">
-            {sumPoints(groupedModels, teams[0])}
+            {sumPoints(groupedContestants, teams[0])}
           </td>
           <th className="blue-bg">Σύνολο</th>
           <td className="blue-bg text-right">
-            {sumPoints(groupedModels, teams[1])}
+            {sumPoints(groupedContestants, teams[1])}
           </td>
           <th className="blue-bg">Σύνολο</th>
           <td className="blue-bg text-right">
-            {sumPoints(groupedModels, teams[2])}
+            {sumPoints(groupedContestants, teams[2])}
           </td>
           <th className="blue-bg">Σύνολο</th>
           <td className="blue-bg text-right">
-            {sumPoints(groupedModels, teams[3])}
+            {sumPoints(groupedContestants, teams[3])}
           </td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow2"}>
           {name(l1[0])}
           <td className="text-right">{sumPoints(t1, l1[0])}</td>
           {name(l2[0])}
@@ -105,7 +105,7 @@ export const AllTeamPoints = (props) => {
           {name(l4[0])}
           <td className="text-right">{sumPoints(t4, l4[0])}</td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow3"}>
           {name(l1[1])}
           <td className="text-right">{sumPoints(t1, l1[1])}</td>
           {name(l2[1])}
@@ -115,7 +115,7 @@ export const AllTeamPoints = (props) => {
           {name(l4[1])}
           <td className="text-right">{sumPoints(t4, l4[1])}</td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow4"}>
           {name(l1[2])}
           <td className="text-right">{sumPoints(t1, l1[2])}</td>
           {name(l2[2])}
@@ -125,7 +125,7 @@ export const AllTeamPoints = (props) => {
           {name(l4[2])}
           <td className="text-right">{sumPoints(t4, l4[2])}</td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow5"}>
           {name(l1[3])}
           <td className="text-right">{sumPoints(t1, l1[3])}</td>
           {name(l2[3])}
@@ -135,7 +135,7 @@ export const AllTeamPoints = (props) => {
           {name(l4[3])}
           <td className="text-right">{sumPoints(t4, l4[3])}</td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow6"}>
           {name(l1[4])}
           <td className="text-right">{sumPoints(t1, l1[4])}</td>
           {name(l2[4])}
@@ -145,7 +145,7 @@ export const AllTeamPoints = (props) => {
           {name(l4[4])}
           <td className="text-right">{sumPoints(t4, l4[4])}</td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow7"}>
           {name(l1[5])}
           <td className="text-right">{sumPoints(t1, l1[5])}</td>
           {name(l2[5])}
@@ -155,7 +155,7 @@ export const AllTeamPoints = (props) => {
           {name(l4[5])}
           <td className="text-right">{sumPoints(t4, l4[5])}</td>
         </tr>
-        <tr>
+        <tr key={"AllTeamPointsRow8"}>
           {name(l1[6])}
           <td className="text-right">{sumPoints(t1, l1[6])}</td>
           {name(l2[6])}
@@ -177,7 +177,7 @@ export const AllTeamPoints = (props) => {
       <Card.Body className="px-3">
         <table className="mx-sm-auto border">
           <thead>
-            <tr>
+            <tr key={"teamNames"}>
               <th colSpan={2} className="w-25 text-center blue-bg">
                 {teams[0]}
               </th>
@@ -193,7 +193,7 @@ export const AllTeamPoints = (props) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr key={"teamOwners"}>
               <td colSpan={2} className="w-25 text-center blue-bg">
                 {utils.teamOwner[teams[0]]}
               </td>

@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import TeamRankings from "../../components/TeamRankings";
 import AllTeamPoints from "../../components/AllTeamPoints";
 import AllTeamPointsCompact from "../../components/AllTeamPointsCompact";
-import ModelRankings from "../../components/ModelRankings";
-import ModelRankingsCompact from "../../components/ModelRankingsCompact";
+import ContestantRankings from "../../components/ContestantRankings";
+import ContestantRankingsCompact from "../../components/ContestantRankingsCompact";
 import TeamsProgress from "../../components/TeamsProgress";
 
 const Overview = (props) => {
@@ -37,11 +37,11 @@ const Overview = (props) => {
       </Row>
 
       <Row className="justify-content-md-center d-none d-lg-block">
-        <ModelRankings />
+        <ContestantRankings />
       </Row>
 
       <Row className="justify-content-md-center d-block d-lg-none">
-        <ModelRankingsCompact />
+        <ContestantRankingsCompact />
       </Row>
     </>
   );

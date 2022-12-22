@@ -5,14 +5,14 @@ import { connect } from "react-redux";
 import * as utils from "../utils";
 
 export const TeamRankings = (props) => {
-  const groupedModels = utils.groupByProperty(props.data, "team");
+  const groupedContestants = utils.groupByProperty(props.data, "team");
 
   const line = (team) => {
     return (
       <tr>
         <td className="w-25 text-center">{team}</td>
         <td className="w-25 text-center">
-          {utils.sumPoints(groupedModels, team)}
+          {utils.sumPoints(groupedContestants, team)}
         </td>
         <td className="w-25 text-center">{utils.teamOwner[team]}</td>
       </tr>
@@ -22,10 +22,16 @@ export const TeamRankings = (props) => {
   const teams = [...utils.getTeams()];
 
   teams.sort(function (x, y) {
-    if (utils.sumPoints(groupedModels, x) < utils.sumPoints(groupedModels, y)) {
+    if (
+      utils.sumPoints(groupedContestants, x) <
+      utils.sumPoints(groupedContestants, y)
+    ) {
       return 1;
     }
-    if (utils.sumPoints(groupedModels, x) > utils.sumPoints(groupedModels, y)) {
+    if (
+      utils.sumPoints(groupedContestants, x) >
+      utils.sumPoints(groupedContestants, y)
+    ) {
       return -1;
     }
     return 0;
@@ -46,10 +52,10 @@ export const TeamRankings = (props) => {
             </tr>
           </thead>
           <tbody>
-            {line(teams[0], groupedModels)}
-            {line(teams[1], groupedModels)}
-            {line(teams[2], groupedModels)}
-            {line(teams[3], groupedModels)}
+            {line(teams[0], groupedContestants)}
+            {line(teams[1], groupedContestants)}
+            {line(teams[2], groupedContestants)}
+            {line(teams[3], groupedContestants)}
           </tbody>
         </table>
       </Card.Body>

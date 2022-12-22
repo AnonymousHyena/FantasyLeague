@@ -5,10 +5,10 @@ import * as utils from "../utils";
 
 export const EpisodeBreakdownCompact = ({ selectedEpisode, ...props }) => {
   if (props.data[0]) {
-    const tableLine = (model, points) => {
+    const tableLine = (contestant, points) => {
       return (
         <tr>
-          <td>{model}</td>
+          <td>{contestant}</td>
           <td>{points}</td>
         </tr>
       );
@@ -20,7 +20,7 @@ export const EpisodeBreakdownCompact = ({ selectedEpisode, ...props }) => {
           <table className="w-100">
             <thead>
               <tr>
-                <th>Μοντέλο</th>
+                <th>Διαγωνιζόμενος/η</th>
                 <th>Πόντοι</th>
               </tr>
             </thead>
@@ -32,14 +32,14 @@ export const EpisodeBreakdownCompact = ({ selectedEpisode, ...props }) => {
 
     const groupedData = utils.groupByProperty(
       utils.groupByProperty(props.data, "episode")[selectedEpisode],
-      "model"
+      "contestant"
     );
 
     const makeTableContents = function () {
       const result = [];
-      const models = Object.keys(groupedData);
+      const contestants = Object.keys(groupedData);
 
-      models.sort((a, b) => {
+      contestants.sort((a, b) => {
         if (utils.sumPoints(groupedData, a) < utils.sumPoints(groupedData, b)) {
           return 1;
         } else if (
@@ -50,8 +50,10 @@ export const EpisodeBreakdownCompact = ({ selectedEpisode, ...props }) => {
         return 0;
       });
 
-      models.forEach((model) => {
-        result.push(tableLine(model, utils.sumPoints(groupedData, model)));
+      contestants.forEach((contestant) => {
+        result.push(
+          tableLine(contestant, utils.sumPoints(groupedData, contestant))
+        );
       });
       return result;
     };
