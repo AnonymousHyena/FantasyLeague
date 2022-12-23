@@ -1,4 +1,5 @@
 {
+  "winner": "Φρυδερίκη αγάπη μου",
   "contestants": {
     "Αλεξία Κ.": {
       "team": "Το Κορμί σου το Φρυδίσιο",
@@ -275,6 +276,11 @@
       "points": 10,
       "fullName": "Επιστροφή",
       "category": "misc"
+    },
+    "ten": {
+      "points": 1,
+      "fullName": "Δεκάρι στο τελικό",
+      "category": "misc"
     }
   },
   "achievements": {
@@ -305,19 +311,19 @@
       "name": "Top 3",
       "description": "Be among the 3 final contestants",
       "order": 3,
-      "holders": ["Αλεξία Τ.", "Βικτώρια", "Μαρίτα"]
+      "holders": ["Βικτώρια", "Μαρίτα"]
     },
     "hundo": {
       "name": "Over 9000",
       "description": "Have more than 100 points",
       "order": 2,
-      "holders": ["Κότυ", "Μαρίτα"]
+      "holders": ["Κότυ", "Μαρίτα", "Αλεξία Τ."]
     },
     "teamStar": {
       "name": "Team Star",
       "description": "Have the most points in their team",
       "order": 0,
-      "holders": ["Κότυ", "Μαρίτα", "Μύρια", "Βικτώρια"]
+      "holders": ["Κότυ", "Μαρίτα", "Μύρια", "Αλεξία Τ."]
     },
     "dramaQueen": {
       "name": "Drama Queen",
@@ -341,7 +347,13 @@
       "name": "Μήπως ήταν τύχη τελικα;",
       "description": "Finish in the placement ranking lower than your final position tier",
       "order": 2,
-      "holders": ["Μάρα", "Αλεξία Τ.", "Κάτια"]
+      "holders": ["Μάρα", "Βικτώρια", "Κάτια"]
+    },
+    "gntm": {
+      "name": "Greece's Next Top Model",
+      "description": "Win the competition",
+      "order": 4,
+      "holders": ["Αλεξία Τ."]
     }
   },
   "episodes": {
@@ -1032,6 +1044,15 @@
       },
       "misc": {
         "food": ["Αλεξία Τ."]
+      }
+    },
+    "episode24": {
+      "placement": {
+        "GNTM": ["Αλεξία Τ."]
+      },
+      "drama": {},
+      "misc": {
+        "ten": ["Αλεξία Τ.", "Αλεξία Τ."]
       }
     }
   }

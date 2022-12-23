@@ -2,6 +2,8 @@ import React from "react";
 import { Col, Row, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { faCrown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Games = (props) => {
   const navigate = useNavigate();
@@ -14,7 +16,17 @@ const Games = (props) => {
               navigate("GNTM5/overview");
             }}
           >
-            <Card.Body>GNTM 5</Card.Body>
+            <Card.Body>
+              <table className="w-50">
+                <tr>
+                  <td>GNTM 5</td>
+                  <td>
+                    <FontAwesomeIcon icon={faCrown} /> Φρυδερίκη αγάπη μου{" "}
+                    <FontAwesomeIcon icon={faCrown} />
+                  </td>
+                </tr>
+              </table>
+            </Card.Body>
           </Card>
         </Col>
       </Row>

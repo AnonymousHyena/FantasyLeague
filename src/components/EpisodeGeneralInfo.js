@@ -14,7 +14,8 @@ export const EpisodeGeneralInfo = ({ selectedEpisode, ...props }) => {
     const groupedData = utils.groupByProperty(props.data, "episode");
 
     let contestantFirst = groupedData[selectedEpisode].filter(
-      (element) => element["source"] === "firstPlace"
+      (element) =>
+        element["source"] === "firstPlace" || element["source"] === "GNTM"
     );
     const result = [];
     if (contestantFirst.length > 0) {

@@ -1,8 +1,10 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { connect } from "react-redux";
+import { faCrown } from "@fortawesome/free-solid-svg-icons";
 
 import * as utils from "../utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const TeamRankings = (props) => {
   const groupedContestants = utils.groupByProperty(props.data, "team");
@@ -10,7 +12,20 @@ export const TeamRankings = (props) => {
   const line = (team) => {
     return (
       <tr>
-        <td className="w-25 text-center">{team}</td>
+        <td className="w-25 text-center">
+          {team === utils.getWinner() && (
+            <>
+              <FontAwesomeIcon icon={faCrown} />{" "}
+            </>
+          )}
+          {team}
+          {team === utils.getWinner() && (
+            <>
+              {" "}
+              <FontAwesomeIcon icon={faCrown} />
+            </>
+          )}
+        </td>
         <td className="w-25 text-center">
           {utils.sumPoints(groupedContestants, team)}
         </td>

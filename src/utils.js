@@ -235,3 +235,7 @@ export function getContestantRank(data, sourceType, contestant) {
 export function getRules() {
   return episodes["points"];
 }
+
+export function getWinner() {
+  return episodes["winner"];
+}
