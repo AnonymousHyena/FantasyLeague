@@ -142,18 +142,10 @@ const Contestants = (props) => {
               <Card>
                 <div className="crop">
                   <img
-                    data-src={
-                      "https://www.star.gr/tv/images/287x382/jpg/files/gntm5/diagonizomenes/" +
-                      utils.contestantStarNames[selectedContestant] +
-                      ".webp"
-                    }
-                    alt={utils.contestantStarNames[selectedContestant]}
+                    data-src={utils.contestantSiteNames[selectedContestant]}
+                    alt={utils.contestantSiteNames[selectedContestant]}
                     className="lazy"
-                    src={
-                      "https://www.star.gr/tv/images/287x382/jpg/files/gntm5/diagonizomenes/" +
-                      utils.contestantStarNames[selectedContestant] +
-                      ".webp"
-                    }
+                    src={utils.contestantSiteNames[selectedContestant]}
                   />
                 </div>
               </Card>

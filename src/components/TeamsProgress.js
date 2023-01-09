@@ -252,24 +252,24 @@ export const TeamsProgress = (props) => {
 
         svg
           .append("circle")
-          .attr("cx", 95)
-          .attr("cy", 14)
+          .attr("cx", 15)
+          .attr("cy", 26)
           .attr("r", 4)
           .style("fill", function () {
             return activeOptions[1] ? color(teams[1]) : "rgba(4,4,4,.5)";
           });
         svg
           .append("circle")
-          .attr("cx", 140)
-          .attr("cy", 14)
+          .attr("cx", 15)
+          .attr("cy", 38)
           .attr("r", 4)
           .style("fill", function () {
             return activeOptions[2] ? color(teams[2]) : "rgba(4,4,4,.5)";
           });
         svg
           .append("circle")
-          .attr("cx", 270)
-          .attr("cy", 14)
+          .attr("cx", 15)
+          .attr("cy", 50)
           .attr("r", 4)
           .style("fill", function () {
             return activeOptions[3] ? color(teams[3]) : "rgba(4,4,4,.5)";
@@ -296,8 +296,8 @@ export const TeamsProgress = (props) => {
           });
         svg
           .append("text")
-          .attr("x", 100)
-          .attr("y", 15)
+          .attr("x", 20)
+          .attr("y", 27)
           .text(teams[1])
           .style("font-size", "10px")
           .style("cursor", "pointer")
@@ -315,8 +315,8 @@ export const TeamsProgress = (props) => {
           });
         svg
           .append("text")
-          .attr("x", 145)
-          .attr("y", 15)
+          .attr("x", 20)
+          .attr("y", 39)
           .text(teams[2])
           .style("font-size", "10px")
           .style("cursor", "pointer")
@@ -334,8 +334,8 @@ export const TeamsProgress = (props) => {
           });
         svg
           .append("text")
-          .attr("x", 275)
-          .attr("y", 15)
+          .attr("x", 20)
+          .attr("y", 51)
           .text(teams[3])
           .style("font-size", "10px")
           .style("cursor", "pointer")

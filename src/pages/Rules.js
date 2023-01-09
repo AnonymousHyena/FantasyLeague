@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { connect } from "react-redux";
 
@@ -7,7 +7,11 @@ import Accoridon from "../components/Accoridon";
 import * as utils from "../utils";
 
 const Rules = (props) => {
-  const rules = utils.getRules();
+  const [rules, setRules] = useState("");
+
+  useEffect(() => {
+    setRules(utils.getRules());
+  }, utils.getRules());
 
   function makeRulesTable(RuleType) {
     const result = [];

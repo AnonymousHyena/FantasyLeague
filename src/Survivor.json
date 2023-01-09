@@ -1,379 +1,295 @@
 {
   "contestants": {
-    "Αλεξία Κ.": {
-      "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "aleksia_kouvela-1920x1004-b_w",
-      "fullName": "Αλεξία Κουβελά",
+    "Κώστας Α.": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/anagnostopoulos_p1.jpg",
+      "fullName": "Κώστας Αναγνωστόπουλος",
       "firstEpisode": 0
     },
-    "Αλεξία Τ.": {
-      "team": "Φρυδερίκη αγάπη μου",
-      "starName": "aleksia_traiko-1920x1004",
-      "fullName": "Αλεξία Τράικο",
+    "Στέλλα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/andreadou_p1.jpg",
+      "fullName": "Στέλλα Ανδρέαδου",
       "firstEpisode": 0
     },
-    "Άννα": {
-      "team": "Γεια σου Τάσο",
-      "starName": "",
-      "fullName": "Άννα",
+    "Βρισηίδα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/andriotou_p1.jpg",
+      "fullName": "Βρισηίδα Ανδριώτου",
       "firstEpisode": 0
     },
-    "Βικτώρια": {
-      "team": "Φρυδερίκη αγάπη μου",
-      "starName": "victoria_miroforidou-1920x1004",
-      "fullName": "Βικτώρια Μυροφορίδου",
+    "Γιώργος": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/asimakopoulos_p1.jpg",
+      "fullName": "Γιώργος Ασημακόπουλος",
       "firstEpisode": 0
     },
-    "Γιέβα": {
-      "team": "Ομάδα",
-      "starName": "gieva_mpontarenko-1920x1004-b_w",
-      "fullName": "Γιέβα Μπονταρένκο",
+    "Ευρυδίκη": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/valavani_p1.jpg",
+      "fullName": "Ευρυδίκη Βαλαβάνη",
       "firstEpisode": 0
     },
-    "Γρηγοριάνα": {
-      "team": "Ομάδα",
-      "starName": "grigoriana_plita-1920x1004-b_w",
-      "fullName": "Γρηγοριάνα Πλύτα",
+    "Κωσταντίνος": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/vasalos_p1.jpg",
+      "fullName": "Κωσταντίνος Βάσαλος",
       "firstEpisode": 0
     },
-    "Δέσποινα": {
-      "team": "Ομάδα",
-      "starName": "despoina_sarri-1920x1004-b_w",
-      "fullName": "Δέσποινα Σαρρή",
-      "firstEpisode": 0
-    },
-    "Εβελίνα": {
-      "team": "Ομάδα",
-      "starName": "evelina_petrougaki-1920x1004-b_w",
-      "fullName": "Εβελίνα Πετρουγάκη",
-      "firstEpisode": 0
-    },
-    "Έλενα": {
-      "team": "Φρυδερίκη αγάπη μου",
-      "starName": "elena_lisandrou-1920x1004-b_w",
-      "fullName": "Έλενα Λυσάνδρου",
-      "firstEpisode": 0
-    },
-    "Έφη": {
-      "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "efi_mpanti-1920x1004-b_w",
-      "fullName": "Έφη Μπαντή",
-      "firstEpisode": 0
-    },
-    "Ζωή": {
-      "team": "Γεια σου Τάσο",
-      "starName": "zoi_ioannidou-1920x1004-b_w",
-      "fullName": "Ζωή Ιωαννίδου",
+    "Ηλίας Γ.": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/gkotsis_p1.jpg",
+      "fullName": "Ηλίας Γκότσης",
       "firstEpisode": 0
     },
     "Κατερίνα": {
-      "team": "Γεια σου Τάσο",
-      "starName": "katerina_kara-1920x1004-b_w",
-      "fullName": "Κατερίνα Καρά",
-      "firstEpisode": 0
-    },
-    "Κάτια": {
-      "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "katia_kizima-1920x1004-b_w",
-      "fullName": "Κάτια Κιζίμα",
-      "firstEpisode": 0
-    },
-    "Κότυ": {
-      "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "koti_gougousi_camacho-1920x1004",
-      "fullName": "Κότυ Γουγούση - Camacho",
-      "firstEpisode": 0
-    },
-    "Μάρα": {
-      "team": "Γεια σου Τάσο",
-      "starName": "mara_marli-1920x1004-b_w",
-      "fullName": "Μάρα Μαρλή",
-      "firstEpisode": 0
-    },
-    "Μαρία": {
-      "team": "Γεια σου Τάσο",
-      "starName": "maria_kosta-1920x1004-b_w",
-      "fullName": "Μαρία Κώστα",
-      "firstEpisode": 0
-    },
-    "Μαρίτα": {
-      "team": "Γεια σου Τάσο",
-      "starName": "marita_kathitzioti-1920x1004",
-      "fullName": "Μαρίτα Καθιτζιώτη",
-      "firstEpisode": 0
-    },
-    "Μικαέλα": {
-      "team": "Φρυδερίκη αγάπη μου",
-      "starName": "mixaela_novak_marli-1920x1004-b_w",
-      "fullName": "Μικαέλα Νόβακ - Μαρλή",
-      "firstEpisode": 0
-    },
-    "Μύρια": {
-      "team": "Ομάδα",
-      "starName": "miria_kiriakidou-1920x1004-b_w",
-      "fullName": "Μύρια Κυριακίδου",
-      "firstEpisode": 0
-    },
-    "Νάγια": {
       "team": "",
-      "starName": "nagia_kontostergiou-1920x1004-b_w",
-      "fullName": "Νάγια Κοντοστεργίου",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/dalaka_p1.jpg",
+      "fullName": "Κατερίνα Δαλάκα",
       "firstEpisode": 0
     },
-    "Νικόλ": {
-      "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "nikol_tsoulos-1920x1004-b_w",
-      "fullName": "Νικόλ Τσούλος",
+    "Καρολίνα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/kaliva_p1.jpg",
+      "fullName": "Καρολίνα Ζακλίν Καλυβά",
       "firstEpisode": 0
     },
-    "Τζούλια": {
-      "team": "Φρυδερίκη αγάπη μου",
-      "starName": "tzoulia_iligenko-1920x1004-b_w",
-      "fullName": "Τζούλια Ιλιγένκο",
+    "Τάκης": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/karagounias_p1.jpg",
+      "fullName": "Τάκης Καραγκούνιας",
       "firstEpisode": 0
     },
-    "Ντορέλα": {
-      "team": "Ομάδα",
-      "starName": "%CE%BD%CF%84%CE%BF%CF%81%CE%B5%CE%BB%CE%B1_%CE%B3%CE%BA%CE%B5%CE%BA%CE%B1-1930x1004-b_w",
-      "fullName": "Ντορέλα Γκέκα",
-      "firstEpisode": 8
+    "Σάκης": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/katsoulis_p1.jpg",
+      "fullName": "Σάκης Κατσούλης",
+      "firstEpisode": 0
     },
-    "Ραφαέλα": {
-      "team": "Το Κορμί σου το Φρυδίσιο",
-      "starName": "%CF%81%CE%B1%CF%86%CE%B1%CE%B5%CE%BB%CE%B1_%CF%87%CE%B1%CF%81%CE%B1%CE%BB%CE%B1%CE%BC%CF%80%CE%BF%CF%85%CF%82-1920x1004-b_w",
-      "fullName": "Ραφαέλα Χαραλάμπους",
-      "firstEpisode": 8
+    "Περικλής": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/kondilatos_p1.jpg",
+      "fullName": "Περικλής Κονδυλάτος",
+      "firstEpisode": 0
     },
-    "Ειρήνη": {
-      "team": "Γεια σου Τάσο",
-      "starName": "%CE%B5%CE%B9%CF%81%CE%B7%CE%BD%CE%B7_%CE%B1%CE%BD%CF%84%CF%89%CE%BD%CE%B9%CE%BF%CF%85-1920x1004-b_w",
-      "fullName": "Ειρήνη Αντωνίου",
-      "firstEpisode": 8
+    "Σπύρος": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/martikas_p1.jpg",
+      "fullName": "Σπύρος Μαρτίκας",
+      "firstEpisode": 0
     },
-    "Γεωργιάννα": {
-      "team": "Φρυδερίκη αγάπη μου",
-      "starName": "%CE%B3%CE%B5%CF%89%CF%81%CE%B3%CE%B9%CE%B1%CE%BD%CE%B1_%CE%B9%CF%89%CE%B1%CE%BA%CE%B5%CE%B9%CE%BC%CE%B9%CE%B4%CE%B7-1920x1004-b_w",
-      "fullName": "Γεωργιάννα Ιωακειμίδη",
-      "firstEpisode": 8
+    "Μελίνα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/metaxa_p1.jpg",
+      "fullName": "Μελίνα Μεταξά",
+      "firstEpisode": 0
+    },
+    "Νίκος": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/mpartzis_p1.jpg",
+      "fullName": "Νίκος Μπαρτζής",
+      "firstEpisode": 0
+    },
+    "Ηλίας Μ.": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/mpogdanos_p1.jpg",
+      "fullName": "Ηλίας Μπόγδανος",
+      "firstEpisode": 0
+    },
+    "Κώστας Π.": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/papadopoulos_p1.jpg",
+      "fullName": "Κώστας Παπαδόπουλος",
+      "firstEpisode": 0
+    },
+    "Μάριος": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/priamos_p1.jpg",
+      "fullName": "Μάριος Πρίαμος",
+      "firstEpisode": 0
+    },
+    "Μαριαλένα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/roumelioti_p1.jpg",
+      "fullName": "Μαριαλένα Ρουμελιώτη",
+      "firstEpisode": 0
+    },
+    "Εύη": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/saltaferidou_p1.jpg",
+      "fullName": "Εύη Σαλταφερίδου",
+      "firstEpisode": 0
+    },
+    "Αφροδίτη": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/skafida_p1.jpg",
+      "fullName": "Αφροδίτη Σκαφίδα",
+      "firstEpisode": 0
+    },
+    "Στάθης": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/sxizas_p1.jpg",
+      "fullName": "Στάθης Σχίζας",
+      "firstEpisode": 0
+    },
+    "Ελένη": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/champeri_p1.jpg",
+      "fullName": "Ελένη Χαμπέρη",
+      "firstEpisode": 0
+    },
+    "Στέλιος": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/chantampakis_p1.jpg",
+      "fullName": "Στέλιος Χανταμπάκης",
+      "firstEpisode": 0
+    },
+    "Ασημίνα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/chatziandreou_p1.jpg",
+      "fullName": "Ασημίνα Χατζηανδρέου",
+      "firstEpisode": 0
+    },
+    "Σταυρούλα": {
+      "team": "",
+      "siteName": "https://media.skaitv.gr/images/800/600/survivor23/chrysaidi_p1.jpg",
+      "fullName": "Σταυρούλα Χρυσαείδη",
+      "firstEpisode": 0
     }
   },
   "teams": {
-    "Το Κορμί σου το Φρυδίσιο": "Statics",
-    "Γεια σου Τάσο": "Geo",
-    "Φρυδερίκη αγάπη μου": "Tsamis",
-    "Ομάδα": "Snouf"
+    "Ομάδα1": "Statics",
+    "Ομάδα2": "Geo",
+    "Ομάδα3": "Tsamis",
+    "Ομάδα4": "Snouf"
   },
   "points": {
-    "GNTM": {
-      "points": 50,
-      "fullName": "Νικίτρια του GNTM5",
+    "teamWin": {
+      "points": 5,
+      "fullName": "Νικίτρια ομάδα",
       "category": "placement"
     },
-    "firstPlace": {
-      "points": 8,
-      "fullName": "Πρώτη θέση",
+    "teamLose": {
+      "points": -5,
+      "fullName": "Ητημένη ομάδα",
       "category": "placement"
     },
-    "secondPlace": {
-      "points": 6,
-      "fullName": "Δεύτερη θέση",
-      "category": "placement"
-    },
-    "thirdPlace": {
-      "points": 4,
-      "fullName": "Τρίτη θέση",
-      "category": "placement"
-    },
-    "top25": { "points": 2, "fullName": "Top 25%", "category": "placement" },
-    "top50": { "points": 2, "fullName": "Top 50%", "category": "placement" },
-    "top50Dis": {
+    "win": {
       "points": 2,
-      "fullName": "Top 50% με disadvantage",
+      "fullName": "Δοκιμασία",
       "category": "placement"
     },
-    "firstPlaceDis": {
-      "points": 4,
-      "fullName": "Πρώτη θέση με disadvantage",
-      "category": "placement"
-    },
-    "bot50Adv": {
+    "lose": {
       "points": -2,
-      "fullName": "Bottom 50% με advatnage",
+      "fullName": "Δοκιμασία",
       "category": "placement"
     },
-    "bot25": {
-      "points": -2,
-      "fullName": "Bottom 25%",
-      "category": "placement"
-    },
-    "lastPlace": {
-      "points": -6,
-      "fullName": "Τελευταία θέση",
-      "category": "placement"
-    },
-    "lastPlaceTop5": {
-      "points": 0,
-      "fullName": "Τελευταία θέση στο top 5",
-      "category": "placement"
-    },
-    "lastPlaceAdv": {
-      "points": -12,
-      "fullName": "Τελευταία θέση με advantage",
-      "category": "placement"
-    },
-    "finalistBonus": {
-      "points": 10,
-      "fullName": "Bonus τριάδας τελικού",
+    "voted": {
+      "points": -3,
+      "fullName": "Υποψήφιος προς αποχώρηση",
       "category": "placement"
     },
     "injury": { "points": -1, "fullName": "Τραυματισμός", "category": "drama" },
-    "badmouthing": { "points": -1, "fullName": "Κράξιμο", "category": "drama" },
-    "interuption": {
-      "points": -1,
-      "fullName": "Διακοπή ροής της διαδικασίας",
-      "category": "drama"
-    },
-    "quit": {
-      "points": -10,
-      "fullName": "Οικειοθελής αποχώρηση",
-      "category": "misc"
-    },
-    "gymnastics": {
-      "points": 1,
-      "fullName": "Γυμναστική",
-      "category": "misc"
-    },
-    "food": { "points": 1, "fullName": "Φαγητό", "category": "misc" },
-    "chores": {
-      "points": 1,
-      "fullName": "Δουλειές σπιτιού",
-      "category": "misc"
-    },
-    "challenge": { "points": 4, "fullName": "Δοκιμασία", "category": "misc" },
-    "makeover": {
-      "points": -8,
-      "fullName": "Makeover drama",
-      "category": "drama"
-    },
-    "positiveComment": {
-      "points": 1,
-      "fullName": "Θετικό σχόλιο",
-      "category": "misc"
-    },
     "unfair": { "points": -1, "fullName": "'Αδικήθηκα'", "category": "drama" },
-    "startArgument": {
-      "points": -2,
-      "fullName": "Εκκίνηση διαμάχης",
-      "category": "drama"
-    },
-    "argument": {
-      "points": -1,
-      "fullName": "Συμμετοχή σε διαμάχη",
-      "category": "drama"
-    },
-    "comeback": {
-      "points": 10,
-      "fullName": "Επιστροφή",
-      "category": "misc"
-    }
+    "badmouthing": { "points": -1, "fullName": "Κράξιμο", "category": "drama" }
   },
   "achievements": {
     "negativeScore": {
       "name": "Better off without you",
       "description": "Leave the game with a negative points total",
       "order": 1,
-      "holders": [
-        "Τζούλια",
-        "Άννα",
-        "Αλεξία Κ.",
-        "Ντορέλα",
-        "Κατερίνα",
-        "Έφη",
-        "Νάγια",
-        "Ειρήνη",
-        "Ζωή",
-        "Έλενα"
-      ]
+      "holders": []
     },
     "top5": {
       "name": "Top 5",
       "description": "Be among the 5 final contestants",
       "order": 3,
-      "holders": ["Κότυ", "Μάρα"]
+      "holders": []
     },
     "top3": {
       "name": "Top 3",
       "description": "Be among the 3 final contestants",
       "order": 3,
-      "holders": ["Αλεξία Τ.", "Βικτώρια", "Μαρίτα"]
+      "holders": []
     },
     "hundo": {
       "name": "Over 9000",
       "description": "Have more than 100 points",
       "order": 2,
-      "holders": ["Κότυ", "Μαρίτα"]
+      "holders": []
     },
     "teamStar": {
       "name": "Team Star",
       "description": "Have the most points in their team",
       "order": 0,
-      "holders": ["Κότυ", "Μαρίτα", "Μύρια", "Βικτώρια"]
+      "holders": []
     },
     "dramaQueen": {
       "name": "Drama Queen",
       "description": "Have the most points in the Drama category",
       "order": 2,
-      "holders": ["Βικτώρια"]
+      "holders": []
     },
     "andStayDead": {
       "name": "... And Stay Dead",
       "description": "Leave the same episode you comeback",
       "order": 2,
-      "holders": ["Ραφαέλα"]
+      "holders": []
     },
     "goneFast": {
       "name": "Καλά εσύ έφυγες νωρίς",
       "description": "Finish in the placement ranking higher than your final position tier",
       "order": 2,
-      "holders": ["Νικόλ", "Κότυ", "Μικαέλα"]
+      "holders": []
     },
     "lucky": {
       "name": "Μήπως ήταν τύχη τελικα;",
       "description": "Finish in the placement ranking lower than your final position tier",
       "order": 2,
-      "holders": ["Μάρα", "Αλεξία Τ.", "Κάτια"]
+      "holders": []
     }
   },
   "episodes": {
     "episode01": {
       "placement": {
-        "firstPlace": ["Αλεξία Τ."],
-        "secondPlace": ["Μαρίτα"],
-        "thirdPlace": ["Μικαέλα"],
-        "top25": ["Βικτώρια", "Νικόλ", "Μικαέλα", "Μαρίτα", "Αλεξία Τ."],
-        "top50": [
-          "Γιέβα",
-          "Γρηγοριάνα",
-          "Εβελίνα",
-          "Κότυ",
-          "Μάρα",
-          "Βικτώρια",
-          "Νικόλ",
-          "Μικαέλα",
-          "Μαρίτα",
-          "Αλεξία Τ."
+        "win": ["Μελίνα", "Μάριος", "Μαριαλένα"],
+        "lose": ["Κατερίνα", "Κώστας Α.", "Σταυρούλα"],
+        "teamWin": [
+          "Ευρυδίκη",
+          "Κατερίνα",
+          "Σάκης",
+          "Σπύρος",
+          "Νίκος",
+          "Κώστας Π.",
+          "Μάριος",
+          "Αφροδίτη",
+          "Στάθης",
+          "Ελένη",
+          "Στέλιος",
+          "Ασημίνα",
+          "Σταυρούλα"
         ],
-        "bot25": ["Τζούλια", "Νάγια", "Αλεξία Κ.", "Μύρια"],
-        "lastPlace": ["Κατερίνα"]
+        "teamLose": [
+          "Περικλής",
+          "Τάκης",
+          "Βρισηίδα",
+          "Μελίνα",
+          "Ηλίας Μ.",
+          "Καρολίνα",
+          "Μαριαλένα",
+          "Κώστας Α.",
+          "Γιώργος",
+          "Κωσταντίνος",
+          "Ηλίας Γ.",
+          "Εύη",
+          "Στέλλα"
+        ],
+        "voted": ["Περικλής"]
       },
       "drama": {
-        "injury": ["Γρηγοριάνα"]
+        "unfair": ["Περικλής"]
       },
-      "misc": {
-        "gymnastics": ["Εβελίνα", "Νικόλ"],
-        "food": ["Μάρα"],
-        "quit": ["Άννα"]
-      }
+      "misc": {}
     }
   }
 }

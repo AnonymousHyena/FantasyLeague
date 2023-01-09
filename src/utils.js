@@ -3,28 +3,36 @@ import Survivor from "./Survivor.json";
 import store from "./store";
 
 var episodes = GNTM5;
-
+var set = false;
 var teams = [];
 export var teamOwner = {};
 
-const team = {};
-export const contestantStarNames = {};
-export const contestantFullNames = {};
-export const pointsTranslateDict = {};
-export const contestantFirstEpisode = {};
-export const achievements = {};
+var team = {};
+export var contestantSiteNames = {};
+export var contestantFullNames = {};
+export var pointsTranslateDict = {};
+export var contestantFirstEpisode = {};
+export var achievements = {};
 
 export function initializeDataAndStore(prefix) {
   if (prefix === "GNTM5") episodes = GNTM5;
   if (prefix === "Survivor") episodes = Survivor;
+  set = true;
+
+  team = {};
+  contestantSiteNames = {};
+  contestantFullNames = {};
+  pointsTranslateDict = {};
+  contestantFirstEpisode = {};
+  achievements = {};
 
   teams = Object.keys(episodes["teams"]);
   teamOwner = episodes["teams"];
 
   Object.keys(episodes["contestants"]).forEach((contestant) => {
     team[contestant] = episodes["contestants"][contestant]["team"];
-    contestantStarNames[contestant] =
-      episodes["contestants"][contestant]["starName"];
+    contestantSiteNames[contestant] =
+      episodes["contestants"][contestant]["siteName"];
     contestantFullNames[contestant] =
       episodes["contestants"][contestant]["fullName"];
     contestantFirstEpisode[contestant] =
@@ -237,5 +245,8 @@ export function getRules() {
 }
 
 export function getWinner() {
-  return episodes["winner"];
+  if (set) {
+    return episodes["winner"];
+  }
+  return null;
 }

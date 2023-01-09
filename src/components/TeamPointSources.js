@@ -8,19 +8,11 @@ import { useD3 } from "./UseD3";
 import * as utils from "../utils";
 
 export const TeamPointSources = ({ selectedTeam, ...props }) => {
-  const negative = [
-    "Αδικήθηκα",
-    "Makeover drama",
-    "Τελευταία θέση",
-    "Bottom 50% με advatnage",
-    "Οικειοθελής αποχώρηση",
-    "Τραυματισμός",
-    "Κράξιμο",
-    "Διακοπή ροής της διαδικασίας",
-    "Bottom 25%",
-    "Συμμετοχή σε διαμάχη",
-    "Εκκίνηση διαμάχης",
-  ];
+  const negative = [];
+  Object.keys(utils.getRules()).forEach((rule) => {
+    if (utils.getRules()[rule].points < 0)
+      negative.push(utils.getRules()[rule].fullName);
+  });
   const ref = useD3(
     (svg) => {
       function makeGraphic(data) {
