@@ -1,7 +1,7 @@
 {
   "contestants": {
     "Κώστας Α.": {
-      "team": "Ομάδα4",
+      "team": "The coconuts",
       "siteName": "https://media.skaitv.gr/images/800/600/survivor23/anagnostopoulos_p1.jpg",
       "fullName": "Κώστας Αναγνωστόπουλος",
       "firstEpisode": 0
@@ -37,7 +37,7 @@
       "firstEpisode": 0
     },
     "Ηλίας Γ.": {
-      "team": "Ομάδα4",
+      "team": "The coconuts",
       "siteName": "https://media.skaitv.gr/images/800/600/survivor23/gkotsis_p1.jpg",
       "fullName": "Ηλίας Γκότσης",
       "firstEpisode": 0
@@ -49,7 +49,7 @@
       "firstEpisode": 0
     },
     "Καρολίνα": {
-      "team": "Ομάδα4",
+      "team": "The coconuts",
       "siteName": "https://media.skaitv.gr/images/800/600/survivor23/kaliva_p1.jpg",
       "fullName": "Καρολίνα Ζακλίν Καλυβά",
       "firstEpisode": 0
@@ -79,7 +79,7 @@
       "firstEpisode": 0
     },
     "Μελίνα": {
-      "team": "",
+      "team": "The coconuts",
       "siteName": "https://media.skaitv.gr/images/800/600/survivor23/metaxa_p1.jpg",
       "fullName": "Μελίνα Μεταξά",
       "firstEpisode": 0
@@ -127,7 +127,7 @@
       "firstEpisode": 0
     },
     "Στάθης": {
-      "team": "Ομάδα4",
+      "team": "The coconuts",
       "siteName": "https://media.skaitv.gr/images/800/600/survivor23/sxizas_p1.jpg",
       "fullName": "Στάθης Σχίζας",
       "firstEpisode": 0
@@ -161,16 +161,16 @@
     "Νικόλ η τελευταία επιζήσασα": "Statics",
     "ΚΩΝΣΤΑΝΤΙΝΕ ΠΟΥ ΠΑΣ;;;": "Geo",
     "Ομάδα3": "Tsamis",
-    "Ομάδα4": "Snouf"
+    "The coconuts": "Snouf"
   },
   "points": {
     "teamWin": {
-      "points": 5,
+      "points": 4,
       "fullName": "Νικίτρια ομάδα",
       "category": "placement"
     },
     "teamLose": {
-      "points": -5,
+      "points": -4,
       "fullName": "Ητημένη ομάδα",
       "category": "placement"
     },
@@ -185,20 +185,30 @@
       "category": "placement"
     },
     "voted": {
-      "points": -3,
+      "points": -2,
       "fullName": "Υποψήφιος προς αποχώρηση",
+      "category": "placement"
+    },
+    "left": {
+      "points": -4,
+      "fullName": "Αποχώρηση",
       "category": "placement"
     },
     "injury": { "points": -1, "fullName": "Τραυματισμός", "category": "drama" },
     "unfair": { "points": -1, "fullName": "'Αδικήθηκα'", "category": "drama" },
     "badmouthing": { "points": -1, "fullName": "Κράξιμο", "category": "drama" },
-    "cook": { "points": 2, "fullName": "Μαγείρεμα", "category": "misc" },
+    "cook": { "points": 1, "fullName": "Μαγείρεμα", "category": "misc" },
     "forage": { "points": 1, "fullName": "Εύρεση φαγητού", "category": "misc" },
     "build": { "points": 4, "fullName": "Κατασκευή", "category": "misc" },
-    "fire": { "points": 8, "fullName": "Άναμα φωτιάς", "category": "misc" },
+    "fire": { "points": 6, "fullName": "Άναμα φωτιάς", "category": "misc" },
     "fireSupport": {
       "points": 1,
       "fullName": "Συντήρηση φωτιάς",
+      "category": "misc"
+    },
+    "quit": {
+      "points": -10,
+      "fullName": "Οικειοθελής αποχώρηση",
       "category": "misc"
     }
   },
@@ -424,6 +434,85 @@
       },
       "drama": {},
       "misc": {}
+    },
+    "episode03": {
+      "placement": {
+        "win": [
+          "Σπύρος",
+          "Μαριαλένα",
+          "Τάκης",
+          "Αφροδίτη",
+          "Στέλιος",
+          "Κατερίνα",
+          "Ηλίας Γ.",
+          "Ασημίνα",
+          "Στάθης",
+          "Σταυρούλα",
+          "Σάκης",
+          "Στέλλα",
+          "Κώστας Π.",
+          "Στέλλα",
+          "Ηλίας Γ.",
+          "Κωσταντίνος",
+          "Νίκος"
+        ],
+        "lose": [
+          "Γιώργος",
+          "Ευρυδίκη",
+          "Μάριος",
+          "Εύη",
+          "Κώστας Α.",
+          "Μελίνα",
+          "Νίκος",
+          "Βρισηίδα",
+          "Ηλίας Μ.",
+          "Καρολίνα",
+          "Κωσταντίνος",
+          "Ελένη",
+          "Περικλής",
+          "Ευρυδίκη",
+          "Κώστας Π.",
+          "Στάθης",
+          "Περικλής"
+        ],
+        "teamWin": [
+          "Ευρυδίκη",
+          "Κατερίνα",
+          "Σάκης",
+          "Σπύρος",
+          "Νίκος",
+          "Κώστας Π.",
+          "Μάριος",
+          "Αφροδίτη",
+          "Στάθης",
+          "Ελένη",
+          "Στέλιος",
+          "Ασημίνα",
+          "Σταυρούλα"
+        ],
+        "teamLose": [
+          "Περικλής",
+          "Τάκης",
+          "Βρισηίδα",
+          "Μελίνα",
+          "Ηλίας Μ.",
+          "Καρολίνα",
+          "Μαριαλένα",
+          "Κώστας Α.",
+          "Γιώργος",
+          "Κωσταντίνος",
+          "Ηλίας Γ.",
+          "Εύη",
+          "Στέλλα"
+        ],
+        "voted": ["Βρισηίδα", "Κώστας Α.", "Γιώργος"],
+        "quit": ["Βρισηίδα"]
+      },
+      "drama": {},
+      "misc": {
+        "injury": ["Κωσταντίνος", "Εύη", "Ελένη"],
+        "cook": ["Κωσταντίνος"]
+      }
     }
   }
 }
