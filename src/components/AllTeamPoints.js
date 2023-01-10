@@ -75,6 +75,28 @@ export const AllTeamPoints = (props) => {
     l3.sort((a, b) => tableSort(a, b, t3));
     l4.sort((a, b) => tableSort(a, b, t4));
 
+    var maxLength = l1.length;
+    if (l2.length > maxLength) maxLength = l2.length;
+    if (l3.length > maxLength) maxLength = l3.length;
+    if (l4.length > maxLength) maxLength = l4.length;
+
+    const res = [];
+
+    for (var i = 0; i < maxLength; i++) {
+      res.push(
+        <tr key={"AllTeamPointsRow" + i}>
+          {name(l1[i])}
+          <td className="text-right">{sumPoints(t1, l1[i])}</td>
+          {name(l2[i])}
+          <td className="text-right">{sumPoints(t2, l2[i])}</td>
+          {name(l3[i])}
+          <td className="text-right">{sumPoints(t3, l3[i])}</td>
+          {name(l4[i])}
+          <td className="text-right">{sumPoints(t4, l4[i])}</td>
+        </tr>
+      );
+    }
+
     return (
       <>
         <tr key={"AllTeamPointsRow1"}>
@@ -95,76 +117,7 @@ export const AllTeamPoints = (props) => {
             {sumPoints(groupedContestants, teams[3])}
           </td>
         </tr>
-        <tr key={"AllTeamPointsRow2"}>
-          {name(l1[0])}
-          <td className="text-right">{sumPoints(t1, l1[0])}</td>
-          {name(l2[0])}
-          <td className="text-right">{sumPoints(t2, l2[0])}</td>
-          {name(l3[0])}
-          <td className="text-right">{sumPoints(t3, l3[0])}</td>
-          {name(l4[0])}
-          <td className="text-right">{sumPoints(t4, l4[0])}</td>
-        </tr>
-        <tr key={"AllTeamPointsRow3"}>
-          {name(l1[1])}
-          <td className="text-right">{sumPoints(t1, l1[1])}</td>
-          {name(l2[1])}
-          <td className="text-right">{sumPoints(t2, l2[1])}</td>
-          {name(l3[1])}
-          <td className="text-right">{sumPoints(t3, l3[1])}</td>
-          {name(l4[1])}
-          <td className="text-right">{sumPoints(t4, l4[1])}</td>
-        </tr>
-        <tr key={"AllTeamPointsRow4"}>
-          {name(l1[2])}
-          <td className="text-right">{sumPoints(t1, l1[2])}</td>
-          {name(l2[2])}
-          <td className="text-right">{sumPoints(t2, l2[2])}</td>
-          {name(l3[2])}
-          <td className="text-right">{sumPoints(t3, l3[2])}</td>
-          {name(l4[2])}
-          <td className="text-right">{sumPoints(t4, l4[2])}</td>
-        </tr>
-        <tr key={"AllTeamPointsRow5"}>
-          {name(l1[3])}
-          <td className="text-right">{sumPoints(t1, l1[3])}</td>
-          {name(l2[3])}
-          <td className="text-right">{sumPoints(t2, l2[3])}</td>
-          {name(l3[3])}
-          <td className="text-right">{sumPoints(t3, l3[3])}</td>
-          {name(l4[3])}
-          <td className="text-right">{sumPoints(t4, l4[3])}</td>
-        </tr>
-        <tr key={"AllTeamPointsRow6"}>
-          {name(l1[4])}
-          <td className="text-right">{sumPoints(t1, l1[4])}</td>
-          {name(l2[4])}
-          <td className="text-right">{sumPoints(t2, l2[4])}</td>
-          {name(l3[4])}
-          <td className="text-right">{sumPoints(t3, l3[4])}</td>
-          {name(l4[4])}
-          <td className="text-right">{sumPoints(t4, l4[4])}</td>
-        </tr>
-        <tr key={"AllTeamPointsRow7"}>
-          {name(l1[5])}
-          <td className="text-right">{sumPoints(t1, l1[5])}</td>
-          {name(l2[5])}
-          <td className="text-right">{sumPoints(t2, l2[5])}</td>
-          {name(l3[5])}
-          <td className="text-right">{sumPoints(t3, l3[5])}</td>
-          {name(l4[5])}
-          <td className="text-right">{sumPoints(t4, l4[5])}</td>
-        </tr>
-        <tr key={"AllTeamPointsRow8"}>
-          {name(l1[6])}
-          <td className="text-right">{sumPoints(t1, l1[6])}</td>
-          {name(l2[6])}
-          <td className="text-right">{sumPoints(t2, l2[6])}</td>
-          {name(l3[6])}
-          <td className="text-right">{sumPoints(t3, l3[6])}</td>
-          {name(l4[6])}
-          <td className="text-right">{sumPoints(t4, l4[6])}</td>
-        </tr>
+        {res}
       </>
     );
   };
