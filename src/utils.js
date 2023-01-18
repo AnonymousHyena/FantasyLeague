@@ -202,6 +202,9 @@ export function inGame(data, contestant) {
     Object.keys(
       groupByProperty(sources["lastPlaceTop5"], "contestant")
     ).includes(contestant) ||
+    Object.keys(groupByProperty(sources["left"], "contestant")).includes(
+      contestant
+    ) ||
     Object.keys(groupByProperty(sources["lastPlace"], "contestant")).includes(
       contestant
     )
