@@ -4,3 +4,4 @@ build/
 GNTM5old.json
 deployBuild.sh
 yarn-error.log
+.env

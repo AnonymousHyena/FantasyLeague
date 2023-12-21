@@ -70,7 +70,7 @@ const Games = (props) => {
             }}
           >
             <Card.Header>Master Chef</Card.Header>
-            <Card.Body>Comming Soon</Card.Body>
+            <Card.Body>Coming Soon</Card.Body>
           </Card>
         </Col>
       </Row>

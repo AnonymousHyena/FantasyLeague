@@ -1,10 +1,12 @@
-import GNTM5 from "./GNTM5.json";
-import Survivor from "./Survivor.json";
+//import GNTM5 from "./GNTM5.json";
+//import Survivor from "./Survivor.json";
 import store from "./store";
 
-var episodes = GNTM5;
-var set = false;
+//var episodes = GNTM5;
 var teams = [];
+var activeEpisodes = [];
+var winner;
+var rules = {};
 export var teamOwner = {};
 
 var team = {};
@@ -14,85 +16,205 @@ export var pointsTranslateDict = {};
 export var contestantFirstEpisode = {};
 export var achievements = {};
 
-export function initializeDataAndStore(prefix) {
-  if (prefix === "GNTM5") episodes = GNTM5;
-  if (prefix === "Survivor") episodes = Survivor;
-  set = true;
+function spreadsheetParser(ssLink) {
+  const API_KEY = "";
+  const BASE_URL = "https://sheets.googleapis.com/v4/spreadsheets/" + ssLink;
 
-  team = {};
-  contestantSiteNames = {};
-  contestantFullNames = {};
-  pointsTranslateDict = {};
-  contestantFirstEpisode = {};
-  achievements = {};
+  let url = BASE_URL + "?key=" + API_KEY;
 
-  teams = Object.keys(episodes["teams"]);
-  teamOwner = episodes["teams"];
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      url = BASE_URL + "/values:batchGet?key=" + API_KEY;
+      data.sheets.forEach(
+        (sheet) => (url = url + "&ranges=" + sheet.properties.title)
+      );
+      fetch(url)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          team = {};
+          contestantSiteNames = {};
+          contestantFullNames = {};
+          pointsTranslateDict = {};
+          contestantFirstEpisode = {};
+          achievements = {};
+          rules = {};
 
-  Object.keys(episodes["contestants"]).forEach((contestant) => {
-    team[contestant] = episodes["contestants"][contestant]["team"];
-    contestantSiteNames[contestant] =
-      episodes["contestants"][contestant]["siteName"];
-    contestantFullNames[contestant] =
-      episodes["contestants"][contestant]["fullName"];
-    contestantFirstEpisode[contestant] =
-      episodes["contestants"][contestant]["firstEpisode"];
-    achievements[contestant] = [];
-  });
-
-  Object.keys(episodes["points"]).forEach((rule) => {
-    pointsTranslateDict[rule] = episodes["points"][rule]["fullName"];
-  });
-
-  Object.keys(episodes["achievements"]).forEach((achievement) => {
-    episodes["achievements"][achievement]["holders"].forEach((contestant) => {
-      achievements[contestant].push(episodes["achievements"][achievement]);
-    });
-  });
-  const activeEpisodes = getEpisodes();
-
-  let result = [];
-
-  getContestants().forEach((contestant) => {
-    result.push({
-      contestant: contestant,
-      team: team[contestant],
-      episode: "episode00",
-      points: 0,
-      source: "init",
-      sourceType: "init",
-    });
-  });
-
-  activeEpisodes.forEach((episode) => {
-    Object.keys(episodes["episodes"][episode]).forEach((category) => {
-      Object.keys(episodes["episodes"][episode][category]).forEach((rule) => {
-        episodes["episodes"][episode][category][rule].forEach((contestant) => {
-          result.push({
-            contestant: contestant,
-            team: team[contestant],
-            episode: episode,
-            points: episodes["points"][rule]["points"],
-            source: rule,
-            sourceType: category,
+          //winner
+          winner = data.valueRanges[1].values[0];
+          //teams
+          data.valueRanges[2].values.forEach((team) => {
+            teamOwner[team[0]] = team[1]
           });
-        });
-      });
-    });
-  });
+          teams = Object.keys(teamOwner);
 
-  store.dispatch({
-    type: "SET_DATA",
-    payload: result,
-  });
-  store.dispatch({
-    type: "SET_CONTESTANT",
-    payload: getContestants().sort()[0],
-  });
-  store.dispatch({
-    type: "SET_TEAM",
-    payload: teams.sort()[0],
-  });
+          //contestants
+          let result = [];
+          
+          data.valueRanges[1].values.forEach((contestant) => {
+            team[contestant[0]] = contestant[1]
+            contestantSiteNames[contestant[0]] = contestant[2]
+            contestantFullNames[contestant[0]] = contestant[3];
+            contestantFirstEpisode[contestant[0]] = contestant[4];
+            achievements[contestant[0]] = [];
+
+            result.push({
+              contestant: contestant[0],
+              team: contestant[1],
+              episode: "episode00",
+              points: 0,
+              source: "init",
+              sourceType: "init",
+            });
+          });
+
+          //points
+          data.valueRanges[3].values.forEach((rule) => {
+            pointsTranslateDict[rule[0]] = rule[2];
+            rules[rule[0]] = {
+              "points": parseInt(rule[1]),
+              "fullName": rule[2],
+              "category": rule[3]
+            };
+          });
+
+          //achievements
+          data.valueRanges[4].values.forEach((achievement) => {
+            let ach = {
+              "name": achievement[1],
+              "description": achievement[2],
+              "order": achievement[3],
+            }
+            achievement.slice(4).forEach((contestant) => {
+              achievements[contestant].push(ach);
+            });
+          });
+
+          //episodes
+          data.valueRanges.slice(5).forEach((episode) => {
+            activeEpisodes.push(episode.range.split("!")[0]);
+            episode.values.forEach((rule) => {
+              rule.splice(1).forEach((contestant)=>{   
+                result.push({
+                  contestant: contestant,
+                  team: team[contestant],
+                  episode: episode.range.split("!")[0],
+                  points:  rules[rule[0]]["points"],
+                  source: rule[0],
+                  sourceType: rules[rule[0]]["category"],
+                });
+                console.log(result);
+              });
+            });
+
+          });
+
+          store.dispatch({
+            type: "SET_DATA",
+            payload: result,
+          });
+          store.dispatch({
+            type: "SET_CONTESTANT",
+            payload: getContestants().sort()[0],
+          });
+          store.dispatch({
+            type: "SET_TEAM",
+            payload: teams.sort()[0],
+          });
+
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+}
+
+export function initializeDataAndStore(prefix) {
+  
+  if (prefix === "GNTM5") spreadsheetParser("1ilegIxsh4U92MWEmv8MPH0id9tIlMDuvMhoZOWmi9zQ");
+  if (prefix === "Survivor") spreadsheetParser("1o-TGc8594S0QMZApEC6jk5EULaqR1Z_fAiP7MZr3vzw");
+
+  // team = {};
+  // contestantSiteNames = {};
+  // contestantFullNames = {};
+  // pointsTranslateDict = {};
+  // contestantFirstEpisode = {};
+  // achievements = {};
+
+  //teams = Object.keys(episodes["teams"]);
+  //teamOwner = episodes["teams"];
+
+  // Object.keys(episodes["contestants"]).forEach((contestant) => {
+  //   team[contestant] = episodes["contestants"][contestant]["team"];
+  //   contestantSiteNames[contestant] =
+  //     episodes["contestants"][contestant]["siteName"];
+  //   contestantFullNames[contestant] =
+  //     episodes["contestants"][contestant]["fullName"];
+  //   contestantFirstEpisode[contestant] =
+  //     episodes["contestants"][contestant]["firstEpisode"];
+  //   achievements[contestant] = [];
+  // });
+
+  // Object.keys(episodes["points"]).forEach((rule) => {
+  //   pointsTranslateDict[rule] = episodes["points"][rule]["fullName"];
+  // });
+
+  // Object.keys(episodes["achievements"]).forEach((achievement) => {
+  //   episodes["achievements"][achievement]["holders"].forEach((contestant) => {
+  //     achievements[contestant].push(episodes["achievements"][achievement]);
+  //   });
+  // });
+  //const activeEpisodes = getEpisodes();
+
+  //let result = [];
+
+  // getContestants().forEach((contestant) => {
+  //   result.push({
+  //     contestant: contestant,
+  //     team: team[contestant],
+  //     episode: "episode00",
+  //     points: 0,
+  //     source: "init",
+  //     sourceType: "init",
+  //   });
+  // });
+
+  // activeEpisodes.forEach((episode) => {
+  //   Object.keys(episodes["episodes"][episode]).forEach((category) => {
+  //     Object.keys(episodes["episodes"][episode][category]).forEach((rule) => {
+  //       episodes["episodes"][episode][category][rule].forEach((contestant) => {
+  //         result.push({
+  //           contestant: contestant,
+  //           team: team[contestant],
+  //           episode: episode,
+  //           points: episodes["points"][rule]["points"],
+  //           source: rule,
+  //           sourceType: category,
+  //         });
+  //       });
+  //     });
+  //   });
+  // });
+
+  // store.dispatch({
+  //   type: "SET_DATA",
+  //   payload: result,
+  // });
+  // store.dispatch({
+  //   type: "SET_CONTESTANT",
+  //   payload: getContestants().sort()[0],
+  // });
+  // store.dispatch({
+  //   type: "SET_TEAM",
+  //   payload: teams.sort()[0],
+  // });
 }
 
 export function getTeams() {
@@ -121,7 +243,6 @@ export function sumPoints(lst, team) {
 }
 
 export function getEpisodes() {
-  const activeEpisodes = Object.keys(episodes["episodes"]);
   return activeEpisodes;
 }
 
@@ -244,12 +365,9 @@ export function getContestantRank(data, sourceType, contestant) {
 }
 
 export function getRules() {
-  return episodes["points"];
+  return rules;
 }
 
 export function getWinner() {
-  if (set) {
-    return episodes["winner"];
-  }
-  return null;
+  return winner;
 }
