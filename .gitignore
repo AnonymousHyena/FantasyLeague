@@ -6,3 +6,4 @@ src/
 build/
 deployBuild.sh
 yarn-error.log
+.env
